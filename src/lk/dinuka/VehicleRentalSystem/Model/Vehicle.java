@@ -67,7 +67,7 @@ public abstract class Vehicle implements Comparable<Vehicle>{
         return dailyCost;
     }
 
-    public BigDecimal calculateRent(){
+    public BigDecimal getCalculatedRent(){
         return dailyCost;       //calculate dailycost*no of days and return!!!!!!!!!!!!!!!
     }
 
