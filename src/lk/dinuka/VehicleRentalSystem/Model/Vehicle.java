@@ -8,20 +8,21 @@ public abstract class Vehicle implements Comparable<Vehicle> {
     private String make;
     private String model;
     private boolean availability;
-    private Schedule schedule;
     private String engineCapacity;
     private BigDecimal dailyCost;
+    private String type;
+    private Schedule schedule;                          //Schedule is added when booking!!!!!!!!!!!!!!!!!!
 
     public static int count = 0;
 
-    public Vehicle(String plateNo, String make, String model, boolean availability, Schedule schedule, String engineCapacity, BigDecimal dailyCost) {
+    public Vehicle(String plateNo, String make, String model, boolean availability, String engineCapacity, BigDecimal dailyCost, String type) {
         this.plateNo = plateNo;
         this.make = make;
         this.model = model;
         this.availability = availability;
-        this.schedule = schedule;
         this.engineCapacity = engineCapacity;
         this.dailyCost = dailyCost;
+        this.type = type;
 
         count++;
     }
@@ -33,9 +34,10 @@ public abstract class Vehicle implements Comparable<Vehicle> {
                 ", make='" + make + '\'' +
                 ", model='" + model + '\'' +
                 ", availability=" + availability +
-                ", schedule=" + schedule +
                 ", engineCapacity='" + engineCapacity + '\'' +
                 ", dailyCost=" + dailyCost +
+                ", type='" + type + '\'' +
+                ", schedule=" + schedule +
                 '}';
     }
 
@@ -69,6 +71,10 @@ public abstract class Vehicle implements Comparable<Vehicle> {
 
     public BigDecimal getDailyCost() {
         return dailyCost;
+    }
+
+    public String getType() {
+        return type;
     }
 
     public BigDecimal getCalculatedRent() {

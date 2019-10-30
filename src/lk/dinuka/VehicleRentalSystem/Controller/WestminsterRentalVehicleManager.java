@@ -1,12 +1,11 @@
 package lk.dinuka.VehicleRentalSystem.Controller;
 
-import lk.dinuka.VehicleRentalSystem.Model.RentalVehicleManager;
-import lk.dinuka.VehicleRentalSystem.Model.Schedule;
-import lk.dinuka.VehicleRentalSystem.Model.Vehicle;
+import lk.dinuka.VehicleRentalSystem.Model.*;
 import lk.dinuka.VehicleRentalSystem.View.GUI;
 
 import java.math.BigDecimal;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.Scanner;
 
@@ -16,7 +15,7 @@ public class WestminsterRentalVehicleManager implements RentalVehicleManager {
 
     public static HashMap<String, String> allPlateNos = new HashMap<>();          //used to check whether the plate No already exists in the system
     protected static ArrayList<Vehicle> vehiclesInSystem = new ArrayList<>();       //protected: making sure that customers can't modify the vehicles in the system
-    public static ArrayList<Vehicle> bookedVehicles = new ArrayList<>();
+    public static HashMap<Vehicle, Schedule> bookedVehicles = new HashMap<>();       //used to record pick up & drop off dates of vehicles
 
     public static ArrayList<Vehicle> getVehiclesInSystem() {         //accessed in GUI
         return vehiclesInSystem;
@@ -33,6 +32,7 @@ public class WestminsterRentalVehicleManager implements RentalVehicleManager {
     private static String startType;
     private static double wheelSize;
     private static String transmission;
+    private static String type;
 
 
     @Override
@@ -48,9 +48,11 @@ public class WestminsterRentalVehicleManager implements RentalVehicleManager {
             scanInput.nextLine();              //to consume the rest of the line
 
             if (typeSelection == 1) {       //new Car chosen
+                addCommonInfo();
 
 
             } else if (typeSelection == 2) {         //new Motorbike chosen
+                addCommonInfo();
 
 
             }
@@ -61,17 +63,57 @@ public class WestminsterRentalVehicleManager implements RentalVehicleManager {
     }
 
     @Override
-    public void deleteVehicle() {
+    public void deleteVehicle() {                  //delete item by entering plate no. of vehicle
+        System.out.println("Enter the plate number of the vehicle that u desire to delete:");
+        System.out.print(">");              //get plateNo from user to choose vehicle to be deleted
+        String searchNo = scanInput.nextLine();
 
+        if (allPlateNos.containsKey(searchNo)) {
+            Vehicle vehicleToBeDeleted = findVehicle(searchNo);
+
+            type = vehicleToBeDeleted.getType();
+            vehiclesInSystem.remove(vehicleToBeDeleted);
+            allPlateNos.remove(searchNo);
+            Vehicle.count -= 1;          //decreasing the number of vehicles from the system by one
+
+            //Deleting from noSQL Database
+//            DatabaseController.deleteFromDB(searchNo);
+
+            System.out.println("\nA " + type + " has been deleted from the system.");
+            System.out.println("There are " + (MAX_VEHICLES - Vehicle.getCount()) + " parking lots left in the garage.");
+
+        } else {
+            System.out.println("There's no item related to the item ID: " + searchNo);
+        }
+    }
+
+
+    @Override
+    public void printList() {       //prints list of vehicles in the system
+
+        Collections.sort(vehiclesInSystem);     //sort vehicles alphabetically, according to make
+
+
+        // print the plate number, the type of vehicle (car/ van/ motorbike).
+
+        String leftAlignFormat = "| %-15s | %-12s |%n";
+
+        System.out.format("+-----------------+--------------+%n");
+        System.out.format("|   Item ID       |   Type       |%n");
+        System.out.format("+-----------------+--------------+%n");
+
+        for (Vehicle item : vehiclesInSystem) {
+            if (item instanceof Car) {
+                System.out.format(leftAlignFormat, item.getPlateNo(), "Car");
+            } else if (item instanceof Motorbike) {
+                System.out.format(leftAlignFormat, item.getPlateNo(), "Motorbike");
+            }
+        }
     }
 
     @Override
-    public void printList() {
-
-    }
-
-    @Override
-    public void save() {
+    public void save() {        //saves the information of vehicles entered into the system
+        //Rewrite the file every time a change is made.
 
     }
 
@@ -85,7 +127,7 @@ public class WestminsterRentalVehicleManager implements RentalVehicleManager {
 
     private static void addCommonInfo() {       //common information related to Car & Motorbike in addVehicle
 
-        System.out.println("\nEnter Item ID:");
+        System.out.println("\nEnter Plate No:");
         do {
             System.out.print(">");
             plateNo = scanInput.nextLine();
@@ -93,9 +135,30 @@ public class WestminsterRentalVehicleManager implements RentalVehicleManager {
                 System.out.println("This Plate No exists in the system. Do u want to edit information related to this vehicle?");
                 //print information of vehicle
 
-                //ask whether to edit the vehicle information related to this plate no!!!!!!!!!!!!!!1
+                //ask whether to edit the vehicle information related to this plate no!!!!!!!!!!!!!!
             }
         } while (allPlateNos.containsKey(plateNo));
+
+        System.out.println("\nEnter Make:");
+        System.out.print(">");
+        make = scanInput.nextLine();
+
+        System.out.println("\nEnter Model:");
+        System.out.print(">");
+        make = scanInput.nextLine();
+
+        availability = true;        //availability is set to true when vehicle data is entered to the system;
+
+        System.out.println("\nEnter Engine Capacity:");
+        System.out.print(">");
+        make = scanInput.nextLine();
+
+        System.out.println("Enter Daily cost (in $):");
+        System.out.print(">$");
+        doubleInputValidation();
+//        dailyCost = scanInput.nextDouble();
+        scanInput.nextLine();              //to consume the rest of the line
+
     }
 
 
