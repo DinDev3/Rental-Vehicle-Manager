@@ -1,4 +1,16 @@
 package lk.dinuka.VehicleRentalSystem.View;
 
-public class GUI {
+import javafx.application.Application;
+import javafx.stage.Stage;
+
+public class GUI extends Application {
+    public static void main(String[] args) {
+        launch(args);
+    }
+
+
+    @Override
+    public void start(Stage primaryStage) throws Exception {
+
+    }
 }
