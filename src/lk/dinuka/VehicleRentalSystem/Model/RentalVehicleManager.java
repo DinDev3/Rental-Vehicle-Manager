@@ -6,8 +6,8 @@ public interface RentalVehicleManager {
 
 
     //methods
-    void addVehicle(Vehicle newVehicle);
-    void deleteVehicle(Vehicle delVehicle);
+    void addVehicle();
+    void deleteVehicle();
     void printList();
     void save();
     void viewGUI();

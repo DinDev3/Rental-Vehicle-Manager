@@ -3,7 +3,7 @@ package lk.dinuka.VehicleRentalSystem.Model;
 import java.math.BigDecimal;
 import java.util.Objects;
 
-public abstract class Vehicle implements Comparable<Vehicle>{
+public abstract class Vehicle implements Comparable<Vehicle> {
     private String plateNo;
     private String make;
     private String model;
@@ -39,6 +39,10 @@ public abstract class Vehicle implements Comparable<Vehicle>{
                 '}';
     }
 
+    public static int getCount() {
+        return count;
+    }
+
     public String getPlateNo() {
         return plateNo;
     }
@@ -67,9 +71,10 @@ public abstract class Vehicle implements Comparable<Vehicle>{
         return dailyCost;
     }
 
-    public BigDecimal getCalculatedRent(){
+    public BigDecimal getCalculatedRent() {
         return dailyCost;       //calculate dailycost*no of days and return!!!!!!!!!!!!!!!
     }
+
 
     @Override
     public boolean equals(Object o) {
