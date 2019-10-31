@@ -13,7 +13,7 @@ public class WestminsterRentalVehicleManager implements RentalVehicleManager {
 
     private static Scanner scanInput = new Scanner(System.in);
 
-    public static HashMap<String, String> allPlateNos = new HashMap<>();          //used to check whether the plate No already exists in the system
+    public static HashMap<String, Vehicle> allPlateNos = new HashMap<>();          //used to check whether the plate No already exists in the system
     protected static ArrayList<Vehicle> vehiclesInSystem = new ArrayList<>();       //protected: making sure that customers can't modify the vehicles in the system
     public static HashMap<Vehicle, Schedule> bookedVehicles = new HashMap<>();       //used to record pick up & drop off dates of vehicles
 
@@ -32,6 +32,7 @@ public class WestminsterRentalVehicleManager implements RentalVehicleManager {
     private static String startType;
     private static double wheelSize;
     private static String transmission;
+    private static boolean hasAirCon;
     private static String type;
 
 
@@ -50,9 +51,58 @@ public class WestminsterRentalVehicleManager implements RentalVehicleManager {
             if (typeSelection == 1) {       //new Car chosen
                 addCommonInfo();
 
+                type = "Car";
+
+                System.out.println("Enter the type of transmission:");
+                System.out.println(">");
+                transmission = scanInput.nextLine();
+
+                System.out.println("Does this car have A/C?");
+                System.out.println(">");
+                String hasAirC = scanInput.nextLine().toLowerCase();
+
+                do {                                            //check whether this works as expected!!!!!!!!!!!
+                    if (hasAirC.equals("y") || hasAirC.equals("yes")) {
+                        hasAirCon = true;
+                    } else if (hasAirC.equals("n") || hasAirC.equals("no")) {
+                        hasAirCon = false;
+                    } else {
+                        System.out.println("Invalid input. Please try again.");
+                    }
+                } while (!(hasAirC.equals("y") || hasAirC.equals("yes") || hasAirC.equals("n") || hasAirC.equals("no")));
+
+
+                Vehicle newCar = new Car(plateNo, make, model, availability, engineCapacity, dailyCost, type, transmission, hasAirCon);
+
+                vehiclesInSystem.add(newCar);       //adding a car into the vehiclesInSystem arrayList
+                allPlateNos.put(plateNo, newCar);
+
+
+                //adding new Car to noSQL database
+
 
             } else if (typeSelection == 2) {         //new Motorbike chosen
                 addCommonInfo();
+
+                type = "Motorbike";
+
+                System.out.println("Enter start type:");
+                System.out.println(">");
+                startType = scanInput.nextLine();
+
+                System.out.println("Enter wheel size:");
+                System.out.println(">");
+                wheelSize = scanInput.nextDouble();
+                scanInput.nextLine();           //to consume the rest of the line
+
+
+                Vehicle newBike = new Motorbike(plateNo, make, model, availability, engineCapacity, dailyCost, type, startType, wheelSize);
+
+                vehiclesInSystem.add(newBike);       //adding a motorbike into the vehiclesInSystem arrayList
+                allPlateNos.put(plateNo, newBike);
+
+
+                //adding new Bike to noSQL database
 
 
             }
@@ -156,7 +206,7 @@ public class WestminsterRentalVehicleManager implements RentalVehicleManager {
         System.out.println("Enter Daily cost (in $):");
         System.out.print(">$");
         doubleInputValidation();
-//        dailyCost = scanInput.nextDouble();
+//        dailyCost = scanInput.nextDouble();                           //get BigDecimal conversion to work!!!!!!!!!!
         scanInput.nextLine();              //to consume the rest of the line
 
     }
