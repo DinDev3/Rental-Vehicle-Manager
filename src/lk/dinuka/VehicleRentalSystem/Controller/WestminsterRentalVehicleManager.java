@@ -165,6 +165,7 @@ public class WestminsterRentalVehicleManager implements RentalVehicleManager {
     public void save() {        //saves the information of vehicles entered into the system
         //Rewrite the file every time a change is made.
 
+
     }
 
     @Override
@@ -195,13 +196,13 @@ public class WestminsterRentalVehicleManager implements RentalVehicleManager {
 
         System.out.println("\nEnter Model:");
         System.out.print(">");
-        make = scanInput.nextLine();
+        model = scanInput.nextLine();
 
         availability = true;        //availability is set to true when vehicle data is entered to the system;
 
         System.out.println("\nEnter Engine Capacity:");
         System.out.print(">");
-        make = scanInput.nextLine();
+        engineCapacity = scanInput.nextLine();
 
         System.out.println("Enter Daily cost (in $):");
         System.out.print(">$");

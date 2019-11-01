@@ -11,7 +11,6 @@ public abstract class Vehicle implements Comparable<Vehicle> {
     private String engineCapacity;
     private BigDecimal dailyCost;
     private String type;
-    private Schedule schedule;                          //Schedule is added when booking!!!!!!!!!!!!!!!!!!
 
     public static int count = 0;
 
@@ -37,7 +36,6 @@ public abstract class Vehicle implements Comparable<Vehicle> {
                 ", engineCapacity='" + engineCapacity + '\'' +
                 ", dailyCost=" + dailyCost +
                 ", type='" + type + '\'' +
-                ", schedule=" + schedule +
                 '}';
     }
 
@@ -59,10 +57,6 @@ public abstract class Vehicle implements Comparable<Vehicle> {
 
     public boolean isAvailability() {
         return availability;
-    }
-
-    public Schedule getSchedule() {
-        return schedule;
     }
 
     public String getEngineCapacity() {
@@ -91,14 +85,14 @@ public abstract class Vehicle implements Comparable<Vehicle> {
                 Objects.equals(plateNo, vehicle.plateNo) &&
                 Objects.equals(make, vehicle.make) &&
                 Objects.equals(model, vehicle.model) &&
-                Objects.equals(schedule, vehicle.schedule) &&
                 Objects.equals(engineCapacity, vehicle.engineCapacity) &&
-                Objects.equals(dailyCost, vehicle.dailyCost);
+                Objects.equals(dailyCost, vehicle.dailyCost) &&
+                Objects.equals(type, vehicle.type);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(plateNo, make, model, availability, schedule, engineCapacity, dailyCost);
+        return Objects.hash(plateNo, make, model, availability, engineCapacity, dailyCost, type);
     }
 
     @Override
