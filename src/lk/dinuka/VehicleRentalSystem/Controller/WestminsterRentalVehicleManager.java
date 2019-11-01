@@ -3,6 +3,9 @@ package lk.dinuka.VehicleRentalSystem.Controller;
 import lk.dinuka.VehicleRentalSystem.Model.*;
 import lk.dinuka.VehicleRentalSystem.View.GUI;
 
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.Collections;
@@ -53,15 +56,18 @@ public class WestminsterRentalVehicleManager implements RentalVehicleManager {
 
                 type = "Car";
 
-                System.out.println("Enter the type of transmission:");
+                System.out.println("\nEnter the type of transmission:");
                 System.out.println(">");
                 transmission = scanInput.nextLine();
 
-                System.out.println("Does this car have A/C?");
+
+                System.out.println("\nDoes this car have A/C?");
                 System.out.println(">");
-                String hasAirC = scanInput.nextLine().toLowerCase();
+
+                String hasAirC;
 
                 do {                                            //check whether this works as expected!!!!!!!!!!!
+                    hasAirC = scanInput.nextLine().toLowerCase();
                     if (hasAirC.equals("y") || hasAirC.equals("yes")) {
                         hasAirCon = true;
                     } else if (hasAirC.equals("n") || hasAirC.equals("no")) {
@@ -81,17 +87,19 @@ public class WestminsterRentalVehicleManager implements RentalVehicleManager {
                 //adding new Car to noSQL database
 
 
+                //printout the object that was added to the system!!!!!!
+
             } else if (typeSelection == 2) {         //new Motorbike chosen
                 addCommonInfo();
 
                 type = "Motorbike";
 
-                System.out.println("Enter start type:");
-                System.out.println(">");
+                System.out.println("\nEnter start type:");
+                System.out.print(">");
                 startType = scanInput.nextLine();
 
-                System.out.println("Enter wheel size:");
-                System.out.println(">");
+                System.out.println("\nEnter wheel size:");
+                System.out.print(">");
                 wheelSize = scanInput.nextDouble();
                 scanInput.nextLine();           //to consume the rest of the line
 
@@ -105,7 +113,12 @@ public class WestminsterRentalVehicleManager implements RentalVehicleManager {
                 //adding new Bike to noSQL database
 
 
+                //printout the object that was added to the system!!!!!!
+
             }
+
+            System.out.println("\nThere are " + (MAX_VEHICLES - Vehicle.getCount()) + " parking lots left, to park vehicles.");
+
 
         } else {
             System.out.println("There are no available spaces. 50 vehicles have been added!");
@@ -146,10 +159,10 @@ public class WestminsterRentalVehicleManager implements RentalVehicleManager {
 
         // print the plate number, the type of vehicle (car/ van/ motorbike).
 
-        String leftAlignFormat = "| %-15s | %-12s |%n";
+        String leftAlignFormat = "| %-14s | %-12s |%n";
 
         System.out.format("+-----------------+--------------+%n");
-        System.out.format("|   Item ID       |   Type       |%n");
+        System.out.format("|   Plate ID      |   Type       |%n");
         System.out.format("+-----------------+--------------+%n");
 
         for (Vehicle item : vehiclesInSystem) {
@@ -159,12 +172,46 @@ public class WestminsterRentalVehicleManager implements RentalVehicleManager {
                 System.out.format(leftAlignFormat, item.getPlateNo(), "Motorbike");
             }
         }
+        System.out.println("+--------------------------------+");
     }
 
     @Override
     public void save() {        //saves the information of vehicles entered into the system
         //Rewrite the file every time a change is made.
 
+        try {       //creating the file
+            File myFile = new File("allVehicles.txt");
+            myFile.createNewFile();
+
+//                System.out.println("\nFile created: " + myFile.getName());
+            FileWriter soldFile = new FileWriter("allVehicles.txt", true);
+
+
+            //Add specialized information as well!!!!!!!!!!!!!!!!!
+
+
+            soldFile.write(String.format("+-----------------+---------------+--------------+--------------+----------------+---------------+%n"));
+            soldFile.write(String.format("|   Plate ID      |   Make        |   Model      | Availability | Engine Capacity| Daily Cost($) |%n"));
+            soldFile.write(String.format("+-----------------+---------------+--------------+--------------+----------------+---------------+%n"));
+//                soldFile.write(System.getProperty("line.separator"));       //line break
+
+
+            String leftAlignFormat2 = "| %-14s | %-13s | %-12s | %-7s | %-14s | %-12s |%n";
+
+
+            //writing into the file
+            for (Vehicle item : vehiclesInSystem) {
+//                soldFile.write(String.format());      get availability as a String(use if, else)
+                soldFile.write(System.getProperty("line.separator"));       //line break
+
+            }
+
+            soldFile.close();
+
+        } catch (IOException e) {
+            System.out.println("\nAn error occurred.");
+            e.printStackTrace();
+        }
 
     }
 
@@ -187,6 +234,7 @@ public class WestminsterRentalVehicleManager implements RentalVehicleManager {
                 //print information of vehicle
 
                 //ask whether to edit the vehicle information related to this plate no!!!!!!!!!!!!!!
+//                (yes/no)!!!!!!!?????
             }
         } while (allPlateNos.containsKey(plateNo));
 
@@ -204,7 +252,7 @@ public class WestminsterRentalVehicleManager implements RentalVehicleManager {
         System.out.print(">");
         engineCapacity = scanInput.nextLine();
 
-        System.out.println("Enter Daily cost (in $):");
+        System.out.println("\nEnter Daily cost (in $):");
         System.out.print(">$");
         doubleInputValidation();
 //        dailyCost = scanInput.nextDouble();                           //get BigDecimal conversion to work!!!!!!!!!!
