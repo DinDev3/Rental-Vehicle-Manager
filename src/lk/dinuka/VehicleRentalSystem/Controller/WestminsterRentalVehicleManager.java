@@ -18,7 +18,7 @@ public class WestminsterRentalVehicleManager implements RentalVehicleManager {
 
     public static HashMap<String, Vehicle> allPlateNos = new HashMap<>();          //used to check whether the plate No already exists in the system
     protected static ArrayList<Vehicle> vehiclesInSystem = new ArrayList<>();       //protected: making sure that customers can't modify the vehicles in the system
-    public static HashMap<Vehicle, Schedule> bookedVehicles = new HashMap<>();       //used to record pick up & drop off dates of vehicles
+    public static HashMap<String, Schedule> bookedVehicles = new HashMap<>();       //used to record pick up & drop off dates of vehicles   (plateNo, Schedule)
 
     public static ArrayList<Vehicle> getVehiclesInSystem() {         //accessed in GUI
         return vehiclesInSystem;
@@ -85,9 +85,8 @@ public class WestminsterRentalVehicleManager implements RentalVehicleManager {
 
 
                 //adding new Car to noSQL database
+                DatabaseController.addToSystemDB(plateNo, make, model, availability, engineCapacity, dailyCost, type, transmission, hasAirCon);
 
-
-                //printout the object that was added to the system!!!!!!
 
             } else if (typeSelection == 2) {         //new Motorbike chosen
                 addCommonInfo();
@@ -111,14 +110,14 @@ public class WestminsterRentalVehicleManager implements RentalVehicleManager {
 
 
                 //adding new Bike to noSQL database
-
-
-                //printout the object that was added to the system!!!!!!
+                DatabaseController.addToSystemDB(plateNo, make, model, availability, engineCapacity, dailyCost, type, startType, wheelSize);
 
             }
 
             System.out.println("\nThere are " + (MAX_VEHICLES - Vehicle.getCount()) + " parking lots left, to park vehicles.");
 
+            //printout the object that was added to the system!!!!!!
+//            save();     //save changes to file??
 
         } else {
             System.out.println("There are no available spaces. 50 vehicles have been added!");
@@ -135,15 +134,20 @@ public class WestminsterRentalVehicleManager implements RentalVehicleManager {
             Vehicle vehicleToBeDeleted = findVehicle(searchNo);
 
             type = vehicleToBeDeleted.getType();
+
+            System.out.println("\nA " + type + " has been deleted from the system.");
+            System.out.println("The details of the vehicle that was deleted:"+ vehicleToBeDeleted.toString());      //displaying information of deleted vehicle
+
             vehiclesInSystem.remove(vehicleToBeDeleted);
             allPlateNos.remove(searchNo);
             Vehicle.count -= 1;          //decreasing the number of vehicles from the system by one
 
             //Deleting from noSQL Database
-//            DatabaseController.deleteFromDB(searchNo);
+            DatabaseController.deleteFromSystemDB(searchNo);
 
-            System.out.println("\nA " + type + " has been deleted from the system.");
             System.out.println("There are " + (MAX_VEHICLES - Vehicle.getCount()) + " parking lots left in the garage.");
+
+//            save();     //save changes to file??
 
         } else {
             System.out.println("There's no item related to the item ID: " + searchNo);
@@ -177,41 +181,49 @@ public class WestminsterRentalVehicleManager implements RentalVehicleManager {
 
     @Override
     public void save() {        //saves the information of vehicles entered into the system
+
         //Rewrite the file every time a change is made.
-
-        try {       //creating the file
-            File myFile = new File("allVehicles.txt");
-            myFile.createNewFile();
-
-//                System.out.println("\nFile created: " + myFile.getName());
-            FileWriter soldFile = new FileWriter("allVehicles.txt", true);
-
-
-            //Add specialized information as well!!!!!!!!!!!!!!!!!
-
-
-            soldFile.write(String.format("+-----------------+---------------+--------------+--------------+----------------+---------------+%n"));
-            soldFile.write(String.format("|   Plate ID      |   Make        |   Model      | Availability | Engine Capacity| Daily Cost($) |%n"));
-            soldFile.write(String.format("+-----------------+---------------+--------------+--------------+----------------+---------------+%n"));
+//        try {       //creating the file
+//            File myFile = new File("allVehicles.txt");
+//            myFile.createNewFile();
+//
+////                System.out.println("\nFile created: " + myFile.getName());
+//            FileWriter soldFile = new FileWriter("allVehicles.txt", true);
+//
+//
+//            //Add specialized information as well!!!!!!!!!!!!!!!!!
+//
+//
+//            soldFile.write(String.format("+-----------------+---------------+--------------+--------------+----------------+---------------+-----------+--------------+--------+------------+------------+%n"));
+//            soldFile.write(String.format("|   Plate ID      |   Make        |   Model      | Availability | Engine Capacity| Daily Cost($) |   Type    | transmission | AirCon | Start type | Wheel Size |%n"));
+//            soldFile.write(String.format("+-----------------+---------------+--------------+--------------+----------------+---------------+-----------+--------------+--------+------------+------------+%n"));
+////                soldFile.write(System.getProperty("line.separator"));       //line break
+//
+//
+//            String leftAlignFormat2 = "| %-15s | %-13s | %-12s | %-12s | %-14s | %-13s | %-9s | %-12s | %-6s | %-10s | %-10s |%n";
+//
+//
+//            //writing into the file
+//            for (Vehicle item : vehiclesInSystem) {
+//
+//                if (item.isAvailability()){     //if availability == true
+//                    String avail = "yes";
+//                } else{
+//                    String avail = "no";
+//                }
+//
+//
+////                soldFile.write(String.format());      get availability as a String(use if, else)
 //                soldFile.write(System.getProperty("line.separator"));       //line break
-
-
-            String leftAlignFormat2 = "| %-14s | %-13s | %-12s | %-7s | %-14s | %-12s |%n";
-
-
-            //writing into the file
-            for (Vehicle item : vehiclesInSystem) {
-//                soldFile.write(String.format());      get availability as a String(use if, else)
-                soldFile.write(System.getProperty("line.separator"));       //line break
-
-            }
-
-            soldFile.close();
-
-        } catch (IOException e) {
-            System.out.println("\nAn error occurred.");
-            e.printStackTrace();
-        }
+//
+//            }
+//
+//            soldFile.close();
+//
+//        } catch (IOException e) {
+//            System.out.println("\nAn error occurred.");
+//            e.printStackTrace();
+//        }
 
     }
 

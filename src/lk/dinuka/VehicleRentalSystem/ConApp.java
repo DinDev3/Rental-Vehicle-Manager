@@ -12,7 +12,7 @@ public class ConApp {
     public static void main(String[] args) {
         int chooseOption;
 
-        DatabaseController.importDB();              //importing items saved in database to itemsInStore ArrayList
+        DatabaseController.importSystemDB();              //importing items saved in database to itemsInStore ArrayList
 
         do {
             System.out.println("\n\t\\~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~/");
