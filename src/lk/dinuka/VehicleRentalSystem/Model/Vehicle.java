@@ -71,10 +71,6 @@ public abstract class Vehicle implements Comparable<Vehicle> {
         return type;
     }
 
-    public BigDecimal getCalculatedRent() {
-        return dailyCost;       //calculate dailycost*no of days and return!!!!!!!!!!!!!!!
-    }
-
 
     @Override
     public boolean equals(Object o) {

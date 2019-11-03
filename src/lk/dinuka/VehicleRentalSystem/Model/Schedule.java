@@ -1,38 +1,48 @@
 package lk.dinuka.VehicleRentalSystem.Model;
 
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.Objects;
 
 public class Schedule {
-    private DateTime pickUp;
-    private DateTime dropOff;
+    private Date pickUp;
+    private Date dropOff;
+    private String time;
 
-    public Schedule(DateTime pickUp, DateTime dropOff) {
+    public Schedule(Date pickUp, Date dropOff) {
         this.pickUp = pickUp;
         this.dropOff = dropOff;
+        setTime();
     }
 
-    public DateTime getPickUp() {
+    public Date getPickUp() {
         return pickUp;
     }
 
-    public void setPickUp(DateTime pickUp) {            //Is there a point in having setters here!!!!!!!?????
+    public void setPickUp(Date pickUp) {            //Is there a point in having setters here!!!!!!!?????
         this.pickUp = pickUp;
     }
 
-    public DateTime getDropOff() {
+    public Date getDropOff() {
         return dropOff;
     }
 
-    public void setDropOff(DateTime dropOff) {
+    public void setDropOff(Date dropOff) {
         this.dropOff = dropOff;
     }
 
-    @Override
-    public String toString() {
-        return "Schedule{" +
-                "pick up=" + pickUp +
-                ", drop off=" + dropOff +
-                '}';
+
+    public String getTime() {
+        return time;
+    }
+
+    public void setTime() {     //getting time at which the booking was made
+
+        Calendar cal = Calendar.getInstance();
+        SimpleDateFormat sdf = new SimpleDateFormat("HH:mm:ss");
+//        String h1 =  sdf.format(cal.getTime()) ;
+
+        this.time = sdf.format(cal.getTime());
     }
 
     @Override
@@ -41,11 +51,22 @@ public class Schedule {
         if (o == null || getClass() != o.getClass()) return false;
         Schedule schedule = (Schedule) o;
         return Objects.equals(pickUp, schedule.pickUp) &&
-                Objects.equals(dropOff, schedule.dropOff);
+                Objects.equals(dropOff, schedule.dropOff) &&
+                Objects.equals(time, schedule.time);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(pickUp, dropOff);
+        return Objects.hash(pickUp, dropOff, time);
     }
+
+    @Override
+    public String toString() {
+        return "Schedule{" +
+                "pickUp=" + pickUp +
+                ", dropOff=" + dropOff +
+                ", time='" + time + '\'' +
+                '}';
+    }
+
 }
