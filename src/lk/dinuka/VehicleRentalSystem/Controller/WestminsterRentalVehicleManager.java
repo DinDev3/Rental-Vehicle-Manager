@@ -29,9 +29,10 @@ public class WestminsterRentalVehicleManager implements RentalVehicleManager {
     private static String make;
     private static String model;
     private static boolean availability;
-    private static Schedule schedule;
+    private static Schedule schedule;           //used in GUI controller, when booking is made??? (Java/ Angular??)
     private static String engineCapacity;
-    private static BigDecimal dailyCost;
+    private static double dailyCostD;
+    private static BigDecimal dailyCostBigD;
     private static String startType;
     private static double wheelSize;
     private static String transmission;
@@ -78,15 +79,16 @@ public class WestminsterRentalVehicleManager implements RentalVehicleManager {
                 } while (!(hasAirC.equals("y") || hasAirC.equals("yes") || hasAirC.equals("n") || hasAirC.equals("no")));
 
 
-                Vehicle newCar = new Car(plateNo, make, model, availability, engineCapacity, dailyCost, type, transmission, hasAirCon);
+                Vehicle newCar = new Car(plateNo, make, model, availability, engineCapacity, dailyCostBigD, type, transmission, hasAirCon);
 
                 vehiclesInSystem.add(newCar);       //adding a car into the vehiclesInSystem arrayList
                 allPlateNos.put(plateNo, newCar);
 
 
                 //adding new Car to noSQL database
-                DatabaseController.addToSystemDB(plateNo, make, model, availability, engineCapacity, dailyCost, type, transmission, hasAirCon);
+                DatabaseController.addToSystemDB(plateNo, make, model, availability, engineCapacity, dailyCostD, type, transmission, hasAirCon);
 
+                System.out.println(newCar);        //displaying added vehicle
 
             } else if (typeSelection == 2) {         //new Motorbike chosen
                 addCommonInfo();
@@ -103,20 +105,20 @@ public class WestminsterRentalVehicleManager implements RentalVehicleManager {
                 scanInput.nextLine();           //to consume the rest of the line
 
 
-                Vehicle newBike = new Motorbike(plateNo, make, model, availability, engineCapacity, dailyCost, type, startType, wheelSize);
+                Vehicle newBike = new Motorbike(plateNo, make, model, availability, engineCapacity, dailyCostBigD, type, startType, wheelSize);
 
                 vehiclesInSystem.add(newBike);       //adding a motorbike into the vehiclesInSystem arrayList
                 allPlateNos.put(plateNo, newBike);
 
 
                 //adding new Bike to noSQL database
-                DatabaseController.addToSystemDB(plateNo, make, model, availability, engineCapacity, dailyCost, type, startType, wheelSize);
+                DatabaseController.addToSystemDB(plateNo, make, model, availability, engineCapacity, dailyCostD, type, startType, wheelSize);
 
+                System.out.println(newBike);        //displaying added vehicle
             }
 
             System.out.println("\nThere are " + (MAX_VEHICLES - Vehicle.getCount()) + " parking lots left, to park vehicles.");
 
-            //printout the object that was added to the system!!!!!!
 //            save();     //save changes to file??
 
         } else {
@@ -267,7 +269,11 @@ public class WestminsterRentalVehicleManager implements RentalVehicleManager {
         System.out.println("\nEnter Daily cost (in $):");
         System.out.print(">$");
         doubleInputValidation();
-//        dailyCost = scanInput.nextDouble();                           //get BigDecimal conversion to work!!!!!!!!!!
+        dailyCostD = scanInput.nextDouble();
+
+        dailyCostBigD = BigDecimal.valueOf(dailyCostD);     //converting double to BigDecimal, to use for calculations
+
+
         scanInput.nextLine();              //to consume the rest of the line
 
     }

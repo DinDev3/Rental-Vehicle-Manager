@@ -10,7 +10,9 @@ import java.math.BigDecimal;
 
 public class DatabaseController {
 
-    public static void addToSystemDB(String plateNo, String make, String model, boolean availability, String engineCapacity, BigDecimal dailyCost, String type, String startType, double wheelSize) {
+    //have another add method to add booked vehicles!!!!!!!!! (If not done through Angular)
+
+    public static void addToSystemDB(String plateNo, String make, String model, boolean availability, String engineCapacity, double dailyCost, String type, String startType, double wheelSize) {
         //Adding a Motorbike to the Collection
 
         MongoClientURI uri = new MongoClientURI(
@@ -37,7 +39,7 @@ public class DatabaseController {
     }
 
 
-    public static void addToSystemDB(String plateNo, String make, String model, boolean availability, String engineCapacity, BigDecimal dailyCost, String type, String transmission, boolean hasAirCon) {
+    public static void addToSystemDB(String plateNo, String make, String model, boolean availability, String engineCapacity, double dailyCost, String type, String transmission, boolean hasAirCon) {
         //Adding a car to the Collection
 
         MongoClientURI uri = new MongoClientURI(
@@ -81,6 +83,13 @@ public class DatabaseController {
     public static void importSystemDB() {
         //Importing stored data in db to application
 
+
+        //import data from both collections at once!!!
+
+
+
+
+        //convert daily cost back to BigDecimal when importing data!!!!
 
     }
 
