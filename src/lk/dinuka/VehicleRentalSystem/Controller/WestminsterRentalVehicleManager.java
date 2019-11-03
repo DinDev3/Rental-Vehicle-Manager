@@ -3,9 +3,6 @@ package lk.dinuka.VehicleRentalSystem.Controller;
 import lk.dinuka.VehicleRentalSystem.Model.*;
 import lk.dinuka.VehicleRentalSystem.View.GUI;
 
-import java.io.File;
-import java.io.FileWriter;
-import java.io.IOException;
 import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.Collections;
@@ -16,8 +13,8 @@ public class WestminsterRentalVehicleManager implements RentalVehicleManager {
 
     private static Scanner scanInput = new Scanner(System.in);
 
-    public static HashMap<String, Vehicle> allPlateNos = new HashMap<>();          //used to check whether the plate No already exists in the system
-    protected static ArrayList<Vehicle> vehiclesInSystem = new ArrayList<>();       //protected: making sure that customers can't modify the vehicles in the system
+    protected static HashMap<String, Vehicle> allVehicles = new HashMap<>();          //used to check whether the plate No already exists in the system
+    protected static ArrayList<Vehicle> vehiclesInSystem = new ArrayList<>();       //used for sorting and printing.    protected: making sure that customers can't modify the vehicles in the system
     public static HashMap<String, Schedule> bookedVehicles = new HashMap<>();       //used to record pick up & drop off dates of vehicles   (plateNo, Schedule)
 
     public static ArrayList<Vehicle> getVehiclesInSystem() {         //accessed in GUI
@@ -52,74 +49,54 @@ public class WestminsterRentalVehicleManager implements RentalVehicleManager {
             int typeSelection = scanInput.nextInt();
             scanInput.nextLine();              //to consume the rest of the line
 
-            if (typeSelection == 1) {       //new Car chosen
-                addCommonInfo();
 
-                type = "Car";
+            System.out.println("\nEnter Plate No:");
+            System.out.print(">");
+            plateNo = scanInput.nextLine();
+            if (allVehicles.containsKey(plateNo)) {
+                System.out.println("This Plate No exists in the system.");
+                System.out.println();           //to keep space for clarity
 
-                System.out.println("\nEnter the type of transmission:");
+
+                //print information of vehicle
+                System.out.println("Make: " + allVehicles.get(plateNo).getMake());
+                System.out.println("Model: " + allVehicles.get(plateNo).getModel());
+                System.out.println("Availability: " + allVehicles.get(plateNo).isAvailability());
+                System.out.println("Engine Capacity: " + allVehicles.get(plateNo).getEngineCapacity());
+                System.out.println("Daily Cost: " + allVehicles.get(plateNo).getDailyCost());
+                System.out.println("Type: " + allVehicles.get(plateNo).getType());
+
+                if (allVehicles.get(plateNo) instanceof Car) {
+                    System.out.println("Transmission: " + ((Car) allVehicles.get(plateNo)).getTransmission());
+                    System.out.println("Has Air Conditioning: " + ((Car) allVehicles.get(plateNo)).isHasAirCon());
+                } else {
+                    System.out.println("Start Type: " + ((Motorbike) allVehicles.get(plateNo)).getStartType());
+                    System.out.println("Wheel Size: " + ((Motorbike) allVehicles.get(plateNo)).getWheelSize());
+                }
+
+
+                System.out.println();           //to keep space for clarity
+                System.out.println("Do u want to edit information related to this vehicle?");
                 System.out.println(">");
-                transmission = scanInput.nextLine();
 
+                boolean edit = yesOrNo();
 
-                System.out.println("\nDoes this car have A/C?");
-                System.out.println(">");
+                if (edit) {
 
-                String hasAirC;
+                    //remove vehicle from db
+                    DatabaseController.deleteFromSystemDB(plateNo);
 
-                do {                                            //check whether this works as expected!!!!!!!!!!!
-                    hasAirC = scanInput.nextLine().toLowerCase();
-                    if (hasAirC.equals("y") || hasAirC.equals("yes")) {
-                        hasAirCon = true;
-                    } else if (hasAirC.equals("n") || hasAirC.equals("no")) {
-                        hasAirCon = false;
-                    } else {
-                        System.out.println("Invalid input. Please try again.");
-                    }
-                } while (!(hasAirC.equals("y") || hasAirC.equals("yes") || hasAirC.equals("n") || hasAirC.equals("no")));
+                    addInfo(typeSelection);             //add information related to a Vehicle of identified plateNo.
 
+                } else {
+                    System.out.println();       //keeps space and goes back to main menu
+                }
+            } else {
 
-                Vehicle newCar = new Car(plateNo, make, model, availability, engineCapacity, dailyCostBigD, type, transmission, hasAirCon);
+                addInfo(typeSelection);             //add information related to a Vehicle of identified plateNo.
 
-                vehiclesInSystem.add(newCar);       //adding a car into the vehiclesInSystem arrayList
-                allPlateNos.put(plateNo, newCar);
-
-
-                //adding new Car to noSQL database
-                DatabaseController.addToSystemDB(plateNo, make, model, availability, engineCapacity, dailyCostD, type, transmission, hasAirCon);
-
-                System.out.println(newCar);        //displaying added vehicle
-
-            } else if (typeSelection == 2) {         //new Motorbike chosen
-                addCommonInfo();
-
-                type = "Motorbike";
-
-                System.out.println("\nEnter start type:");
-                System.out.print(">");
-                startType = scanInput.nextLine();
-
-                System.out.println("\nEnter wheel size:");
-                System.out.print(">");
-                wheelSize = scanInput.nextDouble();
-                scanInput.nextLine();           //to consume the rest of the line
-
-
-                Vehicle newBike = new Motorbike(plateNo, make, model, availability, engineCapacity, dailyCostBigD, type, startType, wheelSize);
-
-                vehiclesInSystem.add(newBike);       //adding a motorbike into the vehiclesInSystem arrayList
-                allPlateNos.put(plateNo, newBike);
-
-
-                //adding new Bike to noSQL database
-                DatabaseController.addToSystemDB(plateNo, make, model, availability, engineCapacity, dailyCostD, type, startType, wheelSize);
-
-                System.out.println(newBike);        //displaying added vehicle
             }
 
-            System.out.println("\nThere are " + (MAX_VEHICLES - Vehicle.getCount()) + " parking lots left, to park vehicles.");
-
-//            save();     //save changes to file??
 
         } else {
             System.out.println("There are no available spaces. 50 vehicles have been added!");
@@ -132,16 +109,16 @@ public class WestminsterRentalVehicleManager implements RentalVehicleManager {
         System.out.print(">");              //get plateNo from user to choose vehicle to be deleted
         String searchNo = scanInput.nextLine();
 
-        if (allPlateNos.containsKey(searchNo)) {
+        if (allVehicles.containsKey(searchNo)) {
             Vehicle vehicleToBeDeleted = findVehicle(searchNo);
 
             type = vehicleToBeDeleted.getType();
 
             System.out.println("\nA " + type + " has been deleted from the system.");
-            System.out.println("The details of the vehicle that was deleted:"+ vehicleToBeDeleted.toString());      //displaying information of deleted vehicle
+            System.out.println("The details of the vehicle that was deleted:" + vehicleToBeDeleted.toString());      //displaying information of deleted vehicle
 
             vehiclesInSystem.remove(vehicleToBeDeleted);
-            allPlateNos.remove(searchNo);
+            allVehicles.remove(searchNo);
             Vehicle.count -= 1;          //decreasing the number of vehicles from the system by one
 
             //Deleting from noSQL Database
@@ -237,20 +214,70 @@ public class WestminsterRentalVehicleManager implements RentalVehicleManager {
 
 //    ---- repeated methods ----
 
+    private static void addInfo(int typeSelection) {          //method to add information related to a Vehicle of identified plateNo.
+
+        if (typeSelection == 1) {       //new Car chosen
+            addCommonInfo();
+
+            type = "Car";
+
+            System.out.println("\nEnter the type of transmission:");
+            System.out.println(">");
+            transmission = scanInput.nextLine();
+
+
+            System.out.println("\nDoes this car have A/C?");
+            System.out.println(">");
+
+            hasAirCon = yesOrNo();
+
+
+            Vehicle newCar = new Car(plateNo, make, model, availability, engineCapacity, dailyCostBigD, type, transmission, hasAirCon);
+
+            allVehicles.put(plateNo, newCar);           //adding a car into the allVehicles hashMap
+
+
+            //adding new Car to noSQL database
+            DatabaseController.addToSystemDB(plateNo, make, model, availability, engineCapacity, dailyCostD, type, transmission, hasAirCon);
+
+            System.out.println(newCar);        //displaying added vehicle
+
+        } else if (typeSelection == 2) {         //new Motorbike chosen
+            addCommonInfo();
+
+            type = "Motorbike";
+
+            System.out.println("\nEnter start type:");
+            System.out.print(">");
+            startType = scanInput.nextLine();
+
+            System.out.println("\nEnter wheel size:");
+            System.out.print(">");
+            wheelSize = scanInput.nextDouble();
+            scanInput.nextLine();           //to consume the rest of the line
+
+
+            Vehicle newBike = new Motorbike(plateNo, make, model, availability, engineCapacity, dailyCostBigD, type, startType, wheelSize);
+
+            allVehicles.put(plateNo, newBike);           //adding a motorbike into the allVehicles hashMap
+
+
+            //adding new Bike to noSQL database
+            DatabaseController.addToSystemDB(plateNo, make, model, availability, engineCapacity, dailyCostD, type, startType, wheelSize);
+
+            System.out.println(newBike);        //displaying added vehicle
+        }
+
+        System.out.println("\nThere are " + (MAX_VEHICLES - Vehicle.getCount()) + " parking lots left, to park vehicles.");
+
+//            save();     //save changes to file??
+
+
+    }
+
+
     private static void addCommonInfo() {       //common information related to Car & Motorbike in addVehicle
 
-        System.out.println("\nEnter Plate No:");
-        do {
-            System.out.print(">");
-            plateNo = scanInput.nextLine();
-            if (allPlateNos.containsKey(plateNo)) {
-                System.out.println("This Plate No exists in the system. Do u want to edit information related to this vehicle?");
-                //print information of vehicle
-
-                //ask whether to edit the vehicle information related to this plate no!!!!!!!!!!!!!!
-//                (yes/no)!!!!!!!?????
-            }
-        } while (allPlateNos.containsKey(plateNo));
 
         System.out.println("\nEnter Make:");
         System.out.print(">");
@@ -276,6 +303,23 @@ public class WestminsterRentalVehicleManager implements RentalVehicleManager {
 
         scanInput.nextLine();              //to consume the rest of the line
 
+    }
+
+
+    private static boolean yesOrNo() {           //gets yes/ no input
+        String inputYN;
+
+        do {                                            //check whether this works as expected!!!!!!!!!!!
+            inputYN = scanInput.nextLine().toLowerCase();
+            if (inputYN.equals("y") || inputYN.equals("yes")) {
+                return true;
+            } else if (inputYN.equals("n") || inputYN.equals("no")) {
+                return false;
+            } else {
+                System.out.println("Invalid input. Please try again.");
+                return false;               //THIS IS WRONG! FIX THIS!!!!!!!!!!!!!
+            }
+        } while (!(inputYN.equals("y") || inputYN.equals("yes") || inputYN.equals("n") || inputYN.equals("no")));       //CHECK THIS!!!!!!
     }
 
 
