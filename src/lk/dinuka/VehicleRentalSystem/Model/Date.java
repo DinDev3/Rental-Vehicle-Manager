@@ -5,7 +5,7 @@ public class Date {
     private int month;
     private int day;
 
-    public Date(int year, int month, int day, int hours, int mins, String ampm) {         //this order of parameters needs to be maintained to properly validate day
+    public Date(int year, int month, int day) {         //this order of parameters needs to be maintained to properly validate day
         this.year = year;
         setMonth(month);           //validate month
         setDay(day);             //validate day

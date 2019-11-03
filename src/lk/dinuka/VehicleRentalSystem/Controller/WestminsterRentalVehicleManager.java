@@ -36,7 +36,7 @@ public class WestminsterRentalVehicleManager implements RentalVehicleManager {
     private static boolean hasAirCon;
     private static String type;
 
-    private static boolean replaceVeh;
+    private static boolean replaceVeh;          //used to check whether vehicle data is being added or edited
 
 
     @Override
@@ -350,9 +350,9 @@ public class WestminsterRentalVehicleManager implements RentalVehicleManager {
     }
 
 
-    private static Vehicle findVehicle(String searchPlateNo) {          //used to search for vehicle in GUI
+    public static Vehicle findVehicle(String searchPlateNo) {          //used to search for vehicle in GUI
 
-        return allVehicles.get(searchPlateNo);
+        return allVehicles.get(searchPlateNo);                  //only this line is enough! A method isn't required for this!!!
 //        for (Vehicle searchItem : vehiclesInSystem) {
 //            if (searchItem.getPlateNo().equals(searchPlateNo)) {
 //                return searchItem;
