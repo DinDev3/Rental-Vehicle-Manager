@@ -6,8 +6,6 @@ import com.mongodb.client.MongoDatabase;
 import com.mongodb.client.model.Filters;
 import org.bson.Document;
 
-import java.math.BigDecimal;
-
 public class DatabaseController {
 
     //have another add method to add booked vehicles!!!!!!!!! (If not done through Angular)

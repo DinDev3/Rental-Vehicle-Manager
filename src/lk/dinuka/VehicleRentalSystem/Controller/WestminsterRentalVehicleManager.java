@@ -36,6 +36,8 @@ public class WestminsterRentalVehicleManager implements RentalVehicleManager {
     private static boolean hasAirCon;
     private static String type;
 
+    private static boolean replaceVeh;
+
 
     @Override
     public void addVehicle() {
@@ -53,10 +55,12 @@ public class WestminsterRentalVehicleManager implements RentalVehicleManager {
             System.out.println("\nEnter Plate No:");
             System.out.print(">");
             plateNo = scanInput.nextLine();
+
             if (allVehicles.containsKey(plateNo)) {
                 System.out.println("This Plate No exists in the system.");
                 System.out.println();           //to keep space for clarity
 
+                replaceVeh =false;
 
                 //print information of vehicle
                 System.out.println("Make: " + allVehicles.get(plateNo).getMake());
@@ -77,11 +81,13 @@ public class WestminsterRentalVehicleManager implements RentalVehicleManager {
 
                 System.out.println();           //to keep space for clarity
                 System.out.println("Do u want to edit information related to this vehicle?");
-                System.out.println(">");
+                System.out.print(">");
 
                 boolean edit = yesOrNo();
 
                 if (edit) {
+
+                    replaceVeh = true;
 
                     //remove vehicle from db
                     DatabaseController.deleteFromSystemDB(plateNo);
@@ -216,18 +222,22 @@ public class WestminsterRentalVehicleManager implements RentalVehicleManager {
 
     private static void addInfo(int typeSelection) {          //method to add information related to a Vehicle of identified plateNo.
 
+        if (replaceVeh) {
+            vehiclesInSystem.remove(allVehicles.get(plateNo));              //removing vehicle from ArrayList, if editing it's information
+        }
+
         if (typeSelection == 1) {       //new Car chosen
             addCommonInfo();
 
             type = "Car";
 
             System.out.println("\nEnter the type of transmission:");
-            System.out.println(">");
+            System.out.print(">");
             transmission = scanInput.nextLine();
 
 
             System.out.println("\nDoes this car have A/C?");
-            System.out.println(">");
+            System.out.print(">");
 
             hasAirCon = yesOrNo();
 
@@ -235,7 +245,7 @@ public class WestminsterRentalVehicleManager implements RentalVehicleManager {
             Vehicle newCar = new Car(plateNo, make, model, availability, engineCapacity, dailyCostBigD, type, transmission, hasAirCon);
 
             allVehicles.put(plateNo, newCar);           //adding a car into the allVehicles hashMap
-
+            vehiclesInSystem.add(newCar);
 
             //adding new Car to noSQL database
             DatabaseController.addToSystemDB(plateNo, make, model, availability, engineCapacity, dailyCostD, type, transmission, hasAirCon);
@@ -260,7 +270,7 @@ public class WestminsterRentalVehicleManager implements RentalVehicleManager {
             Vehicle newBike = new Motorbike(plateNo, make, model, availability, engineCapacity, dailyCostBigD, type, startType, wheelSize);
 
             allVehicles.put(plateNo, newBike);           //adding a motorbike into the allVehicles hashMap
-
+            vehiclesInSystem.add(newBike);
 
             //adding new Bike to noSQL database
             DatabaseController.addToSystemDB(plateNo, make, model, availability, engineCapacity, dailyCostD, type, startType, wheelSize);
@@ -307,19 +317,19 @@ public class WestminsterRentalVehicleManager implements RentalVehicleManager {
 
 
     private static boolean yesOrNo() {           //gets yes/ no input
-        String inputYN;
 
-        do {                                            //check whether this works as expected!!!!!!!!!!!
-            inputYN = scanInput.nextLine().toLowerCase();
+        while (!scanInput.hasNextBoolean()) {                                            //check whether this works as expected!!!!!!!!!!!
+            String inputYN = scanInput.nextLine().toLowerCase();
             if (inputYN.equals("y") || inputYN.equals("yes")) {
                 return true;
             } else if (inputYN.equals("n") || inputYN.equals("no")) {
                 return false;
             } else {
                 System.out.println("Invalid input. Please try again.");
-                return false;               //THIS IS WRONG! FIX THIS!!!!!!!!!!!!!
+                System.out.print(">");
             }
-        } while (!(inputYN.equals("y") || inputYN.equals("yes") || inputYN.equals("n") || inputYN.equals("no")));       //CHECK THIS!!!!!!
+        }
+        return false;           //won't reach this point (added to get rid of the missing return statement error)
     }
 
 
@@ -340,14 +350,17 @@ public class WestminsterRentalVehicleManager implements RentalVehicleManager {
     }
 
 
-    private static Vehicle findVehicle(String searchPlateNo) {
-        for (Vehicle searchItem : vehiclesInSystem) {
-            if (searchItem.getPlateNo().equals(searchPlateNo)) {
-                return searchItem;
-            }
-        }
-        return null;
+    private static Vehicle findVehicle(String searchPlateNo) {          //used to search for vehicle in GUI
+
+        return allVehicles.get(searchPlateNo);
+//        for (Vehicle searchItem : vehiclesInSystem) {
+//            if (searchItem.getPlateNo().equals(searchPlateNo)) {
+//                return searchItem;
+//            }
+//        }
+//        return null;
     }
+
 
 
 }
