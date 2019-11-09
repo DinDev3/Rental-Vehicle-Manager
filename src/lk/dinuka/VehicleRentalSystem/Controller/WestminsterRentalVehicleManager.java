@@ -350,7 +350,7 @@ public class WestminsterRentalVehicleManager implements RentalVehicleManager {
     }
 
 
-    public static Vehicle findVehicle(String searchPlateNo) {          //used to search for vehicle in GUI
+    public static Vehicle findVehicle(String searchPlateNo) {          //used to search for vehicle in GUI and when deleting vehicle
 
         return allVehicles.get(searchPlateNo);                  //only this line is enough! A method isn't required for this!!!
 //        for (Vehicle searchItem : vehiclesInSystem) {

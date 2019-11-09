@@ -2,8 +2,6 @@ package lk.dinuka.VehicleRentalSystem;
 
 import lk.dinuka.VehicleRentalSystem.Controller.DatabaseController;
 import lk.dinuka.VehicleRentalSystem.Controller.WestminsterRentalVehicleManager;
-import lk.dinuka.VehicleRentalSystem.Model.Car;
-import lk.dinuka.VehicleRentalSystem.Model.Vehicle;
 
 import java.util.Scanner;
 

@@ -1,0 +1,1 @@
+Vehicle{plateNo='dsf', make='fasdf', model='sdfa', availability=true, engineCapacity='sd3w', dailyCost=243.0, type='Car'}Car{transmission='fwe', hasAirCon=false}Vehicle{plateNo='1', make='efwef', model='wefwe', availability=true, engineCapacity='sdfa', dailyCost=35.0, type='Car'}Car{transmission='dfgs', hasAirCon=true}
