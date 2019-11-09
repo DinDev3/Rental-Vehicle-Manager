@@ -1,6 +1,8 @@
 package lk.dinuka.VehicleRentalSystem.View;
 
 import javafx.application.Application;
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
@@ -11,11 +13,17 @@ import javafx.stage.Stage;
 import lk.dinuka.VehicleRentalSystem.Controller.WestminsterRentalVehicleManager;
 import lk.dinuka.VehicleRentalSystem.Model.Vehicle;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class GUI extends Application {
     public static void main(String[] args) {
         launch(args);
     }
 
+    private static ArrayList<Vehicle> searchedVehicles = new ArrayList<>();          //used to pass in searched vehicles into the table
+
+    //----------//---------------//----------------//
 
     @Override
     public void start(Stage primaryStage) throws Exception {
@@ -81,8 +89,8 @@ public class GUI extends Application {
         searchSection.setMinWidth(220);
         searchSection.getChildren().add(new Label("Search Make:"));
 
-        TextField titleSearch = new TextField();
-        searchSection.getChildren().add(titleSearch);
+        TextField makeSearch = new TextField();
+        searchSection.getChildren().add(makeSearch);
 
         Button searchClick = new Button("Search");
         searchSection.getChildren().add(searchClick);
@@ -161,6 +169,56 @@ public class GUI extends Application {
         primaryStage.setScene(newScene);
         primaryStage.show();
 
+
+
+
+
+
+
+
+
+
+
+
+
+        //---------------//------------------//---------------------//-----------------------//
+
+        //Button actions
+
+        searchClick.setOnAction(new EventHandler<ActionEvent>() {           //actions when search button is clicked
+
+            @Override
+            public void handle(ActionEvent event) {
+
+                String vehMakeSearch = makeSearch.getText();        //getting make to be searched
+
+                searchedVehicles.clear();           //clearing previous search results from ArrayList
+
+                for (Vehicle searchItem : WestminsterRentalVehicleManager.getVehiclesInSystem()) {
+                    if (searchItem.getMake().equals(vehMakeSearch)) {
+                        searchedVehicles.add(searchItem);       //adding vehicles that have matching makes as searched into ArrayList
+                    }
+                }
+                System.out.println(searchedVehicles);
+
+                tableOfVehicles.getItems().clear();     //clearing table
+                tableOfVehicles.getItems().addAll(searchedVehicles);
+
+            }
+        });
+
+
+        resetClick.setOnAction(new EventHandler<ActionEvent>() {           //actions when reset button is clicked
+
+            @Override
+            public void handle(ActionEvent event) {
+
+                tableOfVehicles.getItems().clear();
+                tableOfVehicles.getItems().addAll(WestminsterRentalVehicleManager.getVehiclesInSystem());
+
+                makeSearch.setText("");
+            }
+        });
 
     }
 }

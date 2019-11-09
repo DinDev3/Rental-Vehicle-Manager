@@ -4,20 +4,17 @@ import lk.dinuka.VehicleRentalSystem.Model.*;
 import lk.dinuka.VehicleRentalSystem.View.GUI;
 
 import java.math.BigDecimal;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.HashMap;
-import java.util.Scanner;
+import java.util.*;
 
 public class WestminsterRentalVehicleManager implements RentalVehicleManager {
 
     private static Scanner scanInput = new Scanner(System.in);
 
     protected static HashMap<String, Vehicle> allVehicles = new HashMap<>();          //used to check whether the plate No already exists in the system
-    protected static ArrayList<Vehicle> vehiclesInSystem = new ArrayList<>();       //used for sorting and printing.    protected: making sure that customers can't modify the vehicles in the system
+    protected static List<Vehicle> vehiclesInSystem = new ArrayList<>();       //used for sorting and printing.    protected: making sure that customers can't modify the vehicles in the system
     public static HashMap<String, Schedule> bookedVehicles = new HashMap<>();       //used to record pick up & drop off dates of vehicles   (plateNo, Schedule)
 
-    public static ArrayList<Vehicle> getVehiclesInSystem() {         //accessed in GUI
+    public static List<Vehicle> getVehiclesInSystem() {         //accessed in GUI
         return vehiclesInSystem;
     }
 
