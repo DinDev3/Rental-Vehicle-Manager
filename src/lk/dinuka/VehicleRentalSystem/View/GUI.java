@@ -2,9 +2,9 @@ package lk.dinuka.VehicleRentalSystem.View;
 
 import javafx.application.Application;
 import javafx.scene.Scene;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
+import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import lk.dinuka.VehicleRentalSystem.Controller.WestminsterRentalVehicleManager;
@@ -74,9 +74,85 @@ public class GUI extends Application {
                                                                                                                 // in the vehiclesInSystem ArrayList
 
 
-        //---------------------------------------------
+        //---------------------------------------------------
 
-        VBox parent = new VBox(tableOfVehicles);
+        HBox searchSection = new HBox();
+        searchSection.setMinWidth(220);
+        searchSection.getChildren().add(new Label("Search Make:"));
+
+        TextField titleSearch = new TextField();
+        searchSection.getChildren().add(titleSearch);
+
+        Button searchClick = new Button("Search");
+        searchSection.getChildren().add(searchClick);
+        Button resetClick = new Button("Reset");
+        searchSection.getChildren().add(resetClick);
+
+
+
+        VBox filterSection = new VBox(new Label("Filter By"));
+
+        HBox filterType = new HBox(new Label("Type:"));
+        Button filterCarClick = new Button("Car");
+        filterType.getChildren().add(filterCarClick);
+        Button filterBikeClick = new Button("Motorbike");
+        filterType.getChildren().add(filterBikeClick);
+
+
+//        HBox filterEngineCap = new HBox(new Label("Engine Capacity:"));
+
+
+        filterSection.setMinWidth(200);
+        filterSection.getChildren().addAll(filterType);
+
+        VBox allSearchFilter = new VBox(searchSection,filterSection);
+
+        //---------------------------------------------------
+
+        VBox bookingSection = new VBox();
+
+        HBox allDates = new HBox();
+        bookingSection.getChildren().add(allDates);
+
+        //pick up date entry section
+        HBox pickUpDateSec = new HBox(new Label("Pick Up:"));
+        TextField dayPickUp = new TextField();
+        TextField monthPickUp = new TextField();
+        TextField yearPickUp = new TextField();
+
+        dayPickUp.setPrefWidth(40);
+        monthPickUp.setPrefWidth(40);
+        yearPickUp.setPrefWidth(80);
+
+        pickUpDateSec.getChildren().addAll(dayPickUp,monthPickUp,yearPickUp);
+
+
+        //drop off date entry section
+        HBox dropOffDateSec = new HBox();
+        Label dropOffLabel = new Label("Drop Off:");
+
+        TextField dayDropOff = new TextField();
+        TextField monthDropOff = new TextField();
+        TextField yearDropOff = new TextField();
+
+        dayDropOff.setPrefWidth(40);
+        monthDropOff.setPrefWidth(40);
+        yearDropOff.setPrefWidth(80);
+
+        pickUpDateSec.getChildren().addAll(dropOffLabel, dayDropOff,monthDropOff,yearDropOff);
+
+
+        Button availabilityCheck = new Button("Check Availability");
+
+        allDates.getChildren().addAll(pickUpDateSec,dropOffDateSec, availabilityCheck);
+
+
+
+
+        //---------------------------------------------------
+
+
+        VBox parent = new VBox(allSearchFilter, tableOfVehicles, bookingSection);
         Scene newScene = new Scene(parent);
         primaryStage.setScene(newScene);
         primaryStage.show();
