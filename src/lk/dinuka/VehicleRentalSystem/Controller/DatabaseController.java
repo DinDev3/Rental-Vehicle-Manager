@@ -80,14 +80,33 @@ public class DatabaseController {
 
     public static void importSystemDB() {
         //Importing stored data in db to application (allVehicles hashMap)
+        MongoClientURI uri = new MongoClientURI(
+                "mongodb+srv://cw_user:123098@cluster0-gxfyy.gcp.mongodb.net/test?retryWrites=true&w=majority");
+        com.mongodb.MongoClient mongoClient = new com.mongodb.MongoClient(uri);
+        MongoDatabase database = mongoClient.getDatabase("VehicleRentalSystem");
+
+
 
 
         //import data from both collections at once!!!
+
+        //importing from VehiclesInSystem collection
+        //Access collection
+        MongoCollection<Document> savedCollection = database.getCollection("VehiclesInSystem");
+
+
 
 
 
 
         //convert daily cost back to BigDecimal when importing data!!!!
+
+
+
+        //================
+        //importing from bookedVehicles collection
+
+
 
     }
 

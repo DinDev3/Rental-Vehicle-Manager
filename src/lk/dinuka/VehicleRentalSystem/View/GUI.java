@@ -71,7 +71,7 @@ public class GUI extends Application {
                 typeColumn, transmissionColumn, hasAirConColumn, startTypeColumn, wheelSizeColumn);             //adding all the columns to the table
 
         tableOfVehicles.getItems().addAll(WestminsterRentalVehicleManager.getVehiclesInSystem());           //adding all the vehicles in the available
-        // in the vehiclesInSystem ArrayList
+                                                                                                                // in the vehiclesInSystem ArrayList
 
 
         //---------------------------------------------

@@ -7,12 +7,12 @@ import java.util.Objects;
 public class Schedule {
     private Date pickUp;
     private Date dropOff;
-    private String time;
+//    private String time;
 
     public Schedule(Date pickUp, Date dropOff) {
         this.pickUp = pickUp;
         this.dropOff = dropOff;
-        setTime();
+//        setTime();
     }
 
     public Date getPickUp() {
@@ -32,18 +32,18 @@ public class Schedule {
     }
 
 
-    public String getTime() {
-        return time;
-    }
+//    public String getTime() {
+//        return time;
+//    }
 
-    public void setTime() {     //getting time at which the booking was made
-
-        Calendar cal = Calendar.getInstance();
-        SimpleDateFormat sdf = new SimpleDateFormat("HH:mm:ss");
-//        String h1 =  sdf.format(cal.getTime()) ;
-
-        this.time = sdf.format(cal.getTime());
-    }
+//    public void setTime() {     //getting time at which the booking was made
+//
+//        Calendar cal = Calendar.getInstance();
+//        SimpleDateFormat sdf = new SimpleDateFormat("HH:mm:ss");
+////        String h1 =  sdf.format(cal.getTime()) ;
+//
+//        this.time = sdf.format(cal.getTime());
+//    }
 
     @Override
     public boolean equals(Object o) {
@@ -51,13 +51,12 @@ public class Schedule {
         if (o == null || getClass() != o.getClass()) return false;
         Schedule schedule = (Schedule) o;
         return Objects.equals(pickUp, schedule.pickUp) &&
-                Objects.equals(dropOff, schedule.dropOff) &&
-                Objects.equals(time, schedule.time);
+                Objects.equals(dropOff, schedule.dropOff);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(pickUp, dropOff, time);
+        return Objects.hash(pickUp, dropOff);
     }
 
     @Override
@@ -65,7 +64,6 @@ public class Schedule {
         return "Schedule{" +
                 "pickUp=" + pickUp +
                 ", dropOff=" + dropOff +
-                ", time='" + time + '\'' +
                 '}';
     }
 
