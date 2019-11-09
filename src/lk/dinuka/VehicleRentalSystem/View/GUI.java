@@ -6,6 +6,7 @@ import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
+import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import lk.dinuka.VehicleRentalSystem.Controller.WestminsterRentalVehicleManager;
 import lk.dinuka.VehicleRentalSystem.Model.Vehicle;
@@ -112,7 +113,6 @@ public class GUI extends Application {
         VBox bookingSection = new VBox();
 
         HBox allDates = new HBox();
-        bookingSection.getChildren().add(allDates);
 
         //pick up date entry section
         HBox pickUpDateSec = new HBox(new Label("Pick Up:"));
@@ -144,10 +144,14 @@ public class GUI extends Application {
 
         Button availabilityCheck = new Button("Check Availability");
 
-        allDates.getChildren().addAll(pickUpDateSec,dropOffDateSec, availabilityCheck);
+        allDates.getChildren().addAll(pickUpDateSec,dropOffDateSec,availabilityCheck);
 
 
+        Button bookOnClick = new Button("Book");
 
+        Text bookStatusText = new Text();
+
+        bookingSection.getChildren().addAll(allDates,bookOnClick,bookStatusText);
 
         //---------------------------------------------------
 

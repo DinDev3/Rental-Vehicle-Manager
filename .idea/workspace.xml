@@ -1,11 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="f2387725-50d1-4dc8-ba1e-e0d404acdd4a" name="Default Changelist" comment="Added all required classes for the project with the project structure.">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Design/ClassDiagramPost.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/Design/ClassDiagramPost.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/lk/dinuka/VehicleRentalSystem/View/GUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/lk/dinuka/VehicleRentalSystem/View/GUI.java" afterDir="false" />
-    </list>
+    <list default="true" id="f2387725-50d1-4dc8-ba1e-e0d404acdd4a" name="Default Changelist" comment="Added all required classes for the project with the project structure." />
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -58,8 +54,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/lk/dinuka/VehicleRentalSystem/View/GUI.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="451">
-              <caret line="138" lean-forward="true" selection-start-line="138" selection-end-line="138" />
+            <state relative-caret-position="217">
+              <caret line="144" column="68" selection-start-line="144" selection-start-column="68" selection-end-line="144" selection-end-column="68" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -261,7 +257,7 @@
       <workItem from="1572804806138" duration="1594000" />
       <workItem from="1572947829657" duration="488000" />
       <workItem from="1573241386437" duration="675000" />
-      <workItem from="1573281999659" duration="10072000" />
+      <workItem from="1573281999659" duration="10857000" />
     </task>
     <task id="LOCAL-00001" summary="Added all required classes for the project with the project structure.">
       <created>1572081106344</created>
@@ -274,11 +270,10 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="66507000" />
+    <option name="totallyTimeSpent" value="67292000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info id="Designer" order="0" />
       <window_info id="UI Designer" order="1" />
@@ -294,12 +289,12 @@
       <window_info anchor="bottom" id="Event Log" order="4" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="5" />
       <window_info anchor="bottom" id="Find" order="6" />
-      <window_info anchor="bottom" id="Terminal" order="7" weight="0.44507042" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="7" visible="true" weight="0.44507042" />
       <window_info anchor="bottom" id="Debug" order="8" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="9" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="10" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="11" />
-      <window_info anchor="bottom" id="Run" order="12" weight="0.4" />
+      <window_info anchor="bottom" id="Run" order="12" weight="0.26478875" />
       <window_info anchor="right" id="Theme Preview" order="0" />
       <window_info anchor="right" id="Capture Analysis" order="1" />
       <window_info anchor="right" id="Palette&#9;" order="2" />
@@ -611,8 +606,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/lk/dinuka/VehicleRentalSystem/View/GUI.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="451">
-          <caret line="138" lean-forward="true" selection-start-line="138" selection-end-line="138" />
+        <state relative-caret-position="217">
+          <caret line="144" column="68" selection-start-line="144" selection-start-column="68" selection-end-line="144" selection-end-column="68" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
