@@ -6,6 +6,8 @@ import com.mongodb.client.MongoDatabase;
 import com.mongodb.client.model.Filters;
 import org.bson.Document;
 
+import java.math.BigDecimal;
+
 public class DatabaseController {
 
     //have another add method to add booked vehicles!!!!!!!!! (If not done through Angular)
@@ -94,7 +96,36 @@ public class DatabaseController {
         //Access collection
         MongoCollection<Document> savedCollection = database.getCollection("VehiclesInSystem");
 
+        for(Document selectedDoc : savedCollection.find()){
+            String plateNo = (String)selectedDoc.get("Plate No");
+            String make = (String) selectedDoc.get("Make");
+            String model = (String) selectedDoc.get("Model");
+            boolean availability =  (boolean)selectedDoc.get("Availability");
+            double dailyCostD = (double) selectedDoc.get("Daily Cost");
+            String type = (String) selectedDoc.get("Type");
+            String transmission = (String) selectedDoc.get("Transmission");
+            boolean hasAirCon = (boolean) selectedDoc.get("Air Con");
 
+
+            BigDecimal dailyCostBigD = BigDecimal.valueOf(dailyCostD);     //converting double to BigDecimal, to use for calculations
+
+
+//            if(type.equals("CD")){
+//                double duration = (double) selectedDoc.get("Duration");
+//                MusicItem storedCD = new CD(itemID, title, genre, releasedDate, artist, price, type, duration);
+//                WestminsterMusicStoreManager.itemsInStore.add(storedCD);
+//                WestminsterMusicStoreManager.allItemIDs.put(itemID,type);
+////                System.out.println(storedCD);            //to check whether item was added
+//
+//            }else if(type.equals("Vinyl")){
+//                double speed = (double) selectedDoc.get("Speed(RPM)");
+//                double diameter = (double) selectedDoc.get("Diameter(cm)");
+//                MusicItem storedVinyl = new Vinyl(itemID, title, genre, releasedDate, artist, price, type, speed, diameter);
+//                WestminsterMusicStoreManager.itemsInStore.add(storedVinyl);
+//                WestminsterMusicStoreManager.allItemIDs.put(itemID,type);
+////                System.out.println(storedVinyl);            //to check whether item was added
+//            }
+        }
 
 
 
