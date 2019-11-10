@@ -12,6 +12,7 @@ import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import lk.dinuka.VehicleRentalSystem.Controller.WestminsterRentalVehicleManager;
 import lk.dinuka.VehicleRentalSystem.Model.Car;
+import lk.dinuka.VehicleRentalSystem.Model.Motorbike;
 import lk.dinuka.VehicleRentalSystem.Model.Vehicle;
 
 import java.util.ArrayList;
@@ -23,6 +24,8 @@ public class GUI extends Application {
     }
 
     private static ArrayList<Vehicle> searchedVehicles = new ArrayList<>();          //used to pass in searched vehicles into the table
+    private static ArrayList<Vehicle> searchInSearch = new ArrayList<>();       //used to filter search by Vehicle type
+
 
     //----------//---------------//----------------//
 
@@ -230,10 +233,31 @@ public class GUI extends Application {
             @Override
             public void handle(ActionEvent event) {
 
-                ArrayList<Vehicle> searchInSearch = new ArrayList<>();       //used to filter search by Vehicle type
+                searchInSearch.clear();
 
                 for (Vehicle searchVeh : searchedVehicles) {
                     if (searchVeh instanceof Car) {
+                        searchInSearch.add(searchVeh);       //adding vehicles that are of Type Car into ArrayList
+                    }
+                }
+                System.out.println(searchInSearch);
+
+                tableOfVehicles.getItems().clear();     //clearing table
+                tableOfVehicles.getItems().addAll(searchInSearch);
+
+            }
+        });
+
+
+        filterBikeClick.setOnAction(new EventHandler<ActionEvent>() {           //actions when Filter Cars button is clicked
+
+            @Override
+            public void handle(ActionEvent event) {
+
+                searchInSearch.clear();
+
+                for (Vehicle searchVeh : searchedVehicles) {
+                    if (searchVeh instanceof Motorbike) {
                         searchInSearch.add(searchVeh);       //adding vehicles that are of Type Car into ArrayList
                     }
                 }
