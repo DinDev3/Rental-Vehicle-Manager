@@ -104,9 +104,9 @@ public class GUI extends Application {
 
 
 
-        VBox filterSection = new VBox(new Label("Filter By"));
+//        VBox filterSection = new VBox(new Label("Filter By"));
 
-        HBox filterType = new HBox(new Label("Type:"));
+        HBox filterType = new HBox(new Label("Filter Type:"));
         Button filterCarClick = new Button("Cars");
         filterType.getChildren().add(filterCarClick);
         Button filterBikeClick = new Button("Motorbikes");
@@ -116,10 +116,10 @@ public class GUI extends Application {
 //        HBox filterEngineCap = new HBox(new Label("Engine Capacity:"));
 
 
-        filterSection.setMinWidth(200);
-        filterSection.getChildren().addAll(filterType);
+        filterType.setMinWidth(200);
+//        filterSection.getChildren().addAll(filterType);
 
-        VBox allSearchFilter = new VBox(searchSection,filterSection);
+        VBox allSearchFilter = new VBox(searchSection,filterType);
 
         //---------------------------------------------------
 
@@ -218,7 +218,10 @@ public class GUI extends Application {
             @Override
             public void handle(ActionEvent event) {
 
-                tableOfVehicles.getItems().clear();
+                searchedVehicles.clear();       //resetting search to all Vehicles
+                searchedVehicles.addAll(WestminsterRentalVehicleManager.getVehiclesInSystem());
+
+                tableOfVehicles.getItems().clear();     //reseting display to all Vehicles
                 tableOfVehicles.getItems().addAll(WestminsterRentalVehicleManager.getVehiclesInSystem());
 
                 makeSearch.setText("");
@@ -248,7 +251,7 @@ public class GUI extends Application {
         });
 
 
-        filterBikeClick.setOnAction(new EventHandler<ActionEvent>() {           //actions when Filter Cars button is clicked
+        filterBikeClick.setOnAction(new EventHandler<ActionEvent>() {           //actions when Filter Motorbikes button is clicked
 
             @Override
             public void handle(ActionEvent event) {
@@ -273,7 +276,39 @@ public class GUI extends Application {
         //---------------------------------------------------
 
 
-        bookOnClick.setOnAction(new EventHandler<ActionEvent>() {           //actions when Filter Cars button is clicked
+        availabilityCheck.setOnAction(new EventHandler<ActionEvent>() {           //actions when Filter Cars button is clicked
+
+            @Override
+            public void handle(ActionEvent event) {
+
+                //getting input of pick up date
+                Integer dayPickUpInput = Integer.parseInt(dayPickUp.getText());        //getting day
+                Integer monthPickUpInput = Integer.parseInt(monthPickUp.getText());        //getting month
+                Integer yearPickUpInput = Integer.parseInt(yearPickUp.getText());        //getting year
+
+
+                //getting input of drop off date
+                Integer dayDropOffInput = Integer.parseInt(dayPickUp.getText());        //getting day
+                Integer monthDropOffInput = Integer.parseInt(monthDropOff.getText());        //getting month
+                Integer yearDropOffInput = Integer.parseInt(yearDropOff.getText());        //getting year
+
+
+                Vehicle chosenVeh = (Vehicle) tableOfVehicles.getSelectionModel().getSelectedItem();        //selected vehicle's information
+
+                System.out.println(chosenVeh);      //to check whether expected vehicle was chosen
+
+                boolean availability = GUIController.checkAvailabilityOfVeh(chosenVeh,yearPickUpInput,monthPickUpInput,
+                        dayPickUpInput, yearDropOffInput,monthDropOffInput,dayDropOffInput);
+
+                if (availability){  //vehicle available
+                    System.out.println("Vehicle is available for booking.");
+                }
+            }
+        });
+
+
+
+        bookOnClick.setOnAction(new EventHandler<ActionEvent>() {           //actions when Book button is clicked
 
             @Override
             public void handle(ActionEvent event) {
