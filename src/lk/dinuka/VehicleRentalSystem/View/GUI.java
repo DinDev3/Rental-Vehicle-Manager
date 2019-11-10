@@ -11,6 +11,7 @@ import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import lk.dinuka.VehicleRentalSystem.Controller.WestminsterRentalVehicleManager;
+import lk.dinuka.VehicleRentalSystem.Model.Car;
 import lk.dinuka.VehicleRentalSystem.Model.Vehicle;
 
 import java.util.ArrayList;
@@ -83,6 +84,8 @@ public class GUI extends Application {
                                                                                                                 // in the vehiclesInSystem ArrayList
 
 
+        searchedVehicles.addAll(WestminsterRentalVehicleManager.getVehiclesInSystem());     //to get filter by vehicle type to work before searching for a Make
+
         //---------------------------------------------------
 
         HBox searchSection = new HBox();
@@ -102,9 +105,9 @@ public class GUI extends Application {
         VBox filterSection = new VBox(new Label("Filter By"));
 
         HBox filterType = new HBox(new Label("Type:"));
-        Button filterCarClick = new Button("Car");
+        Button filterCarClick = new Button("Cars");
         filterType.getChildren().add(filterCarClick);
-        Button filterBikeClick = new Button("Motorbike");
+        Button filterBikeClick = new Button("Motorbikes");
         filterType.getChildren().add(filterBikeClick);
 
 
@@ -190,13 +193,13 @@ public class GUI extends Application {
             @Override
             public void handle(ActionEvent event) {
 
-                String vehMakeSearch = makeSearch.getText();        //getting make to be searched
+                String vehMakeSearch = makeSearch.getText();        //getting Make to be searched
 
                 searchedVehicles.clear();           //clearing previous search results from ArrayList
 
-                for (Vehicle searchItem : WestminsterRentalVehicleManager.getVehiclesInSystem()) {
-                    if (searchItem.getMake().equals(vehMakeSearch)) {
-                        searchedVehicles.add(searchItem);       //adding vehicles that have matching makes as searched into ArrayList
+                for (Vehicle searchVeh : WestminsterRentalVehicleManager.getVehiclesInSystem()) {
+                    if (searchVeh.getMake().equals(vehMakeSearch)) {
+                        searchedVehicles.add(searchVeh);       //adding vehicles that have matching makes as searched into ArrayList
                     }
                 }
                 System.out.println(searchedVehicles);
@@ -219,6 +222,29 @@ public class GUI extends Application {
                 makeSearch.setText("");
             }
         });
+
+
+
+        filterCarClick.setOnAction(new EventHandler<ActionEvent>() {           //actions when Filter Cars button is clicked
+
+            @Override
+            public void handle(ActionEvent event) {
+
+                ArrayList<Vehicle> searchInSearch = new ArrayList<>();       //used to filter search by Vehicle type
+
+                for (Vehicle searchVeh : searchedVehicles) {
+                    if (searchVeh instanceof Car) {
+                        searchInSearch.add(searchVeh);       //adding vehicles that are of Type Car into ArrayList
+                    }
+                }
+                System.out.println(searchInSearch);
+
+                tableOfVehicles.getItems().clear();     //clearing table
+                tableOfVehicles.getItems().addAll(searchInSearch);
+
+            }
+        });
+
 
     }
 }

@@ -145,7 +145,7 @@ public class WestminsterRentalVehicleManager implements RentalVehicleManager {
 
         // print the plate number, the type of vehicle (car/ van/ motorbike).
 
-        String leftAlignFormat = "| %-14s | %-12s |%n";
+        String leftAlignFormat = "| %-15s | %-12s |%n";
 
         System.out.format("+-----------------+--------------+%n");
         System.out.format("|   Plate ID      |   Type       |%n");
@@ -260,6 +260,7 @@ public class WestminsterRentalVehicleManager implements RentalVehicleManager {
 
             System.out.println("\nEnter wheel size:");
             System.out.print(">");
+            doubleInputValidation();
             wheelSize = scanInput.nextDouble();
             scanInput.nextLine();           //to consume the rest of the line
 
