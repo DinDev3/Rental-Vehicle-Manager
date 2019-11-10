@@ -10,10 +10,9 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
+import lk.dinuka.VehicleRentalSystem.Controller.GUIController;
 import lk.dinuka.VehicleRentalSystem.Controller.WestminsterRentalVehicleManager;
-import lk.dinuka.VehicleRentalSystem.Model.Car;
-import lk.dinuka.VehicleRentalSystem.Model.Motorbike;
-import lk.dinuka.VehicleRentalSystem.Model.Vehicle;
+import lk.dinuka.VehicleRentalSystem.Model.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -270,5 +269,53 @@ public class GUI extends Application {
         });
 
 
+
+        //---------------------------------------------------
+
+
+        bookOnClick.setOnAction(new EventHandler<ActionEvent>() {           //actions when Filter Cars button is clicked
+
+            @Override
+            public void handle(ActionEvent event) {
+
+                //null pointer exception if no vehicle is chosen!!!!!!!!!!!!!!!!!
+                //"" conversion error if numbers aren't entered for date!!!!!!!!!!!!!
+
+
+                //getting input of pick up date
+                Integer dayPickUpInput = Integer.parseInt(dayPickUp.getText());        //getting day
+                Integer monthPickUpInput = Integer.parseInt(monthPickUp.getText());        //getting month
+                Integer yearPickUpInput = Integer.parseInt(yearPickUp.getText());        //getting year
+
+
+                //getting input of drop off date
+                Integer dayDropOffInput = Integer.parseInt(dayPickUp.getText());        //getting day
+                Integer monthDropOffInput = Integer.parseInt(monthDropOff.getText());        //getting month
+                Integer yearDropOffInput = Integer.parseInt(yearDropOff.getText());        //getting year
+
+
+                //getting selected vehicle's information
+                Vehicle chosenVeh = (Vehicle) tableOfVehicles.getSelectionModel().getSelectedItem();        //selected vehicle's information
+                //down-casted from Object type to Vehicle type
+                System.out.println(chosenVeh);      //to check whether expected vehicle was chosen
+
+                GUIController.createBooking(chosenVeh,yearPickUpInput,monthPickUpInput,dayPickUpInput,
+                        yearDropOffInput,monthDropOffInput,dayDropOffInput);
+
+
+            }
+        });
+
     }
 }
+
+
+
+/*
+References:
+
+https://stackoverflow.com/questions/14169240/getting-integer-values-from-textfield
+
+How to get information of selected row in javafx tableview
+https://stackoverflow.com/questions/17388866/getting-selected-item-from-a-javafx-tableview
+ */
