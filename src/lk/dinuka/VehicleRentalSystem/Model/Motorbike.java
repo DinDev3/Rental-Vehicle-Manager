@@ -32,7 +32,7 @@ public class Motorbike extends Vehicle {
 
     @Override
     public String toString() {
-        return super.toString() + "Motorbike{" +
+        return super.toString() + " " +
                 "startType='" + startType + '\'' +
                 ", wheelSize=" + wheelSize +
                 '}';

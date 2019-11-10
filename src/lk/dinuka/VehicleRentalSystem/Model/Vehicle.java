@@ -35,8 +35,7 @@ public abstract class Vehicle implements Comparable<Vehicle> {
                 ", availability=" + availability +
                 ", engineCapacity='" + engineCapacity + '\'' +
                 ", dailyCost=" + dailyCost +
-                ", type='" + type + '\'' +
-                '}';
+                ", type='" + type + '\'' ;
     }
 
     public static int getCount() {
