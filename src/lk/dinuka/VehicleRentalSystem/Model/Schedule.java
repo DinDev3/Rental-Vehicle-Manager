@@ -1,34 +1,37 @@
 package lk.dinuka.VehicleRentalSystem.Model;
 
-import java.text.SimpleDateFormat;
-import java.util.Calendar;
+import java.time.LocalDate;
 import java.util.Objects;
 
 public class Schedule {
-    private Date pickUp;
-    private Date dropOff;
-//    private String time;
+    private LocalDate pickUp;
+    private LocalDate dropOff;
 
-    public Schedule(Date pickUp, Date dropOff) {
-        this.pickUp = pickUp;
-        this.dropOff = dropOff;
-//        setTime();
+    public Schedule(int yearPickUp, int monthPickUp, int dayPickUp,int yearDropOff, int monthDropOff,int dayDropOff) {
+        setPickUp(yearPickUp,monthPickUp,dayPickUp);
+        setDropOff(yearDropOff,monthDropOff,dayDropOff);
     }
 
-    public Date getPickUp() {
+    public LocalDate getPickUp() {
         return pickUp;
     }
 
-    public void setPickUp(Date pickUp) {            //Is there a point in having setters here!!!!!!!?????
-        this.pickUp = pickUp;
+    public void setPickUp(int yearPickUp, int monthPickUp, int dayPickUp) {
+        Date pickUpDateCheck = new Date(yearPickUp,monthPickUp,dayPickUp);      //used to validate date
+        LocalDate pickUpDate = LocalDate.of(pickUpDateCheck.getYear(), pickUpDateCheck.getMonth(), pickUpDateCheck.getDay());
+
+        this.pickUp = pickUpDate;
     }
 
-    public Date getDropOff() {
+    public LocalDate getDropOff() {
         return dropOff;
     }
 
-    public void setDropOff(Date dropOff) {
-        this.dropOff = dropOff;
+    public void setDropOff(int yearDropOff, int monthDropOff,int dayDropOff) {
+        Date dropOffDateCheck = new Date(yearDropOff,monthDropOff,dayDropOff);      //used to validate date
+        LocalDate dropOffDate = LocalDate.of(dropOffDateCheck.getYear(), dropOffDateCheck.getMonth(), dropOffDateCheck.getDay());
+
+        this.dropOff = dropOffDate;
     }
 
 
@@ -72,6 +75,9 @@ public class Schedule {
 
 /*
 References:
+
+Java 8 DateTime
+https://gist.github.com/mscharhag/9195718
 
 Current time
 https://stackoverflow.com/questions/833768/java-code-for-getting-current-time

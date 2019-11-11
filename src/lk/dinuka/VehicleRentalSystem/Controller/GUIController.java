@@ -15,10 +15,10 @@ public class GUIController {
         Date pickUpDate = new Date(yearPickUpInput, monthPickUpInput, dayPickUpInput);
         Date dropOffDate = new Date(yearDropOffInput, monthDropOffInput, dayDropOffInput);
 
-        Schedule newBooking = new Schedule(pickUpDate, dropOffDate);
-
-
-        WestminsterRentalVehicleManager.bookedVehicles.put(chosenVeh.getPlateNo(), newBooking);       //adding booked vehicle to bookedVehicles HashMap
+//        Schedule newBooking = new Schedule(pickUpDate, dropOffDate);
+//
+//
+//        WestminsterRentalVehicleManager.bookedVehicles.put(chosenVeh.getPlateNo(), newBooking);       //adding booked vehicle to bookedVehicles HashMap
 
         System.out.println(WestminsterRentalVehicleManager.bookedVehicles);         //checking whether required booking was entered into the system
     }
