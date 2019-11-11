@@ -288,7 +288,7 @@ public class GUI extends Application {
 
 
                 //getting input of drop off date
-                Integer dayDropOffInput = Integer.parseInt(dayPickUp.getText());        //getting day
+                Integer dayDropOffInput = Integer.parseInt(dayDropOff.getText());        //getting day
                 Integer monthDropOffInput = Integer.parseInt(monthDropOff.getText());        //getting month
                 Integer yearDropOffInput = Integer.parseInt(yearDropOff.getText());        //getting year
 
@@ -302,6 +302,8 @@ public class GUI extends Application {
 
                 if (availability){  //vehicle available
                     System.out.println("Vehicle is available for booking.");
+                } else{
+                    System.out.println("Vehicle isn't available for booking during requested time period.");
                 }
             }
         });
@@ -324,7 +326,7 @@ public class GUI extends Application {
 
 
                 //getting input of drop off date
-                Integer dayDropOffInput = Integer.parseInt(dayPickUp.getText());        //getting day
+                Integer dayDropOffInput = Integer.parseInt(dayDropOff.getText());        //getting day
                 Integer monthDropOffInput = Integer.parseInt(monthDropOff.getText());        //getting month
                 Integer yearDropOffInput = Integer.parseInt(yearDropOff.getText());        //getting year
 

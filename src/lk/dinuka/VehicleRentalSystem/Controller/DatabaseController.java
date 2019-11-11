@@ -124,6 +124,12 @@ public class DatabaseController {
                 WestminsterRentalVehicleManager.vehiclesInSystem.add(storedBike);
 //                System.out.println(storedBike);            //to check whether Motorbike was added
             }
+
+
+
+            //importing from BookedVehicles collection (For bookedVehicles HashMap)
+
+
         }
 
 
