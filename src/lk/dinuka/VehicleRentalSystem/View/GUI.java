@@ -301,9 +301,9 @@ public class GUI extends Application {
                         dayPickUpInput, yearDropOffInput,monthDropOffInput,dayDropOffInput);
 
                 if (availability){  //vehicle available
-                    System.out.println("Vehicle is available for booking.");
+//                    System.out.println("Vehicle is available for booking.");
                 } else{
-                    System.out.println("Vehicle isn't available for booking during requested time period.");
+//                    System.out.println("Vehicle isn't available for booking during requested time period.");
                 }
             }
         });

@@ -6,16 +6,22 @@ import lk.dinuka.VehicleRentalSystem.Model.Vehicle;
 import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.List;
 
-import static lk.dinuka.VehicleRentalSystem.Controller.WestminsterRentalVehicleManager.bookedVehicleDates;
 import static lk.dinuka.VehicleRentalSystem.Controller.WestminsterRentalVehicleManager.bookedVehicles;
 
+
 public class GUIController {
+
+    //can keep bookedVehicleDates in GUIController as it'll be re-newed all the time.
+    //Only used to store the dates into the bookedVehicles hashmap
+
 
     public static void createBooking(Vehicle chosenVeh, int yearPickUpInput, int monthPickUpInput, int dayPickUpInput,
                                      int yearDropOffInput, int monthDropOffInput, int dayDropOffInput) {
         //used to create a booking as required and add booking info into the system
 
+        List<Schedule> bookedVehicleDates = new ArrayList<>();     //used to record pick up & drop off dates of a vehicle
 
         boolean availability = checkAvailabilityOfVeh(chosenVeh, yearPickUpInput, monthPickUpInput,
                 dayPickUpInput, yearDropOffInput, monthDropOffInput, dayDropOffInput);   //checking whether vehicle is available for booking
@@ -26,25 +32,26 @@ public class GUIController {
         System.out.println();
 
         if (availability) {
+            System.out.println("Vehicle is available for booking");
+
             Schedule newBooking = new Schedule(yearPickUpInput, monthPickUpInput, dayPickUpInput,
                     yearDropOffInput, monthDropOffInput, dayDropOffInput);
 
-
-            if (!bookedVehicleDates.isEmpty()) {
-                bookedVehicleDates = bookedVehicles.get(chosenVeh.getPlateNo());            //getting available bookings into temporary list
+            if (bookedVehicles.containsKey(chosenVeh.getPlateNo())) {
+                bookedVehicleDates = bookedVehicles.get(chosenVeh.getPlateNo());            //getting recorded bookings into temporary list
             }
             bookedVehicleDates.add(newBooking);     //adding the newly booked dates to the list of bookings.
 
             WestminsterRentalVehicleManager.bookedVehicles.put(chosenVeh.getPlateNo(), (ArrayList) bookedVehicleDates);       //adding all booked vehicles to bookedVehicles HashMap
 
 
-
-
             //add this booking to database
 
 
             System.out.println(WestminsterRentalVehicleManager.bookedVehicles);         //checking whether required booking was entered into the system
+
         } else {
+            System.out.println("Vehicle isn't available for booking during the requested time period.");
             //vehicle isn't available to be book
         }
     }
@@ -63,9 +70,14 @@ public class GUIController {
 
         String plateNoOfChosen = chosenVeh.getPlateNo();        //The plate number of the chosen vehicle
 
+
         if (!WestminsterRentalVehicleManager.bookedVehicles.containsKey(plateNoOfChosen)) {
             return true;        //vehicle is not booked
         } else {
+
+            List<Schedule> bookedVehicleDates = new ArrayList<>();     //used to record pick up & drop off dates of a vehicle
+            bookedVehicleDates = bookedVehicles.get(chosenVeh.getPlateNo());            //getting recorded bookings into temporary list
+
 
             int totalBookings = bookedVehicles.get(plateNoOfChosen).size();
             int passedChecks = 0;

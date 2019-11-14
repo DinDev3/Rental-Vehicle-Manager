@@ -14,10 +14,6 @@ public class WestminsterRentalVehicleManager implements RentalVehicleManager {
     protected static List<Vehicle> vehiclesInSystem = new ArrayList<>();       //used for sorting and printing.    protected: making sure that customers can't modify the vehicles in the system
     public static HashMap<String, ArrayList> bookedVehicles = new HashMap<>();      //used to record booked vehicles   (plateNo, ArrayList of Schedules)
 
-    protected static List<Schedule> bookedVehicleDates = new ArrayList<>();     //used to record pick up & drop off dates of a vehicle
-    //can keep bookedVehicleDates in GUIController as it'll be re-newed all the time.
-    //Only used to store the dates into the bookedVehicles hashmap
-
     public static List<Vehicle> getVehiclesInSystem() {         //accessed in GUI
         return vehiclesInSystem;
     }
