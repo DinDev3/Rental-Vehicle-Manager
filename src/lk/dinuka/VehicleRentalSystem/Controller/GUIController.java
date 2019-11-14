@@ -1,11 +1,14 @@
 package lk.dinuka.VehicleRentalSystem.Controller;
 
-import lk.dinuka.VehicleRentalSystem.Model.Date;
 import lk.dinuka.VehicleRentalSystem.Model.Schedule;
 import lk.dinuka.VehicleRentalSystem.Model.Vehicle;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
+import java.util.ArrayList;
+
+import static lk.dinuka.VehicleRentalSystem.Controller.WestminsterRentalVehicleManager.bookedVehicleDates;
+import static lk.dinuka.VehicleRentalSystem.Controller.WestminsterRentalVehicleManager.bookedVehicles;
 
 public class GUIController {
 
@@ -27,15 +30,28 @@ public class GUIController {
                     yearDropOffInput, monthDropOffInput, dayDropOffInput);
 
 
-            WestminsterRentalVehicleManager.bookedVehicles.put(chosenVeh.getPlateNo(), newBooking);       //adding booked vehicle to bookedVehicles HashMap
+            if (!bookedVehicleDates.isEmpty()) {
+                bookedVehicleDates = bookedVehicles.get(chosenVeh.getPlateNo());            //getting available bookings into temporary list
+            }
+            bookedVehicleDates.add(newBooking);     //adding the newly booked dates to the list of bookings.
+
+            WestminsterRentalVehicleManager.bookedVehicles.put(chosenVeh.getPlateNo(), (ArrayList) bookedVehicleDates);       //adding all booked vehicles to bookedVehicles HashMap
+
+
+
 
             //add this booking to database
 
+
             System.out.println(WestminsterRentalVehicleManager.bookedVehicles);         //checking whether required booking was entered into the system
-        }else{
+        } else {
             //vehicle isn't available to be book
         }
     }
+
+
+    //``````~~~~~~~~~~~~~~~~~~~``````
+
 
     public static boolean checkAvailabilityOfVeh(Vehicle chosenVeh, int yearPickUpInput, int monthPickUpInput, int dayPickUpInput,
                                                  int yearDropOffInput, int monthDropOffInput, int dayDropOffInput) {
@@ -45,31 +61,49 @@ public class GUIController {
                 yearDropOffInput, monthDropOffInput, dayDropOffInput);
 
 
-        if (!WestminsterRentalVehicleManager.bookedVehicles.containsKey(chosenVeh.getPlateNo())) {
+        String plateNoOfChosen = chosenVeh.getPlateNo();        //The plate number of the chosen vehicle
+
+        if (!WestminsterRentalVehicleManager.bookedVehicles.containsKey(plateNoOfChosen)) {
             return true;        //vehicle is not booked
         } else {
-            boolean checkPickUpBefore = LocalDate.from(newBooking.getPickUp()).isBefore(        //pick up before booked pickup
-                    WestminsterRentalVehicleManager.bookedVehicles.get(chosenVeh.getPlateNo()).getPickUp());
-            boolean checkDropOffBefore = LocalDate.from(newBooking.getDropOff()).isBefore(      //drop off before booked pick up
-                    WestminsterRentalVehicleManager.bookedVehicles.get(chosenVeh.getPlateNo()).getDropOff());
 
-            boolean checkPickUpAfter = LocalDate.from(newBooking.getDropOff()).isAfter(                //pick up after booked drop off
-                    WestminsterRentalVehicleManager.bookedVehicles.get(chosenVeh.getPlateNo()).getDropOff());
-            boolean checkDropOffAfter = LocalDate.from(newBooking.getDropOff()).isAfter(                 //drop off after booked drop off
-                    WestminsterRentalVehicleManager.bookedVehicles.get(chosenVeh.getPlateNo()).getDropOff());
+            int totalBookings = bookedVehicles.get(plateNoOfChosen).size();
+            int passedChecks = 0;
 
-            if ((checkPickUpBefore && checkDropOffBefore) || (checkPickUpAfter && checkDropOffAfter)) {
-                // if both pick up and drop off are either before the booked pick up date or after the booked drop off date
-                // vehicle is available for requested period
+            for (int i = 0; i < totalBookings; i++) {
 
-                return true;
+                boolean checkPickUpBefore = LocalDate.from(newBooking.getPickUp()).isBefore(        //pick up before booked pickup
+                        bookedVehicleDates.get(i).getPickUp());
+                boolean checkDropOffBefore = LocalDate.from(newBooking.getDropOff()).isBefore(      //drop off before booked pick up
+                        bookedVehicleDates.get(i).getPickUp());
 
-            } else {
-                return false;
+                boolean checkPickUpAfter = LocalDate.from(newBooking.getPickUp()).isAfter(                //pick up after booked drop off
+                        bookedVehicleDates.get(i).getDropOff());
+                boolean checkDropOffAfter = LocalDate.from(newBooking.getDropOff()).isAfter(                 //drop off after booked drop off
+                        bookedVehicleDates.get(i).getDropOff());
+
+
+                if ((checkPickUpBefore && checkDropOffBefore) || (checkPickUpAfter && checkDropOffAfter)) {
+                    // if both requested pick up and drop off are either before the booked pick up date or after the
+                    // booked drop off date, the vehicle is available for requested period
+
+                    passedChecks += 1;
+
+                }
+                //if false for at least one, can't book
             }
-        }
 
-//        return false;
+            //-------------------
+
+//            if (totalBookings>0){
+//                return passedChecks == totalBookings;            //if all the bookings don't interfere with the requested time -> true
+//
+//            } else{
+//                return true;
+            //since this else block will run only if there has been at least one previous entry, the above verification isn't required
+            return passedChecks == totalBookings;            //if all the bookings don't interfere with the requested time -> true
+
+        }
     }
 
 
@@ -85,5 +119,22 @@ public class GUIController {
         }
         return totalCost;
     }
+
+
+//    private static LocalDate findPickUp(String searchedPlateNo, Schedule newBooking) {
+//
+//
+////        bookedVehicleDates = WestminsterRentalVehicleManager.bookedVehicles.get(searchedPlateNo);
+////
+////        for (Schedule searchSchedule : bookedVehicleDates) {
+////            if (searchSchedule.getPickUp().equals(newBooking)) {
+////                return searchSchedule.getPickUp();
+////            }
+////        }
+//
+//
+//        return null;
+//    }
+
 
 }
