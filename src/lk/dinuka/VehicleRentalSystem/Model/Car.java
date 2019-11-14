@@ -8,8 +8,8 @@ public class Car extends Vehicle {
     private String transmission;
     private boolean hasAirCon;
 
-    public Car(String plateNo, String make, String model, boolean availability, String engineCapacity, BigDecimal dailyCost, String type, String transmission, boolean hasAirCon) {
-        super(plateNo, make, model, availability, engineCapacity, dailyCost, type);
+    public Car(String plateNo, String make, String model, String engineCapacity, BigDecimal dailyCost, String type, String transmission, boolean hasAirCon) {
+        super(plateNo, make, model, engineCapacity, dailyCost, type);
         this.transmission = transmission;                 //making sure that this extra info is added when creating a new Car object
         this.hasAirCon = hasAirCon;
     }

@@ -7,18 +7,16 @@ public abstract class Vehicle implements Comparable<Vehicle> {
     private String plateNo;
     private String make;
     private String model;
-    private boolean availability;
     private String engineCapacity;
     private BigDecimal dailyCost;
     private String type;
 
     public static int count = 0;
 
-    public Vehicle(String plateNo, String make, String model, boolean availability, String engineCapacity, BigDecimal dailyCost, String type) {
+    public Vehicle(String plateNo, String make, String model, String engineCapacity, BigDecimal dailyCost, String type) {
         this.plateNo = plateNo;
         this.make = make;
         this.model = model;
-        this.availability = availability;
         this.engineCapacity = engineCapacity;
         this.dailyCost = dailyCost;
         this.type = type;
@@ -32,10 +30,10 @@ public abstract class Vehicle implements Comparable<Vehicle> {
                 "plateNo='" + plateNo + '\'' +
                 ", make='" + make + '\'' +
                 ", model='" + model + '\'' +
-                ", availability=" + availability +
                 ", engineCapacity='" + engineCapacity + '\'' +
                 ", dailyCost=" + dailyCost +
-                ", type='" + type + '\'' ;
+                ", type='" + type + '\'' +
+                '}';
     }
 
     public static int getCount() {
@@ -52,10 +50,6 @@ public abstract class Vehicle implements Comparable<Vehicle> {
 
     public String getModel() {
         return model;
-    }
-
-    public boolean isAvailability() {
-        return availability;
     }
 
     public String getEngineCapacity() {
@@ -76,8 +70,7 @@ public abstract class Vehicle implements Comparable<Vehicle> {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Vehicle vehicle = (Vehicle) o;
-        return availability == vehicle.availability &&
-                Objects.equals(plateNo, vehicle.plateNo) &&
+        return Objects.equals(plateNo, vehicle.plateNo) &&
                 Objects.equals(make, vehicle.make) &&
                 Objects.equals(model, vehicle.model) &&
                 Objects.equals(engineCapacity, vehicle.engineCapacity) &&
@@ -87,7 +80,7 @@ public abstract class Vehicle implements Comparable<Vehicle> {
 
     @Override
     public int hashCode() {
-        return Objects.hash(plateNo, make, model, availability, engineCapacity, dailyCost, type);
+        return Objects.hash(plateNo, make, model, engineCapacity, dailyCost, type);
     }
 
     @Override

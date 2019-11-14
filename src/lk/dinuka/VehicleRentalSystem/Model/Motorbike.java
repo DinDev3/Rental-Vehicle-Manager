@@ -8,8 +8,8 @@ public class Motorbike extends Vehicle {
     private String startType;
     private double wheelSize;
 
-    public Motorbike(String plateNo, String make, String model, boolean availability, String engineCapacity, BigDecimal dailyCost, String type, String startType, double wheelSize) {
-        super(plateNo, make, model, availability, engineCapacity, dailyCost,type);
+    public Motorbike(String plateNo, String make, String model, String engineCapacity, BigDecimal dailyCost, String type, String startType, double wheelSize) {
+        super(plateNo, make, model, engineCapacity, dailyCost,type);
         this.startType = startType;                 //making sure that this extra info is added when creating a new Motorbike object
         this.wheelSize = wheelSize;
     }

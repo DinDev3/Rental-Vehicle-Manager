@@ -22,7 +22,6 @@ public class WestminsterRentalVehicleManager implements RentalVehicleManager {
     private static String plateNo;
     private static String make;
     private static String model;
-    private static boolean availability;
     private static Schedule schedule;           //used in GUI controller, when booking is made??? (Java/ Angular??)
     private static String engineCapacity;
     private static double dailyCostD;
@@ -62,7 +61,6 @@ public class WestminsterRentalVehicleManager implements RentalVehicleManager {
                 //print information of vehicle
                 System.out.println("Make: " + allVehicles.get(plateNo).getMake());
                 System.out.println("Model: " + allVehicles.get(plateNo).getModel());
-                System.out.println("Availability: " + allVehicles.get(plateNo).isAvailability());
                 System.out.println("Engine Capacity: " + allVehicles.get(plateNo).getEngineCapacity());
                 System.out.println("Daily Cost: " + allVehicles.get(plateNo).getDailyCost());
                 System.out.println("Type: " + allVehicles.get(plateNo).getType());
@@ -239,13 +237,13 @@ public class WestminsterRentalVehicleManager implements RentalVehicleManager {
             hasAirCon = yesOrNo();
 
 
-            Vehicle newCar = new Car(plateNo, make, model, availability, engineCapacity, dailyCostBigD, type, transmission, hasAirCon);
+            Vehicle newCar = new Car(plateNo, make, model, engineCapacity, dailyCostBigD, type, transmission, hasAirCon);
 
             allVehicles.put(plateNo, newCar);           //adding a car into the allVehicles hashMap
             vehiclesInSystem.add(newCar);
 
             //adding new Car to noSQL database
-            DatabaseController.addToSystemDB(plateNo, make, model, availability, engineCapacity, dailyCostD, type, transmission, hasAirCon);
+            DatabaseController.addToSystemDB(plateNo, make, model, engineCapacity, dailyCostD, type, transmission, hasAirCon);
 
             System.out.println(newCar);        //displaying added vehicle
 
@@ -265,13 +263,13 @@ public class WestminsterRentalVehicleManager implements RentalVehicleManager {
             scanInput.nextLine();           //to consume the rest of the line
 
 
-            Vehicle newBike = new Motorbike(plateNo, make, model, availability, engineCapacity, dailyCostBigD, type, startType, wheelSize);
+            Vehicle newBike = new Motorbike(plateNo, make, model, engineCapacity, dailyCostBigD, type, startType, wheelSize);
 
             allVehicles.put(plateNo, newBike);           //adding a motorbike into the allVehicles hashMap
             vehiclesInSystem.add(newBike);
 
             //adding new Bike to noSQL database
-            DatabaseController.addToSystemDB(plateNo, make, model, availability, engineCapacity, dailyCostD, type, startType, wheelSize);
+            DatabaseController.addToSystemDB(plateNo, make, model, engineCapacity, dailyCostD, type, startType, wheelSize);
 
             System.out.println(newBike);        //displaying added vehicle
         }
@@ -295,7 +293,6 @@ public class WestminsterRentalVehicleManager implements RentalVehicleManager {
         System.out.print(">");
         model = scanInput.nextLine();
 
-        availability = true;        //availability is set to true when vehicle data is entered to the system;
 
         System.out.println("\nEnter Engine Capacity:");
         System.out.print(">");

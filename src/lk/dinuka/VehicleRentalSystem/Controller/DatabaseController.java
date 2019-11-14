@@ -15,7 +15,7 @@ public class DatabaseController {
 
     //have another add method to add booked vehicles!!!!!!!!! (If not done through Angular)
 
-    public static void addToSystemDB(String plateNo, String make, String model, boolean availability, String engineCapacity, double dailyCost, String type, String startType, double wheelSize) {
+    public static void addToSystemDB(String plateNo, String make, String model, String engineCapacity, double dailyCost, String type, String startType, double wheelSize) {
         //Adding a Motorbike to the Collection
 
         MongoClientURI uri = new MongoClientURI(
@@ -30,7 +30,6 @@ public class DatabaseController {
         Document newItem = new Document("Plate No", plateNo)
                 .append("Make", make)
                 .append("Model", model)
-                .append("Availability", availability)
                 .append("Engine Capacity", engineCapacity)
                 .append("Daily Cost", dailyCost)
                 .append("Type", type)
@@ -42,7 +41,7 @@ public class DatabaseController {
     }
 
 
-    public static void addToSystemDB(String plateNo, String make, String model, boolean availability, String engineCapacity, double dailyCost, String type, String transmission, boolean hasAirCon) {
+    public static void addToSystemDB(String plateNo, String make, String model, String engineCapacity, double dailyCost, String type, String transmission, boolean hasAirCon) {
         //Adding a car to the Collection
 
         MongoClientURI uri = new MongoClientURI(
@@ -57,7 +56,6 @@ public class DatabaseController {
         Document newItem = new Document("Plate No", plateNo)
                 .append("Make", make)
                 .append("Model", model)
-                .append("Availability", availability)
                 .append("Engine Capacity", engineCapacity)
                 .append("Daily Cost", dailyCost)
                 .append("Type", type)
@@ -98,7 +96,6 @@ public class DatabaseController {
             String plateNo = (String)selectedDoc.get("Plate No");
             String make = (String) selectedDoc.get("Make");
             String model = (String) selectedDoc.get("Model");
-            boolean availability =  (boolean)selectedDoc.get("Availability");
             String engineCapacity = (String) selectedDoc.get("Engine Capacity");
             double dailyCostD = (double) selectedDoc.get("Daily Cost");
             String type = (String) selectedDoc.get("Type");
@@ -110,7 +107,7 @@ public class DatabaseController {
                 String transmission = (String) selectedDoc.get("Transmission");
                 boolean hasAirCon = (boolean) selectedDoc.get("Air Con");
 
-                Vehicle storedCar = new Car(plateNo,make,model,availability,engineCapacity,dailyCostBigD,type,transmission,hasAirCon);
+                Vehicle storedCar = new Car(plateNo,make,model,engineCapacity,dailyCostBigD,type,transmission,hasAirCon);
                 WestminsterRentalVehicleManager.allVehicles.put(plateNo,storedCar);
                 WestminsterRentalVehicleManager.vehiclesInSystem.add(storedCar);
 //                System.out.println(storedCar);            //to check whether Car was added
@@ -119,16 +116,11 @@ public class DatabaseController {
                 String startType = (String) selectedDoc.get("Start Type");
                 double wheelSize = (double) selectedDoc.get("Wheel Size");
 
-                Vehicle storedBike = new Motorbike(plateNo,make,model,availability,engineCapacity,dailyCostBigD,type,startType,wheelSize);
+                Vehicle storedBike = new Motorbike(plateNo,make,model,engineCapacity,dailyCostBigD,type,startType,wheelSize);
                 WestminsterRentalVehicleManager.allVehicles.put(plateNo,storedBike);
                 WestminsterRentalVehicleManager.vehiclesInSystem.add(storedBike);
 //                System.out.println(storedBike);            //to check whether Motorbike was added
             }
-
-
-
-            //importing from BookedVehicles collection (For bookedVehicles HashMap)
-
 
         }
 

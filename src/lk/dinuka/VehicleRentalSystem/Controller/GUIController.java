@@ -13,15 +13,12 @@ import static lk.dinuka.VehicleRentalSystem.Controller.WestminsterRentalVehicleM
 
 public class GUIController {
 
-    //can keep bookedVehicleDates in GUIController as it'll be re-newed all the time.
-    //Only used to store the dates into the bookedVehicles hashmap
-
-
     public static void createBooking(Vehicle chosenVeh, int yearPickUpInput, int monthPickUpInput, int dayPickUpInput,
                                      int yearDropOffInput, int monthDropOffInput, int dayDropOffInput) {
         //used to create a booking as required and add booking info into the system
 
         List<Schedule> bookedVehicleDates = new ArrayList<>();     //used to record pick up & drop off dates of a vehicle
+        //Only used to store the dates into the bookedVehicles HashMap
 
         boolean availability = checkAvailabilityOfVeh(chosenVeh, yearPickUpInput, monthPickUpInput,
                 dayPickUpInput, yearDropOffInput, monthDropOffInput, dayDropOffInput);   //checking whether vehicle is available for booking
@@ -77,6 +74,7 @@ public class GUIController {
 
             List<Schedule> bookedVehicleDates = new ArrayList<>();     //used to record pick up & drop off dates of a vehicle
             bookedVehicleDates = bookedVehicles.get(chosenVeh.getPlateNo());            //getting recorded bookings into temporary list
+            //Only used to get each of the dates from the bookedVehicles HashMap Values
 
 
             int totalBookings = bookedVehicles.get(plateNoOfChosen).size();
