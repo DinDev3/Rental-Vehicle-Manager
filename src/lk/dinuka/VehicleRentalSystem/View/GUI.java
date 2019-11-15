@@ -10,6 +10,7 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
+import lk.dinuka.VehicleRentalSystem.Controller.DatabaseController;
 import lk.dinuka.VehicleRentalSystem.Controller.GUIController;
 import lk.dinuka.VehicleRentalSystem.Controller.WestminsterRentalVehicleManager;
 import lk.dinuka.VehicleRentalSystem.Model.*;
@@ -351,6 +352,12 @@ public class GUI extends Application {
                 if (booked){
                     bookStatusText.setText("Booked vehicle with Plate No: "+chosenVeh.getPlateNo()+" from "+
                             newBooking.getPickUp()+" to "+newBooking.getDropOff());
+
+
+                    //addToBookedDB here
+                    DatabaseController.addToBookedDB(chosenVeh.getPlateNo(),yearPickUpInput,monthPickUpInput,dayPickUpInput,
+                            yearDropOffInput,monthDropOffInput,dayDropOffInput);
+
 
                     displayTotalCost.setText("Total Cost: Rs."+GUIController.getCalculatedRent(chosenVeh.getDailyCost(),newBooking));
                 }

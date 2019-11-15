@@ -6,14 +6,14 @@ import com.mongodb.client.MongoDatabase;
 import com.mongodb.client.model.Filters;
 import lk.dinuka.VehicleRentalSystem.Model.Car;
 import lk.dinuka.VehicleRentalSystem.Model.Motorbike;
+import lk.dinuka.VehicleRentalSystem.Model.Schedule;
 import lk.dinuka.VehicleRentalSystem.Model.Vehicle;
 import org.bson.Document;
 
 import java.math.BigDecimal;
+import java.util.ArrayList;
 
 public class DatabaseController {
-
-    //have another add method to add booked vehicles!!!!!!!!! (If not done through Angular)
 
     public static void addToSystemDB(String plateNo, String make, String model, String engineCapacity, double dailyCost, String type, String startType, double wheelSize) {
         //Adding a Motorbike to the Collection
@@ -27,7 +27,7 @@ public class DatabaseController {
         MongoCollection<Document> collection = database.getCollection("VehiclesInSystem");
 
         //create a document
-        Document newItem = new Document("Plate No", plateNo)
+        Document newVehicle = new Document("Plate No", plateNo)
                 .append("Make", make)
                 .append("Model", model)
                 .append("Engine Capacity", engineCapacity)
@@ -37,7 +37,7 @@ public class DatabaseController {
                 .append("Wheel Size", wheelSize);
 
         //insert the document
-        collection.insertOne(newItem);
+        collection.insertOne(newVehicle);
     }
 
 
@@ -53,7 +53,7 @@ public class DatabaseController {
         MongoCollection<Document> collection = database.getCollection("VehiclesInSystem");
 
         //create a document
-        Document newItem = new Document("Plate No", plateNo)
+        Document newVehicle = new Document("Plate No", plateNo)
                 .append("Make", make)
                 .append("Model", model)
                 .append("Engine Capacity", engineCapacity)
@@ -63,7 +63,7 @@ public class DatabaseController {
                 .append("Air Con", hasAirCon);
 
         //insert the document
-        collection.insertOne(newItem);
+        collection.insertOne(newVehicle);
     }
 
 
@@ -128,6 +128,42 @@ public class DatabaseController {
         //================
         //importing from BookedVehicles collection (For bookedVehicles HashMap)
 
+        MongoCollection<Document> bookedCollection = database.getCollection("BookedVehicles");
+
+
+        for(Document selectedDoc : bookedCollection.find()){
+            String plateNo = (String)selectedDoc.get("Plate No");
+
+            Document pickUpObject = (Document) selectedDoc.get("pick up");
+            Document dropOffObject = (Document) selectedDoc.get("drop off");
+
+
+            //breaking down date document to create date using Schedule constructor
+            //pick up date
+            int yearUp = pickUpObject.getInteger("year");
+            int monthUp = pickUpObject.getInteger("month");
+            int dayUp = pickUpObject.getInteger("day");
+            //drop off date
+            int yearDown = dropOffObject.getInteger("year");
+            int monthDown = dropOffObject.getInteger("month");
+            int dayDown = dropOffObject.getInteger("day");
+
+
+            Schedule bookedSchedule = new Schedule(yearUp,monthUp,dayUp,yearDown,monthDown,dayDown);
+
+
+            if (WestminsterRentalVehicleManager.bookedVehicles.containsKey(plateNo)){
+                ArrayList bookedDates = WestminsterRentalVehicleManager.bookedVehicles.get(plateNo);
+                bookedDates.add(bookedSchedule);
+                WestminsterRentalVehicleManager.bookedVehicles.put(plateNo,bookedDates);
+            }else{
+
+                ArrayList bookedDate = new ArrayList();
+                bookedDate.add(bookedSchedule);
+                WestminsterRentalVehicleManager.bookedVehicles.put(plateNo,bookedDate);
+            }
+
+        }
 
 
     }
@@ -142,8 +178,10 @@ public class DatabaseController {
         //Access collection
         MongoCollection<Document> collection = database.getCollection("BookedVehicles");
 
+        //if already existing, delete document and add new document------------
+
         //create a document
-        Document newItem = new Document("Plate No", plateNo)
+        Document newSchedule = new Document("Plate No", plateNo)
                 .append("pick up", new Document("year", yearUp)            //document inside document
                         .append("month", monthUp)
                         .append("day", dayUp))
@@ -152,7 +190,7 @@ public class DatabaseController {
                         .append("day", dayDown));
 
         //insert the document
-        collection.insertOne(newItem);
+        collection.insertOne(newSchedule);
 
     }
 }

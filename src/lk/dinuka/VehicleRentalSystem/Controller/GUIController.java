@@ -30,19 +30,12 @@ public class GUIController {
         if (availability) {
             System.out.println("Vehicle is available for booking");
 
-//            Schedule newBooking = new Schedule(yearPickUpInput, monthPickUpInput, dayPickUpInput,
-//                    yearDropOffInput, monthDropOffInput, dayDropOffInput);
-
             if (bookedVehicles.containsKey(chosenVeh.getPlateNo())) {
                 bookedVehicleDates = bookedVehicles.get(chosenVeh.getPlateNo());            //getting recorded bookings into temporary list
             }
             bookedVehicleDates.add(newBooking);     //adding the newly booked dates to the list of bookings.
 
             WestminsterRentalVehicleManager.bookedVehicles.put(chosenVeh.getPlateNo(), (ArrayList) bookedVehicleDates);       //adding all booked vehicles to bookedVehicles HashMap
-
-
-            //add this booking to database
-
 
             System.out.println(WestminsterRentalVehicleManager.bookedVehicles);         //checking whether required booking was entered into the system
             return true;
@@ -59,10 +52,6 @@ public class GUIController {
 
     public static boolean checkAvailabilityOfVeh(Vehicle chosenVeh, Schedule newBooking ) {
         //used to check for the availability of a chosen vehicle
-
-//        Schedule newBooking = new Schedule(yearPickUpInput, monthPickUpInput, dayPickUpInput,       //creating new Schedule to check
-//                yearDropOffInput, monthDropOffInput, dayDropOffInput);
-//
 
         String plateNoOfChosen = chosenVeh.getPlateNo();        //The plate number of the chosen vehicle
 
@@ -129,22 +118,5 @@ public class GUIController {
         }
         return totalCost;
     }
-
-
-//    private static LocalDate findPickUp(String searchedPlateNo, Schedule newBooking) {
-//
-//
-////        bookedVehicleDates = WestminsterRentalVehicleManager.bookedVehicles.get(searchedPlateNo);
-////
-////        for (Schedule searchSchedule : bookedVehicleDates) {
-////            if (searchSchedule.getPickUp().equals(newBooking)) {
-////                return searchSchedule.getPickUp();
-////            }
-////        }
-//
-//
-//        return null;
-//    }
-
 
 }
