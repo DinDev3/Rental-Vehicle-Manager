@@ -3,6 +3,9 @@ package lk.dinuka.VehicleRentalSystem.Controller;
 import lk.dinuka.VehicleRentalSystem.Model.*;
 import lk.dinuka.VehicleRentalSystem.View.GUI;
 
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.math.BigDecimal;
 import java.util.*;
 
@@ -22,7 +25,6 @@ public class WestminsterRentalVehicleManager implements RentalVehicleManager {
     private static String plateNo;
     private static String make;
     private static String model;
-    private static Schedule schedule;           //used in GUI controller, when booking is made??? (Java/ Angular??)
     private static String engineCapacity;
     private static double dailyCostD;
     private static BigDecimal dailyCostBigD;
@@ -56,23 +58,9 @@ public class WestminsterRentalVehicleManager implements RentalVehicleManager {
                 System.out.println("This Plate No exists in the system.");
                 System.out.println();           //to keep space for clarity
 
-                replaceVeh =false;
+                replaceVeh = false;
 
-                //print information of vehicle
-                System.out.println("Make: " + allVehicles.get(plateNo).getMake());
-                System.out.println("Model: " + allVehicles.get(plateNo).getModel());
-                System.out.println("Engine Capacity: " + allVehicles.get(plateNo).getEngineCapacity());
-                System.out.println("Daily Cost: " + allVehicles.get(plateNo).getDailyCost());
-                System.out.println("Type: " + allVehicles.get(plateNo).getType());
-
-                if (allVehicles.get(plateNo) instanceof Car) {
-                    System.out.println("Transmission: " + ((Car) allVehicles.get(plateNo)).getTransmission());
-                    System.out.println("Has Air Conditioning: " + ((Car) allVehicles.get(plateNo)).isHasAirCon());
-                } else {
-                    System.out.println("Start Type: " + ((Motorbike) allVehicles.get(plateNo)).getStartType());
-                    System.out.println("Wheel Size: " + ((Motorbike) allVehicles.get(plateNo)).getWheelSize());
-                }
-
+                printListForEdit();         //display information of vehicle
 
                 System.out.println();           //to keep space for clarity
                 System.out.println("Do u want to edit information related to this vehicle?");
@@ -111,7 +99,7 @@ public class WestminsterRentalVehicleManager implements RentalVehicleManager {
         String searchNo = scanInput.nextLine();
 
         if (allVehicles.containsKey(searchNo)) {
-            Vehicle vehicleToBeDeleted = findVehicle(searchNo);
+            Vehicle vehicleToBeDeleted = allVehicles.get(searchNo);
 
             type = vehicleToBeDeleted.getType();
 
@@ -163,48 +151,43 @@ public class WestminsterRentalVehicleManager implements RentalVehicleManager {
     public void save() {        //saves the information of vehicles entered into the system
 
         //Rewrite the file every time a change is made.
-//        try {       //creating the file
-//            File myFile = new File("allVehicles.txt");
-//            myFile.createNewFile();
-//
-////                System.out.println("\nFile created: " + myFile.getName());
-//            FileWriter soldFile = new FileWriter("allVehicles.txt", true);
-//
-//
-//            //Add specialized information as well!!!!!!!!!!!!!!!!!
-//
-//
-//            soldFile.write(String.format("+-----------------+---------------+--------------+--------------+----------------+---------------+-----------+--------------+--------+------------+------------+%n"));
-//            soldFile.write(String.format("|   Plate ID      |   Make        |   Model      | Availability | Engine Capacity| Daily Cost($) |   Type    | transmission | AirCon | Start type | Wheel Size |%n"));
-//            soldFile.write(String.format("+-----------------+---------------+--------------+--------------+----------------+---------------+-----------+--------------+--------+------------+------------+%n"));
-////                soldFile.write(System.getProperty("line.separator"));       //line break
-//
-//
-//            String leftAlignFormat2 = "| %-15s | %-13s | %-12s | %-12s | %-14s | %-13s | %-9s | %-12s | %-6s | %-10s | %-10s |%n";
-//
-//
-//            //writing into the file
-//            for (Vehicle item : vehiclesInSystem) {
-//
-//                if (item.isAvailability()){     //if availability == true
-//                    String avail = "yes";
-//                } else{
-//                    String avail = "no";
-//                }
-//
-//
-////                soldFile.write(String.format());      get availability as a String(use if, else)
-//                soldFile.write(System.getProperty("line.separator"));       //line break
-//
-//            }
-//
-//            soldFile.close();
-//
-//        } catch (IOException e) {
-//            System.out.println("\nAn error occurred.");
-//            e.printStackTrace();
-//        }
+        try {       //creating the file
+            File myFile = new File("allVehicles.txt");
+            myFile.createNewFile();
 
+//                System.out.println("\nFile created: " + myFile.getName());
+            FileWriter soldFile = new FileWriter("allVehicles.txt", true);
+
+
+            soldFile.write(String.format("+-----------------+---------------+--------------+----------------+---------------+-----------+--------------+--------+------------+------------+%n"));
+            soldFile.write(String.format("|   Plate ID      |   Make        |   Model      | Engine Capacity| Daily Cost($) |   Type    | transmission | AirCon | Start type | Wheel Size |%n"));
+            soldFile.write(String.format("+-----------------+---------------+--------------+----------------+---------------+-----------+--------------+--------+------------+------------+%n"));
+//                soldFile.write(System.getProperty("line.separator"));       //line break
+
+
+            String leftAlignFormat2 = "| %-15s | %-13s | %-12s | %-14s | %-13s | %-9s | %-12s | %-6s | %-10s | %-10s |%n";
+
+
+            //writing into the file
+            for (Vehicle veh : vehiclesInSystem) {
+                if (veh instanceof Motorbike) {
+                    soldFile.write(String.format(leftAlignFormat2, veh.getPlateNo(), veh.getMake(), veh.getModel(), veh.getEngineCapacity(),
+                            veh.getDailyCost(), veh.getType(),"       -      ","    -   ",((Motorbike) veh).getStartType(),((Motorbike) veh).getWheelSize()));
+                }
+                else {
+                    soldFile.write(String.format(leftAlignFormat2, veh.getPlateNo(), veh.getMake(), veh.getModel(), veh.getEngineCapacity(),
+                            veh.getDailyCost(), veh.getType(),((Car) veh).getTransmission(),((Car) veh).isHasAirCon(),"      -     ","      -     "));
+                }
+                soldFile.write(System.getProperty("line.separator"));       //line break
+
+            }
+
+            soldFile.close();
+
+        } catch (IOException e) {
+            System.out.println("\nAn error occurred.");
+            e.printStackTrace();
+        }
     }
 
     @Override
@@ -311,6 +294,24 @@ public class WestminsterRentalVehicleManager implements RentalVehicleManager {
     }
 
 
+    public static void printListForEdit() {
+        //print information of vehicle when asked whether to edit
+        System.out.println("Make: " + allVehicles.get(plateNo).getMake());
+        System.out.println("Model: " + allVehicles.get(plateNo).getModel());
+        System.out.println("Engine Capacity: " + allVehicles.get(plateNo).getEngineCapacity());
+        System.out.println("Daily Cost: " + allVehicles.get(plateNo).getDailyCost());
+        System.out.println("Type: " + allVehicles.get(plateNo).getType());
+
+        if (allVehicles.get(plateNo) instanceof Car) {
+            System.out.println("Transmission: " + ((Car) allVehicles.get(plateNo)).getTransmission());
+            System.out.println("Has Air Conditioning: " + ((Car) allVehicles.get(plateNo)).isHasAirCon());
+        } else {
+            System.out.println("Start Type: " + ((Motorbike) allVehicles.get(plateNo)).getStartType());
+            System.out.println("Wheel Size: " + ((Motorbike) allVehicles.get(plateNo)).getWheelSize());
+        }
+    }
+
+
     private static boolean yesOrNo() {           //gets yes/ no input
 
         while (!scanInput.hasNextBoolean()) {                                            //check whether this works as expected!!!!!!!!!!!
@@ -343,19 +344,6 @@ public class WestminsterRentalVehicleManager implements RentalVehicleManager {
             scanInput.next();                                                     //removing incorrect input entered
         }
     }
-
-
-    public static Vehicle findVehicle(String searchPlateNo) {          //used to search for vehicle in GUI and when deleting vehicle
-
-        return allVehicles.get(searchPlateNo);                  //only this line is enough! A method isn't required for this!!!
-//        for (Vehicle searchItem : vehiclesInSystem) {
-//            if (searchItem.getPlateNo().equals(searchPlateNo)) {
-//                return searchItem;
-//            }
-//        }
-//        return null;
-    }
-
 
 
 }
