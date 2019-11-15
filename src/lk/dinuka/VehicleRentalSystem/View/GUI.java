@@ -162,9 +162,11 @@ public class GUI extends Application {
 
         Button bookOnClick = new Button("Book");
 
+        Text checkBookedStatus = new Text();
         Text bookStatusText = new Text();
+        Text displayTotalCost = new Text();
 
-        bookingSection.getChildren().addAll(allDates,bookOnClick,bookStatusText);
+        bookingSection.getChildren().addAll(allDates,bookOnClick,checkBookedStatus,bookStatusText,displayTotalCost);
 
         //---------------------------------------------------
 
@@ -297,13 +299,18 @@ public class GUI extends Application {
 
                 System.out.println(chosenVeh);      //to check whether expected vehicle was chosen
 
-                boolean availability = GUIController.checkAvailabilityOfVeh(chosenVeh,yearPickUpInput,monthPickUpInput,
-                        dayPickUpInput, yearDropOffInput,monthDropOffInput,dayDropOffInput);
+                Schedule newBooking = new Schedule(yearPickUpInput,monthPickUpInput,dayPickUpInput,
+                        yearDropOffInput,monthDropOffInput,dayDropOffInput);
+
+                boolean availability = GUIController.checkAvailabilityOfVeh(chosenVeh, newBooking);
 
                 if (availability){  //vehicle available
 //                    System.out.println("Vehicle is available for booking.");
+                    checkBookedStatus.setText(chosenVeh.getPlateNo()+" is available for booking.");
+
                 } else{
 //                    System.out.println("Vehicle isn't available for booking during requested time period.");
+                    checkBookedStatus.setText(chosenVeh.getPlateNo()+" isn't available for booking during requested time period.");
                 }
             }
         });
@@ -336,9 +343,17 @@ public class GUI extends Application {
                 //down-casted from Object type to Vehicle type
                 System.out.println(chosenVeh);      //to check whether expected vehicle was chosen
 
-                GUIController.createBooking(chosenVeh,yearPickUpInput,monthPickUpInput,dayPickUpInput,
+                Schedule newBooking = new Schedule(yearPickUpInput,monthPickUpInput,dayPickUpInput,
                         yearDropOffInput,monthDropOffInput,dayDropOffInput);
 
+                boolean booked= GUIController.createBooking(chosenVeh, newBooking);
+
+                if (booked){
+                    bookStatusText.setText("Booked vehicle with Plate No: "+chosenVeh.getPlateNo()+" from "+
+                            newBooking.getPickUp()+" to "+newBooking.getDropOff());
+
+                    displayTotalCost.setText("Total Cost: Rs."+GUIController.getCalculatedRent(chosenVeh.getDailyCost(),newBooking));
+                }
 
             }
         });

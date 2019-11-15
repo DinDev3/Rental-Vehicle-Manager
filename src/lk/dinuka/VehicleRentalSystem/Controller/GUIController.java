@@ -5,6 +5,7 @@ import lk.dinuka.VehicleRentalSystem.Model.Vehicle;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
+import java.time.Period;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -13,15 +14,13 @@ import static lk.dinuka.VehicleRentalSystem.Controller.WestminsterRentalVehicleM
 
 public class GUIController {
 
-    public static void createBooking(Vehicle chosenVeh, int yearPickUpInput, int monthPickUpInput, int dayPickUpInput,
-                                     int yearDropOffInput, int monthDropOffInput, int dayDropOffInput) {
+    public static boolean createBooking(Vehicle chosenVeh, Schedule newBooking ) {
         //used to create a booking as required and add booking info into the system
 
         List<Schedule> bookedVehicleDates = new ArrayList<>();     //used to record pick up & drop off dates of a vehicle
         //Only used to store the dates into the bookedVehicles HashMap
 
-        boolean availability = checkAvailabilityOfVeh(chosenVeh, yearPickUpInput, monthPickUpInput,
-                dayPickUpInput, yearDropOffInput, monthDropOffInput, dayDropOffInput);   //checking whether vehicle is available for booking
+        boolean availability = checkAvailabilityOfVeh(chosenVeh, newBooking);   //checking whether vehicle is available for booking
 
 
         System.out.println();
@@ -31,8 +30,8 @@ public class GUIController {
         if (availability) {
             System.out.println("Vehicle is available for booking");
 
-            Schedule newBooking = new Schedule(yearPickUpInput, monthPickUpInput, dayPickUpInput,
-                    yearDropOffInput, monthDropOffInput, dayDropOffInput);
+//            Schedule newBooking = new Schedule(yearPickUpInput, monthPickUpInput, dayPickUpInput,
+//                    yearDropOffInput, monthDropOffInput, dayDropOffInput);
 
             if (bookedVehicles.containsKey(chosenVeh.getPlateNo())) {
                 bookedVehicleDates = bookedVehicles.get(chosenVeh.getPlateNo());            //getting recorded bookings into temporary list
@@ -46,10 +45,11 @@ public class GUIController {
 
 
             System.out.println(WestminsterRentalVehicleManager.bookedVehicles);         //checking whether required booking was entered into the system
-
+            return true;
         } else {
             System.out.println("Vehicle isn't available for booking during the requested time period.");
             //vehicle isn't available to be book
+            return false;
         }
     }
 
@@ -57,13 +57,12 @@ public class GUIController {
     //``````~~~~~~~~~~~~~~~~~~~``````
 
 
-    public static boolean checkAvailabilityOfVeh(Vehicle chosenVeh, int yearPickUpInput, int monthPickUpInput, int dayPickUpInput,
-                                                 int yearDropOffInput, int monthDropOffInput, int dayDropOffInput) {
+    public static boolean checkAvailabilityOfVeh(Vehicle chosenVeh, Schedule newBooking ) {
         //used to check for the availability of a chosen vehicle
 
-        Schedule newBooking = new Schedule(yearPickUpInput, monthPickUpInput, dayPickUpInput,       //creating new Schedule to check
-                yearDropOffInput, monthDropOffInput, dayDropOffInput);
-
+//        Schedule newBooking = new Schedule(yearPickUpInput, monthPickUpInput, dayPickUpInput,       //creating new Schedule to check
+//                yearDropOffInput, monthDropOffInput, dayDropOffInput);
+//
 
         String plateNoOfChosen = chosenVeh.getPlateNo();        //The plate number of the chosen vehicle
 
@@ -117,12 +116,13 @@ public class GUIController {
     }
 
 
-    public static BigDecimal getCalculatedRent(BigDecimal dailyCost) {
+    public static BigDecimal getCalculatedRent(BigDecimal dailyCost, Schedule newBooking) {
 //        have calculation of total cost here
 
         BigDecimal totalCost = BigDecimal.valueOf(0);
-        int noOfDays = 0;
 
+        Period period = Period.between(newBooking.getPickUp(),newBooking.getDropOff());//difference between the number of days
+        int noOfDays = period.getDays();
 
         if (noOfDays > 0) {
             return dailyCost.multiply(BigDecimal.valueOf(noOfDays));    //dailyCost*noOfDays
