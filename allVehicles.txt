@@ -1,1 +1,13 @@
-Vehicle{plateNo='dsf', make='fasdf', model='sdfa', availability=true, engineCapacity='sd3w', dailyCost=243.0, type='Car'}Car{transmission='fwe', hasAirCon=false}Vehicle{plateNo='1', make='efwef', model='wefwe', availability=true, engineCapacity='sdfa', dailyCost=35.0, type='Car'}Car{transmission='dfgs', hasAirCon=true}
++-----------------+---------------+--------------+----------------+---------------+-----------+--------------+--------+------------+------------+
+|   Plate ID      |   Make        |   Model      | Engine Capacity| Daily Cost($) |   Type    | transmission | AirCon | Start type | Wheel Size |
++-----------------+---------------+--------------+----------------+---------------+-----------+--------------+--------+------------+------------+
+| jh              | hb            | hbk          | 87yh           | 879.0         | Car       | uih          | true   |       -      |       -      |
+
+| 1               | 1             | 1            | 1              | 1.0           | Car       | 1            | false  |       -      |       -      |
+
+| 1               | 1             | 1            | 1              | 1.0           | Car       | 1            | true   |       -      |       -      |
+
+| 2dg             | Yamah         | YC300        | 1000           | 29.0          | Motorbike |        -       |     -    | Push       | 60.0       |
+
+| BIK 2525        | Honda         | Cuvic        | 1000           | 50.0          | Motorbike |        -       |     -    | push       | 14.0       |
+

@@ -359,7 +359,7 @@ public class GUI extends Application {
                             yearDropOffInput,monthDropOffInput,dayDropOffInput);
 
 
-                    displayTotalCost.setText("Total Cost: Rs."+GUIController.getCalculatedRent(chosenVeh.getDailyCost(),newBooking));
+                    displayTotalCost.setText("Total Cost: $"+GUIController.getCalculatedRent(chosenVeh.getDailyCost(),newBooking));
                 }
 
             }

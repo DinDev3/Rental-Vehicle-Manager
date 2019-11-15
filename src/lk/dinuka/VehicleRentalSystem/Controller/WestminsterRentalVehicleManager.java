@@ -7,6 +7,10 @@ import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.math.BigDecimal;
+import java.nio.file.DirectoryNotEmptyException;
+import java.nio.file.Files;
+import java.nio.file.NoSuchFileException;
+import java.nio.file.Paths;
 import java.util.*;
 
 public class WestminsterRentalVehicleManager implements RentalVehicleManager {
@@ -77,6 +81,9 @@ public class WestminsterRentalVehicleManager implements RentalVehicleManager {
 
                     addInfo(typeSelection);             //add information related to a Vehicle of identified plateNo.
 
+                    deleteFile();       //deleting existing file
+                    save();     //saving info in file
+
                 } else {
                     System.out.println();       //keeps space and goes back to main menu
                 }
@@ -84,6 +91,7 @@ public class WestminsterRentalVehicleManager implements RentalVehicleManager {
 
                 addInfo(typeSelection);             //add information related to a Vehicle of identified plateNo.
 
+                save();     //saving info in file
             }
 
 
@@ -115,7 +123,7 @@ public class WestminsterRentalVehicleManager implements RentalVehicleManager {
 
             System.out.println("There are " + (MAX_VEHICLES - Vehicle.getCount()) + " parking lots left in the garage.");
 
-//            save();     //save changes to file??
+            save();     //save changes to file
 
         } else {
             System.out.println("There's no item related to the item ID: " + searchNo);
@@ -149,8 +157,10 @@ public class WestminsterRentalVehicleManager implements RentalVehicleManager {
 
     @Override
     public void save() {        //saves the information of vehicles entered into the system
-
         //Rewrite the file every time a change is made.
+
+        deleteFile();       //delete existing file
+
         try {       //creating the file
             File myFile = new File("allVehicles.txt");
             myFile.createNewFile();
@@ -172,11 +182,10 @@ public class WestminsterRentalVehicleManager implements RentalVehicleManager {
             for (Vehicle veh : vehiclesInSystem) {
                 if (veh instanceof Motorbike) {
                     soldFile.write(String.format(leftAlignFormat2, veh.getPlateNo(), veh.getMake(), veh.getModel(), veh.getEngineCapacity(),
-                            veh.getDailyCost(), veh.getType(),"       -      ","    -   ",((Motorbike) veh).getStartType(),((Motorbike) veh).getWheelSize()));
-                }
-                else {
+                            veh.getDailyCost(), veh.getType(), "      -     ", "   -  ", ((Motorbike) veh).getStartType(), ((Motorbike) veh).getWheelSize()));
+                } else {
                     soldFile.write(String.format(leftAlignFormat2, veh.getPlateNo(), veh.getMake(), veh.getModel(), veh.getEngineCapacity(),
-                            veh.getDailyCost(), veh.getType(),((Car) veh).getTransmission(),((Car) veh).isHasAirCon(),"      -     ","      -     "));
+                            veh.getDailyCost(), veh.getType(), ((Car) veh).getTransmission(), ((Car) veh).isHasAirCon(), "     -    ", "     -    "));
                 }
                 soldFile.write(System.getProperty("line.separator"));       //line break
 
@@ -258,9 +267,6 @@ public class WestminsterRentalVehicleManager implements RentalVehicleManager {
         }
 
         System.out.println("\nThere are " + (MAX_VEHICLES - Vehicle.getCount()) + " parking lots left, to park vehicles.");
-
-//            save();     //save changes to file??
-
 
     }
 
@@ -346,6 +352,17 @@ public class WestminsterRentalVehicleManager implements RentalVehicleManager {
     }
 
 
+    private static void deleteFile(){       //deleting file, if exists (When vehicle is added/ deleted/ edited)
+        try {
+            Files.deleteIfExists(Paths.get("C:\\Users\\Dell XPS15\\Documents\\IIT Work\\L5\\OOP\\Coursework 01\\OOP-CW\\allVehicles.txt"));
+        } catch (NoSuchFileException e) {
+            System.out.println("No such file/directory exists");
+        } catch (DirectoryNotEmptyException e) {
+            System.out.println("Directory is not empty.");
+        } catch (IOException e) {
+            System.out.println("Invalid permissions.");
+        }
+    }
 }
 
 

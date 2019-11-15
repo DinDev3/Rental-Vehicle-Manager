@@ -10,7 +10,7 @@ public class ConApp {
     public static void main(String[] args) {
         int chooseOption;
 
-        DatabaseController.importSystemDB();              //importing items saved in database to itemsInStore ArrayList
+        DatabaseController.importSystemDB();              //importing Vehicles and Bookings saved in database
 
         do {
             System.out.println("\n\t\\~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~/");
