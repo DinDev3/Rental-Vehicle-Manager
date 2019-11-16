@@ -156,7 +156,6 @@ public class GUI extends Application {
         dropOffDateSec.getChildren().addAll(dropOffLabel, dayDropOff, monthDropOff, yearDropOff);
 
 
-
         Button availabilityCheck = new Button("Check Availability");
 
         allDates.setSpacing(10.0);
@@ -170,9 +169,10 @@ public class GUI extends Application {
 
 
         VBox buttonsForBooking = new VBox();
-        buttonsForBooking.getChildren().addAll(availabilityCheck,bookOnClick);
+        buttonsForBooking.getChildren().addAll(availabilityCheck, bookOnClick);
+        buttonsForBooking.setSpacing(5.0);
 
-        allDates.getChildren().addAll(pickUpDateSec, dropOffDateSec,buttonsForBooking);
+        allDates.getChildren().addAll(pickUpDateSec, dropOffDateSec, buttonsForBooking);
 
         bookingSection.getChildren().addAll(allDates, checkBookedStatus, bookStatusText, displayTotalCost);
 
@@ -281,36 +281,48 @@ public class GUI extends Application {
             @Override
             public void handle(ActionEvent event) {
 
-                //getting input of pick up date
-                Integer dayPickUpInput = Integer.parseInt(dayPickUp.getText());        //getting day
-                Integer monthPickUpInput = Integer.parseInt(monthPickUp.getText());        //getting month
-                Integer yearPickUpInput = Integer.parseInt(yearPickUp.getText());        //getting year
+                try{
+                    //getting input of pick up date
+                    Integer dayPickUpInput = Integer.parseInt(dayPickUp.getText());        //getting day
+                    Integer monthPickUpInput = Integer.parseInt(monthPickUp.getText());        //getting month
+                    Integer yearPickUpInput = Integer.parseInt(yearPickUp.getText());        //getting year
 
 
-                //getting input of drop off date
-                Integer dayDropOffInput = Integer.parseInt(dayDropOff.getText());        //getting day
-                Integer monthDropOffInput = Integer.parseInt(monthDropOff.getText());        //getting month
-                Integer yearDropOffInput = Integer.parseInt(yearDropOff.getText());        //getting year
+                    //getting input of drop off date
+                    Integer dayDropOffInput = Integer.parseInt(dayDropOff.getText());        //getting day
+                    Integer monthDropOffInput = Integer.parseInt(monthDropOff.getText());        //getting month
+                    Integer yearDropOffInput = Integer.parseInt(yearDropOff.getText());        //getting year
 
 
-                Vehicle chosenVeh = (Vehicle) tableOfVehicles.getSelectionModel().getSelectedItem();        //selected vehicle's information
+                    if (tableOfVehicles.getSelectionModel().getSelectedItem() != null) {
 
-                System.out.println(chosenVeh);      //to check whether expected vehicle was chosen
+                        Vehicle chosenVeh = (Vehicle) tableOfVehicles.getSelectionModel().getSelectedItem();        //selected vehicle's information
 
-                Schedule newBooking = new Schedule(yearPickUpInput, monthPickUpInput, dayPickUpInput,
-                        yearDropOffInput, monthDropOffInput, dayDropOffInput);
+                        System.out.println(chosenVeh);      //to check whether expected vehicle was chosen
 
-                boolean availability = GUIController.checkAvailabilityOfVeh(chosenVeh, newBooking);
+                        Schedule newBooking = new Schedule(yearPickUpInput, monthPickUpInput, dayPickUpInput,
+                                yearDropOffInput, monthDropOffInput, dayDropOffInput);
 
-                if (availability) {  //vehicle available
-                    checkBookedStatus.setFill(Color.BLACK);
+                        boolean availability = GUIController.checkAvailabilityOfVeh(chosenVeh, newBooking);
+
+                        if (availability) {  //vehicle available
+                            checkBookedStatus.setFill(Color.GREEN);
 //                    System.out.println("Vehicle is available for booking.");
-                    checkBookedStatus.setText(chosenVeh.getPlateNo() + " is available for booking.");
+                            checkBookedStatus.setText(chosenVeh.getPlateNo() + " is available for booking.");
 
-                } else {
-                    checkBookedStatus.setFill(Color.RED);
+                        } else {
+                            checkBookedStatus.setFill(Color.RED);
 //                    System.out.println("Vehicle isn't available for booking during requested time period.");
-                    checkBookedStatus.setText(chosenVeh.getPlateNo() + " isn't available for booking during requested time period.");
+                            checkBookedStatus.setText(chosenVeh.getPlateNo() + " isn't available for booking during requested time period.");
+                        }
+                    } else {
+                        checkBookedStatus.setFill(Color.DARKGRAY);
+                        checkBookedStatus.setText("Please select a vehicle to book.");
+
+                    }
+                }catch (NumberFormatException e){
+                    checkBookedStatus.setFill(Color.DARKGRAY);
+                    checkBookedStatus.setText("Please enter a valid date in Integer Numbers.");
                 }
             }
         });
