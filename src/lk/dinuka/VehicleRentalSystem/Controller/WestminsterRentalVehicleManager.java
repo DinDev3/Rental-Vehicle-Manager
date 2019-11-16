@@ -394,6 +394,9 @@ https://stackoverflow.com/questions/17716192/insert-line-break-when-writing-to-f
 File handling - table format
 https://stackoverflow.com/questions/26229140/writing-data-to-text-file-in-table-format
 
+Delete file
+https://www.geeksforgeeks.org/delete-file-using-java/
+
 Table display format for print list
 https://stackoverflow.com/questions/15215326/how-can-i-create-table-using-ascii-in-a-console
 
