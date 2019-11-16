@@ -4,7 +4,6 @@ import javafx.application.Application;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.geometry.Insets;
-import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
@@ -29,7 +28,7 @@ public class GUI extends Application {
     private static ArrayList<Vehicle> searchInSearch = new ArrayList<>();       //used to filter search by Vehicle type
 
 
-    //----------//---------------//----------------//
+    //-----------------------------------------------------//
 
     @Override
     public void start(Stage primaryStage) throws Exception {
@@ -186,7 +185,7 @@ public class GUI extends Application {
         Scene newScene = new Scene(parent);
         primaryStage.setScene(newScene);
         primaryStage.show();
-
+        primaryStage.setAlwaysOnTop(true);          //open the application on top of intelliJ
 
         //---------------//------------------//---------------------//-----------------------//
 
@@ -206,7 +205,7 @@ public class GUI extends Application {
                         searchedVehicles.add(searchVeh);       //adding vehicles that have matching makes as searched into ArrayList
                     }
                 }
-                System.out.println(searchedVehicles);
+//                System.out.println(searchedVehicles);       //to check
 
                 tableOfVehicles.getItems().clear();     //clearing table
                 tableOfVehicles.getItems().addAll(searchedVehicles);
@@ -243,7 +242,7 @@ public class GUI extends Application {
                         searchInSearch.add(searchVeh);       //adding vehicles that are of Type Car into ArrayList
                     }
                 }
-                System.out.println(searchInSearch);
+//                System.out.println(searchInSearch);       //to check
 
                 tableOfVehicles.getItems().clear();     //clearing table
                 tableOfVehicles.getItems().addAll(searchInSearch);
@@ -264,7 +263,7 @@ public class GUI extends Application {
                         searchInSearch.add(searchVeh);       //adding vehicles that are of Type Car into ArrayList
                     }
                 }
-                System.out.println(searchInSearch);
+//                System.out.println(searchInSearch);       //to check
 
                 tableOfVehicles.getItems().clear();     //clearing table
                 tableOfVehicles.getItems().addAll(searchInSearch);
@@ -276,7 +275,7 @@ public class GUI extends Application {
         //---------------------------------------------------
 
 
-        availabilityCheck.setOnAction(new EventHandler<ActionEvent>() {           //actions when Filter Cars button is clicked
+        availabilityCheck.setOnAction(new EventHandler<ActionEvent>() {           //actions when Availability check button is clicked
 
             @Override
             public void handle(ActionEvent event) {
@@ -298,7 +297,7 @@ public class GUI extends Application {
 
                         Vehicle chosenVeh = (Vehicle) tableOfVehicles.getSelectionModel().getSelectedItem();        //selected vehicle's information
 
-                        System.out.println(chosenVeh);      //to check whether expected vehicle was chosen
+//                        System.out.println(chosenVeh);      //to check whether expected vehicle was chosen
 
                         Schedule newBooking = new Schedule(yearPickUpInput, monthPickUpInput, dayPickUpInput,
                                 yearDropOffInput, monthDropOffInput, dayDropOffInput);

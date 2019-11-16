@@ -11,11 +11,14 @@ public class ConApp {
         int chooseOption;
 
         DatabaseController.importSystemDB();              //importing Vehicles and Bookings saved in database
+        System.out.println("\n----All vehicles and bookings retrieved from database.----");
+        System.out.println("```````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````");
+
 
         do {
-            System.out.println("\n\t\\~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~/");
-            System.out.println("\t~~\tVehicle Rental System\t~~");
-            System.out.println("\t/~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\\");
+            System.out.println("\n\t\\~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~/");
+            System.out.println("\t||````` ~~\tVehicle Rental System\t~~ `````||");
+            System.out.println("\t/~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\\");
 
             //display main menu
             System.out.println("\n1)Add item");

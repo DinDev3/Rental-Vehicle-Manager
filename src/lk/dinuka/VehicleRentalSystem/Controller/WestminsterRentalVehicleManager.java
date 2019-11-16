@@ -188,7 +188,6 @@ public class WestminsterRentalVehicleManager implements RentalVehicleManager {
                             veh.getDailyCost(), veh.getType(), ((Car) veh).getTransmission(), ((Car) veh).isHasAirCon(), "     -    ", "     -    "));
                 }
                 soldFile.write(System.getProperty("line.separator"));       //line break
-
             }
 
             soldFile.close();
