@@ -32,7 +32,7 @@ public class GUI extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception {
-
+//        Platform.setImplicitExit(false);
         primaryStage.setTitle("List of vehicles in system");
 
         TableView tableOfVehicles = new TableView();
