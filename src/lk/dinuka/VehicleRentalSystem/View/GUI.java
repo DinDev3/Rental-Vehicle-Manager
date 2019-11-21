@@ -130,29 +130,37 @@ public class GUI extends Application {
 
         //pick up date entry section
         HBox pickUpDateSec = new HBox(new Label("Pick Up:"));
-        TextField dayPickUp = new TextField();
-        TextField monthPickUp = new TextField();
-        TextField yearPickUp = new TextField();
+//        TextField dayPickUp = new TextField();
+////        TextField monthPickUp = new TextField();
+////        TextField yearPickUp = new TextField();
+////
+////        dayPickUp.setPrefWidth(40);
+////        monthPickUp.setPrefWidth(40);
+////        yearPickUp.setPrefWidth(80);
 
-        dayPickUp.setPrefWidth(40);
-        monthPickUp.setPrefWidth(40);
-        yearPickUp.setPrefWidth(80);
+        // ---------------->>>>>>>
+        DatePicker pickDatePicker = new DatePicker();
 
-        pickUpDateSec.getChildren().addAll(dayPickUp, monthPickUp, yearPickUp);
+//        pickUpDateSec.getChildren().addAll(dayPickUp, monthPickUp, yearPickUp);
+        pickUpDateSec.getChildren().addAll(pickDatePicker);
 
         //drop off date entry section
         HBox dropOffDateSec = new HBox();
         Label dropOffLabel = new Label("Drop Off:");
 
-        TextField dayDropOff = new TextField();
-        TextField monthDropOff = new TextField();
-        TextField yearDropOff = new TextField();
+//        TextField dayDropOff = new TextField();
+//        TextField monthDropOff = new TextField();
+//        TextField yearDropOff = new TextField();
 
-        dayDropOff.setPrefWidth(40);
-        monthDropOff.setPrefWidth(40);
-        yearDropOff.setPrefWidth(80);
+//        dayDropOff.setPrefWidth(40);
+//        monthDropOff.setPrefWidth(40);
+//        yearDropOff.setPrefWidth(80);
 
-        dropOffDateSec.getChildren().addAll(dropOffLabel, dayDropOff, monthDropOff, yearDropOff);
+
+        // ---------------->>>>>>>
+        DatePicker dropDatePicker = new DatePicker();
+//        dropOffDateSec.getChildren().addAll(dropOffLabel, dayDropOff, monthDropOff, yearDropOff);
+        dropOffDateSec.getChildren().addAll(dropOffLabel, dropDatePicker);
 
 
         Button availabilityCheck = new Button("Check Availability");
@@ -281,28 +289,14 @@ public class GUI extends Application {
             public void handle(ActionEvent event) {
 
                 try {
-
-                    //HAVE DATE PCIKER!!!!!!!!!!!!!!!!!
-                    //getting input of pick up date
-                    Integer dayPickUpInput = Integer.parseInt(dayPickUp.getText());        //getting day
-                    Integer monthPickUpInput = Integer.parseInt(monthPickUp.getText());        //getting month
-                    Integer yearPickUpInput = Integer.parseInt(yearPickUp.getText());        //getting year
-
-
-                    //getting input of drop off date
-                    Integer dayDropOffInput = Integer.parseInt(dayDropOff.getText());        //getting day
-                    Integer monthDropOffInput = Integer.parseInt(monthDropOff.getText());        //getting month
-                    Integer yearDropOffInput = Integer.parseInt(yearDropOff.getText());        //getting year
-
-
                     if (tableOfVehicles.getSelectionModel().getSelectedItem() != null) {
 
                         Vehicle chosenVeh = (Vehicle) tableOfVehicles.getSelectionModel().getSelectedItem();        //selected vehicle's information
 
 //                        System.out.println(chosenVeh);      //to check whether expected vehicle was chosen
 
-                        Schedule newBooking = new Schedule(yearPickUpInput, monthPickUpInput, dayPickUpInput,
-                                yearDropOffInput, monthDropOffInput, dayDropOffInput);
+                        Schedule newBooking = new Schedule(pickDatePicker.getValue(), dropDatePicker.getValue());
+
 
                         boolean availability = GUIController.checkAvailabilityOfVeh(chosenVeh, newBooking);
 
@@ -338,27 +332,13 @@ public class GUI extends Application {
             public void handle(ActionEvent event) {
 
                 try {
-
-                    //getting input of pick up date
-                    Integer dayPickUpInput = Integer.parseInt(dayPickUp.getText());        //getting day
-                    Integer monthPickUpInput = Integer.parseInt(monthPickUp.getText());        //getting month
-                    Integer yearPickUpInput = Integer.parseInt(yearPickUp.getText());        //getting year
-
-
-                    //getting input of drop off date
-                    Integer dayDropOffInput = Integer.parseInt(dayDropOff.getText());        //getting day
-                    Integer monthDropOffInput = Integer.parseInt(monthDropOff.getText());        //getting month
-                    Integer yearDropOffInput = Integer.parseInt(yearDropOff.getText());        //getting year
-
-
                     if (tableOfVehicles.getSelectionModel().getSelectedItem() != null) {
                         //getting selected vehicle's information
                         Vehicle chosenVeh = (Vehicle) tableOfVehicles.getSelectionModel().getSelectedItem();        //selected vehicle's information
                         //down-casted from Object type to Vehicle type
                         System.out.println(chosenVeh);      //to check whether expected vehicle was chosen
 
-                        Schedule newBooking = new Schedule(yearPickUpInput, monthPickUpInput, dayPickUpInput,
-                                yearDropOffInput, monthDropOffInput, dayDropOffInput);
+                        Schedule newBooking = new Schedule(pickDatePicker.getValue(), dropDatePicker.getValue());
 
                         boolean booked = GUIController.createBooking(chosenVeh, newBooking);
 
@@ -374,9 +354,22 @@ public class GUI extends Application {
 
                             displayTotalCost.setText("Total Cost: £" + GUIController.getCalculatedRent(chosenVeh.getDailyCost(), newBooking));
 
+
+
+
+                            int yearPickUpInput = pickDatePicker.getValue().getYear();
+                            int monthPickUpInput = pickDatePicker.getValue().getMonthValue();
+                            int dayPickUpInput = pickDatePicker.getValue().getDayOfMonth();
+
+                            int yearDropOffInput = pickDatePicker.getValue().getYear();
+                            int monthDropOffInput = pickDatePicker.getValue().getMonthValue();
+                            int dayDropOffInput = pickDatePicker.getValue().getDayOfMonth();
+
                             //addToBookedDB here
                             DatabaseController.addToBookedDB(chosenVeh.getPlateNo(), yearPickUpInput, monthPickUpInput, dayPickUpInput,
                                     yearDropOffInput, monthDropOffInput, dayDropOffInput);
+
+
 
                         } else {
                             //notify the user that the vehicle isn't available for rent during the chosen time period.

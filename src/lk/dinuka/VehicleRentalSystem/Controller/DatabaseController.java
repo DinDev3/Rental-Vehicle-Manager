@@ -11,6 +11,7 @@ import lk.dinuka.VehicleRentalSystem.Model.Vehicle;
 import org.bson.Document;
 
 import java.math.BigDecimal;
+import java.time.LocalDate;
 import java.util.ArrayList;
 
 public class DatabaseController {
@@ -149,7 +150,11 @@ public class DatabaseController {
             int dayDown = dropOffObject.getInteger("day");
 
 
-            Schedule bookedSchedule = new Schedule(yearUp,monthUp,dayUp,yearDown,monthDown,dayDown);
+            LocalDate pickUpDate = LocalDate.of(yearUp,monthUp,dayUp);
+            LocalDate dropOffDate = LocalDate.of(yearDown,monthDown,dayDown);
+
+
+            Schedule bookedSchedule = new Schedule(pickUpDate,dropOffDate);
 
 
             if (WestminsterRentalVehicleManager.bookedVehicles.containsKey(plateNo)){

@@ -7,31 +7,18 @@ public class Schedule {
     private LocalDate pickUp;
     private LocalDate dropOff;
 
-    public Schedule(int yearPickUp, int monthPickUp, int dayPickUp,int yearDropOff, int monthDropOff,int dayDropOff) {
-        setPickUp(yearPickUp,monthPickUp,dayPickUp);
-        setDropOff(yearDropOff,monthDropOff,dayDropOff);
+    public Schedule(LocalDate pick, LocalDate drop) {
+        this.pickUp = pick;
+        this.dropOff = drop;
     }
 
     public LocalDate getPickUp() {
         return pickUp;
     }
 
-    public void setPickUp(int yearPickUp, int monthPickUp, int dayPickUp) {
-        Date pickUpDateCheck = new Date(yearPickUp,monthPickUp,dayPickUp);      //used to validate date
-        LocalDate pickUpDate = LocalDate.of(pickUpDateCheck.getYear(), pickUpDateCheck.getMonth(), pickUpDateCheck.getDay());
-
-        this.pickUp = pickUpDate;
-    }
 
     public LocalDate getDropOff() {
         return dropOff;
-    }
-
-    public void setDropOff(int yearDropOff, int monthDropOff,int dayDropOff) {
-        Date dropOffDateCheck = new Date(yearDropOff,monthDropOff,dayDropOff);      //used to validate date
-        LocalDate dropOffDate = LocalDate.of(dropOffDateCheck.getYear(), dropOffDateCheck.getMonth(), dropOffDateCheck.getDay());
-
-        this.dropOff = dropOffDate;
     }
 
 
