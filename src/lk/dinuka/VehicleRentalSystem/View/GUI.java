@@ -55,7 +55,7 @@ public class GUI extends Application {
         engineCapacityColumn.setCellValueFactory(new PropertyValueFactory<>("engineCapacity"));
         engineCapacityColumn.setMinWidth(130);
 
-        TableColumn<String, Vehicle> dailyCostColumn = new TableColumn<>("Daily Cost");
+        TableColumn<String, Vehicle> dailyCostColumn = new TableColumn<>("Daily Cost(£)");
         dailyCostColumn.setCellValueFactory(new PropertyValueFactory<>("dailyCost"));
         dailyCostColumn.setMinWidth(110);
 
@@ -281,6 +281,8 @@ public class GUI extends Application {
             public void handle(ActionEvent event) {
 
                 try {
+
+                    //HAVE DATE PCIKER!!!!!!!!!!!!!!!!!
                     //getting input of pick up date
                     Integer dayPickUpInput = Integer.parseInt(dayPickUp.getText());        //getting day
                     Integer monthPickUpInput = Integer.parseInt(monthPickUp.getText());        //getting month
@@ -309,6 +311,7 @@ public class GUI extends Application {
 //                    System.out.println("Vehicle is available for booking.");
                             checkBookedStatus.setText(chosenVeh.getPlateNo() + " is available for booking.");
 
+
                         } else {
                             checkBookedStatus.setFill(Color.RED);
 //                    System.out.println("Vehicle isn't available for booking during requested time period.");
@@ -318,6 +321,8 @@ public class GUI extends Application {
                         checkBookedStatus.setFill(Color.DARKGRAY);
                         checkBookedStatus.setText("Please select a vehicle to book.");
 
+                        bookStatusText.setText("");             //clearing old booking details
+                        displayTotalCost.setText("");
                     }
                 } catch (NumberFormatException e) {
                     checkBookedStatus.setFill(Color.DARKGRAY);
@@ -367,19 +372,20 @@ public class GUI extends Application {
                             bookStatusText.setText("Booked vehicle with Plate No: " + chosenVeh.getPlateNo() + " from " +
                                     newBooking.getPickUp() + " to " + newBooking.getDropOff());
 
+                            displayTotalCost.setText("Total Cost: £" + GUIController.getCalculatedRent(chosenVeh.getDailyCost(), newBooking));
 
                             //addToBookedDB here
                             DatabaseController.addToBookedDB(chosenVeh.getPlateNo(), yearPickUpInput, monthPickUpInput, dayPickUpInput,
                                     yearDropOffInput, monthDropOffInput, dayDropOffInput);
 
-
-                            displayTotalCost.setText("Total Cost: $" + GUIController.getCalculatedRent(chosenVeh.getDailyCost(), newBooking));
                         } else {
                             //notify the user that the vehicle isn't available for rent during the chosen time period.
                             checkBookedStatus.setFill(Color.RED);
 //                    System.out.println("Vehicle isn't available for booking during requested time period.");
                             checkBookedStatus.setText(chosenVeh.getPlateNo() + " isn't available for booking during requested time period.");
 
+                            bookStatusText.setText("");
+                            displayTotalCost.setText("");
                         }
                     } else {
                         checkBookedStatus.setFill(Color.DARKGRAY);

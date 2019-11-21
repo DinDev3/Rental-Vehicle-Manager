@@ -170,7 +170,7 @@ public class WestminsterRentalVehicleManager implements RentalVehicleManager {
 
 
             soldFile.write(String.format("+-----------------+---------------+--------------+----------------+---------------+-----------+--------------+--------+------------+------------+%n"));
-            soldFile.write(String.format("|   Plate ID      |   Make        |   Model      | Engine Capacity| Daily Cost($) |   Type    | transmission | AirCon | Start type | Wheel Size |%n"));
+            soldFile.write(String.format("|   Plate ID      |   Make        |   Model      | Engine Capacity| Daily Cost(£) |   Type    | transmission | AirCon | Start type | Wheel Size |%n"));
             soldFile.write(String.format("+-----------------+---------------+--------------+----------------+---------------+-----------+--------------+--------+------------+------------+%n"));
 //                soldFile.write(System.getProperty("line.separator"));       //line break
 
@@ -286,7 +286,7 @@ public class WestminsterRentalVehicleManager implements RentalVehicleManager {
         System.out.print(">");
         engineCapacity = scanInput.nextLine();
 
-        System.out.println("\nEnter Daily cost (in $):");
+        System.out.println("\nEnter Daily cost (in £):");
         System.out.print(">$");
         doubleInputValidation();
         dailyCostD = scanInput.nextDouble();
@@ -304,7 +304,7 @@ public class WestminsterRentalVehicleManager implements RentalVehicleManager {
         System.out.println("Make: " + allVehicles.get(plateNo).getMake());
         System.out.println("Model: " + allVehicles.get(plateNo).getModel());
         System.out.println("Engine Capacity: " + allVehicles.get(plateNo).getEngineCapacity());
-        System.out.println("Daily Cost: " + allVehicles.get(plateNo).getDailyCost());
+        System.out.println("Daily Cost (in £): " + allVehicles.get(plateNo).getDailyCost());
         System.out.println("Type: " + allVehicles.get(plateNo).getType());
 
         if (allVehicles.get(plateNo) instanceof Car) {

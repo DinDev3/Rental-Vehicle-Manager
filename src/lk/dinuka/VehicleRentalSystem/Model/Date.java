@@ -1,6 +1,6 @@
 package lk.dinuka.VehicleRentalSystem.Model;
 
-public class Date {
+public class Date {             // this class was created to make sure that non-existent dates won't be created
     private int year;
     private int month;
     private int day;

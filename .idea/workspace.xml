@@ -6,18 +6,24 @@
   <component name="ChangeListManager">
     <list default="true" id="f2387725-50d1-4dc8-ba1e-e0d404acdd4a" name="Default Changelist" comment="Added all required classes for the project with the project structure.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/VehicleRentalSystem/lk/dinuka/VehicleRentalSystem/ConApp$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Angular GUI/ng-GUI/angular.json" beforeDir="false" afterPath="$PROJECT_DIR$/Angular GUI/ng-GUI/angular.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Angular GUI/ng-GUI/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/Angular GUI/ng-GUI/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Angular GUI/ng-GUI/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/Angular GUI/ng-GUI/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Angular GUI/ng-GUI/src/app/app.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/Angular GUI/ng-GUI/src/app/app.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Angular GUI/ng-GUI/src/app/app.component.scss" beforeDir="false" afterPath="$PROJECT_DIR$/Angular GUI/ng-GUI/src/app/app.component.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Angular GUI/ng-GUI/src/app/app.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Angular GUI/ng-GUI/src/app/app.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Angular GUI/ng-GUI/src/app/app.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Angular GUI/ng-GUI/src/app/app.module.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Angular GUI/ng-GUI/src/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/Angular GUI/ng-GUI/src/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Angular GUI/ng-GUI/src/styles.scss" beforeDir="false" afterPath="$PROJECT_DIR$/Angular GUI/ng-GUI/src/styles.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/VehicleRentalSystem/lk/dinuka/VehicleRentalSystem/ConApp.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/VehicleRentalSystem/lk/dinuka/VehicleRentalSystem/ConApp.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/VehicleRentalSystem/lk/dinuka/VehicleRentalSystem/Controller/WestminsterRentalVehicleManager.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/VehicleRentalSystem/lk/dinuka/VehicleRentalSystem/Controller/WestminsterRentalVehicleManager.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/VehicleRentalSystem/lk/dinuka/VehicleRentalSystem/View/GUI$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/VehicleRentalSystem/lk/dinuka/VehicleRentalSystem/View/GUI$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/VehicleRentalSystem/lk/dinuka/VehicleRentalSystem/View/GUI$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/VehicleRentalSystem/lk/dinuka/VehicleRentalSystem/View/GUI$2.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/VehicleRentalSystem/lk/dinuka/VehicleRentalSystem/View/GUI$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/VehicleRentalSystem/lk/dinuka/VehicleRentalSystem/View/GUI$3.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/VehicleRentalSystem/lk/dinuka/VehicleRentalSystem/View/GUI$4.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/VehicleRentalSystem/lk/dinuka/VehicleRentalSystem/View/GUI$4.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/VehicleRentalSystem/lk/dinuka/VehicleRentalSystem/View/GUI$5.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/VehicleRentalSystem/lk/dinuka/VehicleRentalSystem/View/GUI$5.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/VehicleRentalSystem/lk/dinuka/VehicleRentalSystem/View/GUI$6.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/VehicleRentalSystem/lk/dinuka/VehicleRentalSystem/View/GUI$6.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/VehicleRentalSystem/lk/dinuka/VehicleRentalSystem/View/GUI.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/VehicleRentalSystem/lk/dinuka/VehicleRentalSystem/View/GUI.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/lk/dinuka/VehicleRentalSystem/ConApp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/lk/dinuka/VehicleRentalSystem/ConApp.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/lk/dinuka/VehicleRentalSystem/Controller/WestminsterRentalVehicleManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/lk/dinuka/VehicleRentalSystem/Controller/WestminsterRentalVehicleManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/lk/dinuka/VehicleRentalSystem/Model/Date.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/lk/dinuka/VehicleRentalSystem/Model/Date.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/lk/dinuka/VehicleRentalSystem/View/GUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/lk/dinuka/VehicleRentalSystem/View/GUI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/submissions/Phase 3/w1742104_Phase3.docx" beforeDir="false" afterPath="$PROJECT_DIR$/submissions/Phase 3/w1742104_Phase3.docx" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -31,11 +37,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/lk/dinuka/VehicleRentalSystem/View/GUI.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1606">
-              <caret line="399" selection-start-line="399" selection-end-line="399" />
+            <state relative-caret-position="3942">
+              <caret line="287" lean-forward="true" selection-start-line="287" selection-end-line="287" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -44,10 +50,31 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/lk/dinuka/VehicleRentalSystem/Model/Schedule.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="378">
+              <caret line="23" column="5" lean-forward="true" selection-start-line="23" selection-start-column="5" selection-end-line="23" selection-end-column="5" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/lk/dinuka/VehicleRentalSystem/Model/Date.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="36">
+              <caret line="2" column="111" lean-forward="true" selection-start-line="2" selection-start-column="111" selection-end-line="2" selection-end-column="111" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/lk/dinuka/VehicleRentalSystem/Controller/GUIController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="304">
-              <caret line="22" column="31" selection-start-line="22" selection-start-column="31" selection-end-line="22" selection-end-column="31" />
+            <state relative-caret-position="-1421">
+              <caret line="13" lean-forward="true" selection-start-line="13" selection-end-line="13" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -58,8 +85,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/lk/dinuka/VehicleRentalSystem/Controller/WestminsterRentalVehicleManager.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="198">
-              <caret line="22" selection-start-line="22" selection-end-line="22" />
+            <state relative-caret-position="288">
+              <caret line="16" selection-start-line="16" selection-end-line="16" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#8517#8518#0" expanded="true" />
@@ -72,20 +99,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/lk/dinuka/VehicleRentalSystem/Controller/DatabaseController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="972">
-              <caret line="65" column="41" selection-start-line="65" selection-start-column="41" selection-end-line="65" selection-end-column="41" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/lk/dinuka/VehicleRentalSystem/ConApp.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="666">
-              <caret line="40" selection-start-line="40" selection-end-line="40" />
+            <state relative-caret-position="576">
+              <caret line="32" column="58" selection-start-line="32" selection-start-column="58" selection-end-line="32" selection-end-column="58" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -136,16 +151,16 @@
         <option value="$PROJECT_DIR$/src/lk/dinuka/VehicleRentalSystem/Model/RentalVehicleManager.java" />
         <option value="$PROJECT_DIR$/src/lk/dinuka/VehicleRentalSystem/Model/DateTime.java" />
         <option value="$PROJECT_DIR$/src/lk/dinuka/VehicleRentalSystem/View/GUIController.java" />
-        <option value="$PROJECT_DIR$/src/lk/dinuka/VehicleRentalSystem/Model/Date.java" />
         <option value="$PROJECT_DIR$/src/lk/dinuka/VehicleRentalSystem/Model/Schedule.java" />
         <option value="$PROJECT_DIR$/src/lk/dinuka/VehicleRentalSystem/Model/TestSchedule.java" />
         <option value="$PROJECT_DIR$/src/lk/dinuka/VehicleRentalSystem/Model/Motorbike.java" />
         <option value="$PROJECT_DIR$/src/lk/dinuka/VehicleRentalSystem/Model/Car.java" />
         <option value="$PROJECT_DIR$/src/lk/dinuka/VehicleRentalSystem/Controller/GUIController.java" />
-        <option value="$PROJECT_DIR$/src/lk/dinuka/VehicleRentalSystem/Controller/DatabaseController.java" />
         <option value="$PROJECT_DIR$/src/lk/dinuka/VehicleRentalSystem/Model/Vehicle.java" />
-        <option value="$PROJECT_DIR$/src/lk/dinuka/VehicleRentalSystem/ConApp.java" />
+        <option value="$PROJECT_DIR$/src/lk/dinuka/VehicleRentalSystem/Controller/DatabaseController.java" />
         <option value="$PROJECT_DIR$/src/lk/dinuka/VehicleRentalSystem/Controller/WestminsterRentalVehicleManager.java" />
+        <option value="$PROJECT_DIR$/src/lk/dinuka/VehicleRentalSystem/ConApp.java" />
+        <option value="$PROJECT_DIR$/src/lk/dinuka/VehicleRentalSystem/Model/Date.java" />
         <option value="$PROJECT_DIR$/src/lk/dinuka/VehicleRentalSystem/View/GUI.java" />
       </list>
     </option>
@@ -167,6 +182,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
+      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -221,8 +238,6 @@
           <select />
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -350,6 +365,9 @@
       <workItem from="1574074203132" duration="453000" />
       <workItem from="1574074659651" duration="39000" />
       <workItem from="1574089040878" duration="2398000" />
+      <workItem from="1574260289959" duration="3380000" />
+      <workItem from="1574307063950" duration="170000" />
+      <workItem from="1574308363215" duration="816000" />
     </task>
     <task id="LOCAL-00001" summary="Added all required classes for the project with the project structure.">
       <created>1572081106344</created>
@@ -362,11 +380,10 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="125976000" />
+    <option name="totallyTimeSpent" value="130342000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info id="Designer" order="0" />
       <window_info id="UI Designer" order="1" />
@@ -374,7 +391,7 @@
       <window_info id="Favorites" order="3" side_tool="true" />
       <window_info id="Image Layers" order="4" />
       <window_info id="Structure" order="5" side_tool="true" weight="0.25" />
-      <window_info content_ui="combo" id="Project" order="6" visible="true" weight="0.16934404" />
+      <window_info content_ui="combo" id="Project" order="6" visible="true" weight="0.17068273" />
       <window_info anchor="bottom" id="Messages" order="0" weight="0.32957748" />
       <window_info anchor="bottom" id="Docker" order="1" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="2" weight="0.32957748" />
@@ -387,7 +404,7 @@
       <window_info anchor="bottom" id="Inspection" order="9" weight="0.4" />
       <window_info anchor="bottom" id="Terminal" order="10" weight="0.37042254" />
       <window_info anchor="bottom" id="TODO" order="11" />
-      <window_info anchor="bottom" id="Run" order="12" weight="0.69295776" />
+      <window_info anchor="bottom" id="Run" order="12" weight="0.6845071" />
       <window_info anchor="right" id="Theme Preview" order="0" />
       <window_info anchor="right" id="Capture Analysis" order="1" />
       <window_info anchor="right" id="Palette&#9;" order="2" />
@@ -438,18 +455,6 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Added all required classes for the project with the project structure." />
     <option name="LAST_COMMIT_MESSAGE" value="Added all required classes for the project with the project structure." />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/lk/dinuka/VehicleRentalSystem/Controller/WestminsterRentalVehicleManager.java</url>
-          <line>247</line>
-          <properties />
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
   <component name="debuggerHistoryManager">
     <expressions id="breakpointLogExpression">
@@ -614,52 +619,7 @@ https://www.javatpoint.com/java-get-current-date
     <entry file="file://$PROJECT_DIR$/src/main/java/lk/dinuka/VehicleRentalSystem/Model/Car.java" />
     <entry file="file://$PROJECT_DIR$/src/main/java/lk/dinuka/VehicleRentalSystem/Model/Date.java" />
     <entry file="file://$PROJECT_DIR$/src/main/java/lk/dinuka/VehicleRentalSystem/Controller/DatabaseController.java" />
-    <entry file="file://$PROJECT_DIR$/src/lk/dinuka/VehicleRentalSystem/Model/Motorbike.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="162">
-          <caret line="10" column="63" selection-start-line="10" selection-start-column="63" selection-end-line="10" selection-end-column="63" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/lk/dinuka/VehicleRentalSystem/Model/Car.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="21" column="19" lean-forward="true" selection-start-line="21" selection-start-column="19" selection-end-line="21" selection-end-column="19" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/lk/dinuka/VehicleRentalSystem/Model/Date.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="54">
-          <caret line="3" column="21" selection-start-line="3" selection-start-column="21" selection-end-line="3" selection-end-column="21" />
-          <folding>
-            <element signature="e#1480#1481#0" expanded="true" />
-            <element signature="e#1507#1508#0" expanded="true" />
-            <element signature="e#1536#1537#0" expanded="true" />
-            <element signature="e#1564#1565#0" expanded="true" />
-            <element signature="e#1591#1592#0" expanded="true" />
-            <element signature="e#1617#1618#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/lk/dinuka/VehicleRentalSystem/Model/Tester.java" />
-    <entry file="file://$PROJECT_DIR$/src/lk/dinuka/VehicleRentalSystem/Model/Schedule.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-252">
-          <caret line="16" column="5" selection-start-line="16" selection-start-column="5" selection-end-line="16" selection-end-column="5" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="uml://JAVA/lk.dinuka.VehicleRentalSystem.Controller.DatabaseController">
       <provider selected="true" editor-type-id="UmlEditorProvider">
         <state>
@@ -728,16 +688,6 @@ https://www.javatpoint.com/java-get-current-date
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/lk/dinuka/VehicleRentalSystem/Model/Vehicle.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="810">
-          <caret line="53" selection-start-line="53" selection-end-line="53" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://C:/Program Files/Java/jdk1.8.0_212/javafx-src.zip!/javafx/application/Platform.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="94">
@@ -756,10 +706,50 @@ https://www.javatpoint.com/java-get-current-date
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/lk/dinuka/VehicleRentalSystem/ConApp.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="234">
+          <caret line="13" column="42" selection-start-line="13" selection-start-column="42" selection-end-line="13" selection-end-column="42" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/lk/dinuka/VehicleRentalSystem/Model/Car.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="324">
+          <caret line="21" column="19" lean-forward="true" selection-start-line="21" selection-start-column="19" selection-end-line="21" selection-end-column="19" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/lk/dinuka/VehicleRentalSystem/Model/Motorbike.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="10" column="63" selection-start-line="10" selection-start-column="63" selection-end-line="10" selection-end-column="63" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/lk/dinuka/VehicleRentalSystem/Model/Vehicle.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="810">
+          <caret line="53" selection-start-line="53" selection-end-line="53" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/lk/dinuka/VehicleRentalSystem/Controller/WestminsterRentalVehicleManager.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="198">
-          <caret line="22" selection-start-line="22" selection-end-line="22" />
+        <state relative-caret-position="288">
+          <caret line="16" selection-start-line="16" selection-end-line="16" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#8517#8518#0" expanded="true" />
@@ -770,28 +760,18 @@ https://www.javatpoint.com/java-get-current-date
     </entry>
     <entry file="file://$PROJECT_DIR$/src/lk/dinuka/VehicleRentalSystem/Controller/DatabaseController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="972">
-          <caret line="65" column="41" selection-start-line="65" selection-start-column="41" selection-end-line="65" selection-end-column="41" />
+        <state relative-caret-position="576">
+          <caret line="32" column="58" selection-start-line="32" selection-start-column="58" selection-end-line="32" selection-end-column="58" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/lk/dinuka/VehicleRentalSystem/ConApp.java">
+    <entry file="file://$PROJECT_DIR$/src/lk/dinuka/VehicleRentalSystem/Model/Schedule.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="666">
-          <caret line="40" selection-start-line="40" selection-end-line="40" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/lk/dinuka/VehicleRentalSystem/Controller/GUIController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="304">
-          <caret line="22" column="31" selection-start-line="22" selection-start-column="31" selection-end-line="22" selection-end-column="31" />
+        <state relative-caret-position="378">
+          <caret line="23" column="5" lean-forward="true" selection-start-line="23" selection-start-column="5" selection-end-line="23" selection-end-column="5" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -800,8 +780,25 @@ https://www.javatpoint.com/java-get-current-date
     </entry>
     <entry file="file://$PROJECT_DIR$/src/lk/dinuka/VehicleRentalSystem/View/GUI.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1606">
-          <caret line="399" selection-start-line="399" selection-end-line="399" />
+        <state relative-caret-position="3942">
+          <caret line="287" lean-forward="true" selection-start-line="287" selection-end-line="287" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/lk/dinuka/VehicleRentalSystem/Model/Date.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="36">
+          <caret line="2" column="111" lean-forward="true" selection-start-line="2" selection-start-column="111" selection-end-line="2" selection-end-column="111" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/lk/dinuka/VehicleRentalSystem/Controller/GUIController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1421">
+          <caret line="13" lean-forward="true" selection-start-line="13" selection-end-line="13" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>

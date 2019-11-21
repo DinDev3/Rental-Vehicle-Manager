@@ -57,9 +57,12 @@ public class ConApp {
                     break;
 
                 case 5:         //display exit message
-                    System.out.println("\nThank you for using the Vehicle Management System");
+                    System.out.println("\n\n****        +----------------------+          ****");
+                    System.out.println(" Thank you for using the Vehicle Management System");
                     System.out.println("\tLooking forward to assist you in the future.");
-                    System.out.println("\tExiting Program...");
+                    System.out.println("\t\t\tExiting Program...");
+                    System.out.println("                   +-------+ ");
+                    System.out.println("                      ***    ");
                     System.exit(0);
 
                 default:
