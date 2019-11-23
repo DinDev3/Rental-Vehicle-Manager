@@ -48,10 +48,6 @@ public class GUI extends Application {
         TableColumn<String, Vehicle> modelColumn = new TableColumn<>("Model");
         modelColumn.setCellValueFactory(new PropertyValueFactory<>("model"));
 
-        TableColumn<String, Vehicle> availabilityColumn = new TableColumn<>("Availability");
-        availabilityColumn.setCellValueFactory(new PropertyValueFactory<>("availability"));
-        availabilityColumn.setMinWidth(100);
-
         TableColumn<String, Vehicle> engineCapacityColumn = new TableColumn<>("Engine Capacity");
         engineCapacityColumn.setCellValueFactory(new PropertyValueFactory<>("engineCapacity"));
         engineCapacityColumn.setMinWidth(130);
@@ -80,7 +76,7 @@ public class GUI extends Application {
         wheelSizeColumn.setMinWidth(130);
 
 
-        tableOfVehicles.getColumns().addAll(plateNoColumn, makeColumn, modelColumn, availabilityColumn, engineCapacityColumn, dailyCostColumn,
+        tableOfVehicles.getColumns().addAll(plateNoColumn, makeColumn, modelColumn, engineCapacityColumn, dailyCostColumn,
                 typeColumn, transmissionColumn, hasAirConColumn, startTypeColumn, wheelSizeColumn);             //adding all the columns to the table
 
         tableOfVehicles.getItems().addAll(WestminsterRentalVehicleManager.getVehiclesInSystem());           //adding all the vehicles in the available

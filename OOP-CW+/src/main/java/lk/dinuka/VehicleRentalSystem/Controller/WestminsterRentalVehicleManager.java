@@ -200,7 +200,9 @@ public class WestminsterRentalVehicleManager implements RentalVehicleManager{
 
     @Override
     public void viewGUI() {
-        GUI.main(null);
+        API.getAllVehiclesToFront();                //send vehicles to front end
+//        GUI.main(null);
+        API.postBookingsFromFront();                //handle booking
     }
 
 

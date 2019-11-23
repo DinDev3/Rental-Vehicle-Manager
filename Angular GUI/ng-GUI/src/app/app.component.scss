@@ -1,3 +1,25 @@
 table {
     width: 100%;
+    // margin: auto;
+    cursor:pointer;
   }
+
+.tableContainer{
+  width: 95%;
+  margin: auto;
+  max-height: 90vh;
+  overflow:auto;
+}
+
+.bookingSection{
+  float: right;
+}
+
+.fullContainer{
+  width:97%;
+  margin:auto;
+}
+
+.highlight{
+  background: rgb(197, 229, 231);
+}

@@ -1,7 +1,9 @@
 package lk.dinuka.VehicleRentalSystem;
 
+import lk.dinuka.VehicleRentalSystem.Controller.API;
 import lk.dinuka.VehicleRentalSystem.Controller.DatabaseController;
 import lk.dinuka.VehicleRentalSystem.Controller.WestminsterRentalVehicleManager;
+import lk.dinuka.VehicleRentalSystem.View.GUI;
 
 import java.util.Scanner;
 
@@ -10,7 +12,10 @@ public class ConApp {
     public static void main(String[] args) {
         int chooseOption;
 
+        API.allowHeaders();         //allow headers in multiple responses
+
         DatabaseController.importSystemDB();              //importing Vehicles and Bookings saved in database
+
         System.out.println("\n----All vehicles and bookings retrieved from database.----");
         System.out.println("```````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````");
 

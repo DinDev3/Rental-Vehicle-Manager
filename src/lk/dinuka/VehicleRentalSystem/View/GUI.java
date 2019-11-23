@@ -130,13 +130,7 @@ public class GUI extends Application {
 
         //pick up date entry section
         HBox pickUpDateSec = new HBox(new Label("Pick Up:"));
-//        TextField dayPickUp = new TextField();
-////        TextField monthPickUp = new TextField();
-////        TextField yearPickUp = new TextField();
-////
-////        dayPickUp.setPrefWidth(40);
-////        monthPickUp.setPrefWidth(40);
-////        yearPickUp.setPrefWidth(80);
+
 
         // ---------------->>>>>>>
         DatePicker pickDatePicker = new DatePicker();
@@ -147,14 +141,6 @@ public class GUI extends Application {
         //drop off date entry section
         HBox dropOffDateSec = new HBox();
         Label dropOffLabel = new Label("Drop Off:");
-
-//        TextField dayDropOff = new TextField();
-//        TextField monthDropOff = new TextField();
-//        TextField yearDropOff = new TextField();
-
-//        dayDropOff.setPrefWidth(40);
-//        monthDropOff.setPrefWidth(40);
-//        yearDropOff.setPrefWidth(80);
 
 
         // ---------------->>>>>>>
