@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import {VehicleService} from '../app/services/vehicle.service';
 import {MatTableDataSource} from '@angular/material';
+import axios from 'axios';
+import queryString from 'query-string';
+import {MatSnackBar} from '@angular/material/snack-bar';
 
 // --------------------------------------
 
@@ -24,13 +27,19 @@ export class AppComponent implements OnInit {
   pickUpDate: any;
   dropOffDate: any;
 
+  bookingURL: any = 'http://localhost:4567/books';
+  checkingURL: any = 'http://localhost:4567/checks';
+
+
 // ---------------
   // tslint:disable-next-line: max-line-length
   displayedColumns: string[] = ['plateNo', 'make', 'model', 'engineCapacity', 'dailyCost', 'type', 'transmission', 'hasAirCon', 'startType', 'wheelSize'];
   dataSource;
 // ---------------
 
-  constructor(private vehicleService: VehicleService) { }     // creating an instance of the service
+  constructor(private vehicleService: VehicleService,
+              private _snackBar: MatSnackBar) { }     // creating an instance of the service
+
 
   ngOnInit() {
     this.heading = 'Vehicle List';
@@ -51,28 +60,111 @@ export class AppComponent implements OnInit {
     );
   }
 
-  // postBookingData(){       // post plate no & booking data to backend
-  //   this.vehicleService
-  //     .addBooking(newBooking)
-  //     .subscribe(booking => this.bookings.push(booking));
+  postBookingData() {      // post plate no & booking data to backend, to book vehicle
+
+    const data = { plateNo: this.chosenPlateNo,
+                    yearPickUp: this.pickUpDate.getFullYear(),
+                    monthPickUp: this.pickUpDate.getMonth(),
+                    dayPickUp: this.pickUpDate.getDate(),
+                    yearDropOff: this.dropOffDate.getFullYear(),
+                    monthDropOff: this.dropOffDate.getMonth(),
+                    dayDropOff: this.dropOffDate.getDate()
+                  };
+
+    axios.post(this.bookingURL, queryString.stringify(data) , {
+      headers: {
+        'Content-Type': 'application/x-www-form-urlencoded'
+      }
+    }
+    )
+    .then(function (response) {
+      console.log(response.data);
+      this.openSnackBar('Hello World', 'Dance');
+    })
+    .catch(function (error) {
+      console.log(error);
+    });
+
+  //   const url = this.bookingURL;
+  //   const data = { plateNo: this.chosenPlateNo,
+  //                   yearPickUp: this.pickUpDate.getFullYear(),
+  //                   monthPickUp: this.pickUpDate.getMonth(),
+  //                   dayPickUp: this.pickUpDate.getDate(),
+  //                   yearDropOff: this.dropOffDate.getFullYear(),
+  //                   monthDropOff: this.dropOffDate.getMonth(),
+  //                   dayDropOff: this.dropOffDate.getDate()
+  //                 };
+  //   console.log(data);      // all the data is getting added into data here
+  //   try {
+  //   const response = await fetch(url, {
+  //     method: 'POST', // or 'PUT'
+  //     body: qs.JSON.stringify(data), // data can be `string` or {object}!
+  //     headers: {
+  //       'Content-Type': 'application/x-www-form-urlencoded'
+  //     }
+  //   });
+
+  //   const json = await response.json();     // not receiving response at front end
+  //   console.log(json);
+  //   console.log('Success:', JSON.stringify(json));
+  // } catch (error) {
+  //   console.error('Error:', error);
   // }
+    // this.vehicleService
+    //   .addBooking(this.chosenPlateNo);
+      // .subscribe(booking => this.bookings.push(booking));
+  // }
+  }
+
+  postCheckingData() {      // post plate no & booking data to backend, to check availability
+
+    const data = { plateNo: this.chosenPlateNo,
+                    yearPickUp: this.pickUpDate.getFullYear(),
+                    monthPickUp: this.pickUpDate.getMonth(),
+                    dayPickUp: this.pickUpDate.getDate(),
+                    yearDropOff: this.dropOffDate.getFullYear(),
+                    monthDropOff: this.dropOffDate.getMonth(),
+                    dayDropOff: this.dropOffDate.getDate()
+                  };
+
+    axios.post(this.checkingURL, queryString.stringify(data) , {
+      headers: {
+        'Content-Type': 'application/x-www-form-urlencoded'
+      }
+    }
+    )
+    .then(function (response) {
+      console.log(response.data);
+      this.openSnackBar('Hello World', 'Dance');      // display output in mat snack bar
+    })
+    .catch(function (error) {
+      console.log(error);
+    });
+  }
+
 
   bookVehicle() {
     console.log('book vehicle');
+
+
+    this.postBookingData();     // call post method to book vehicle
+
   }
 
   checkAvailability() {
     console.log('check availability of vehicle');
 
-    console.log(this.pickUpDate);
-    console.log(this.pickUpDate.getFullYear());
-    console.log(this.pickUpDate.getMonth());      // one integer less (0-11)
-    console.log(this.pickUpDate.getDate());
+    // // console.log(this.pickUpDate);
+    // console.log(this.pickUpDate.getFullYear());
+    // console.log(this.pickUpDate.getMonth());      // one integer less (0-11)
+    // console.log(this.pickUpDate.getDate());
 
-    console.log(this.dropOffDate);
-    console.log(this.dropOffDate.getFullYear());
-    console.log(this.dropOffDate.getMonth());      // one integer less (0-11)
-    console.log(this.dropOffDate.getDate());
+    // // console.log(this.dropOffDate);
+    // console.log(this.dropOffDate.getFullYear());
+    // console.log(this.dropOffDate.getMonth());      // one integer less (0-11)
+    // console.log(this.dropOffDate.getDate());
+
+    this.postCheckingData();     // call post method to check availability
 
   }
 
@@ -87,6 +179,13 @@ export class AppComponent implements OnInit {
     console.log(this.chosenPlateNo);
 
     this.selectedRowIndex = row.plateNo;
+  }
+
+
+  openSnackBar(message: string, action: string) {
+    this._snackBar.open(message, action, {
+      duration: 2000,
+    });
   }
 }
 

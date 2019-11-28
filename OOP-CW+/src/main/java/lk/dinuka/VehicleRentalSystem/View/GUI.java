@@ -48,7 +48,7 @@ public class GUI extends Application {
         TableColumn<String, Vehicle> modelColumn = new TableColumn<>("Model");
         modelColumn.setCellValueFactory(new PropertyValueFactory<>("model"));
 
-        TableColumn<String, Vehicle> engineCapacityColumn = new TableColumn<>("Engine Capacity");
+        TableColumn<String, Vehicle> engineCapacityColumn = new TableColumn<>("Engine Capacity(CC)");
         engineCapacityColumn.setCellValueFactory(new PropertyValueFactory<>("engineCapacity"));
         engineCapacityColumn.setMinWidth(130);
 

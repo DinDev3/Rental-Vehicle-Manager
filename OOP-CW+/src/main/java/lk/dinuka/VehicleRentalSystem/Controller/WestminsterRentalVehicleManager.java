@@ -46,12 +46,16 @@ public class WestminsterRentalVehicleManager implements RentalVehicleManager{
 
         if (Vehicle.getCount() <= MAX_VEHICLES) {       //checking whether the vehicles existing in the system has occupied all the available parking lots
 
-            System.out.println("\nChoose the type of Vehicle to be added:");
-            System.out.println("1)Car\n2)Motorbike");
-            System.out.print(">");
-            intInputValidation();
-            int typeSelection = scanInput.nextInt();
-            scanInput.nextLine();              //to consume the rest of the line
+            int typeSelection;
+            do {
+                System.out.println("\nChoose the type of Vehicle to be added:");
+                System.out.println("1)Car\n2)Motorbike");
+                System.out.print(">");
+                intInputValidation();
+                typeSelection = scanInput.nextInt();
+                scanInput.nextLine();              //to consume the rest of the line
+
+            } while (!(typeSelection == 1 || typeSelection ==2));
 
 
             System.out.println("\nEnter Plate No:");
@@ -200,9 +204,10 @@ public class WestminsterRentalVehicleManager implements RentalVehicleManager{
 
     @Override
     public void viewGUI() {
+//        GUI.main(null);       //used to open javafx application
         API.getAllVehiclesToFront();                //send vehicles to front end
-//        GUI.main(null);
         API.postBookingsFromFront();                //handle booking
+        API.postAvailabilityFromFront();            //handle availability
     }
 
 
@@ -284,7 +289,7 @@ public class WestminsterRentalVehicleManager implements RentalVehicleManager{
         model = scanInput.nextLine();
 
 
-        System.out.println("\nEnter Engine Capacity:");
+        System.out.println("\nEnter Engine Capacity (in CC):");
         System.out.print(">");
         engineCapacity = scanInput.nextLine();
 

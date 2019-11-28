@@ -7,7 +7,6 @@ import spark.Spark;
 
 import java.time.LocalDate;
 
-import static lk.dinuka.VehicleRentalSystem.Controller.GUIController.createBooking;
 import static spark.Spark.*;
 
 public class API {
@@ -30,28 +29,92 @@ public class API {
 
     public static void postBookingsFromFront() {
 
-        //get plateNo of vehicle and days. check whether vehicle is available and let the front end know it's availability
+        //get plateNo of vehicle and days, book vehicle if available and let the front end know it's availability
 
         //POST - used to book
-        post("/books", (request, response) -> {
+        post("/books","application/json", (request, response) -> {
+
+            String responsePrettyJson;
+
             String plateNo = request.queryParams("plateNo");
 
-            //if this doesn't work, get year, month, day separately and create the local date objects here
-            LocalDate pickUpDate = LocalDate.parse(request.queryParams("pickUp"));
-            LocalDate dropOffDate = LocalDate.parse(request.queryParams("dropOff"));
+            int yearPickUp =  Integer.parseInt(request.queryParams("yearPickUp"));
+            int monthPickUp =  Integer.parseInt(request.queryParams("monthPickUp"));
+            int dayPickUp =  Integer.parseInt(request.queryParams("dayPickUp"));
+
+            int yearDropOff =  Integer.parseInt(request.queryParams("yearDropOff"));
+            int monthDropOff =  Integer.parseInt(request.queryParams("monthDropOff"));
+            int dayDropOff =  Integer.parseInt(request.queryParams("dayDropOff"));
+
+            LocalDate pickUpDate = LocalDate.of(yearPickUp,monthPickUp,dayPickUp);
+            LocalDate dropOffDate = LocalDate.of(yearDropOff,monthDropOff,dayDropOff);
 
             Schedule newBooking = new Schedule(pickUpDate,dropOffDate);
 
+            System.out.println(newBooking);
 
             boolean created = GUIController.createBooking(plateNo,newBooking);
 
             response.status(201); // 201 Created
 
+            if (created) {      //if booking was created
+                Gson prettyGson = new GsonBuilder().setPrettyPrinting().create();
+                responsePrettyJson = prettyGson.toJson("successful");
+            }else{      //if booking wasn't created (already booked)
+                Gson prettyGson = new GsonBuilder().setPrettyPrinting().create();
+                responsePrettyJson = prettyGson.toJson("unsuccessful");
+            }
+
 //            return created;         //true if successful
-            return "successful";
+            return responsePrettyJson;
         });
 
     }
+    public static void postAvailabilityFromFront() {
+
+        //get plateNo of vehicle and days. check whether vehicle is available and let the front end know it's availability
+
+        //POST - used to book
+        post("/checks","application/json", (request, response) -> {
+
+            String responsePrettyJson;
+
+            String plateNo = request.queryParams("plateNo");
+
+            int yearPickUp =  Integer.parseInt(request.queryParams("yearPickUp"));
+            int monthPickUp =  Integer.parseInt(request.queryParams("monthPickUp"));
+            int dayPickUp =  Integer.parseInt(request.queryParams("dayPickUp"));
+
+            int yearDropOff =  Integer.parseInt(request.queryParams("yearDropOff"));
+            int monthDropOff =  Integer.parseInt(request.queryParams("monthDropOff"));
+            int dayDropOff =  Integer.parseInt(request.queryParams("dayDropOff"));
+
+            LocalDate pickUpDate = LocalDate.of(yearPickUp,monthPickUp,dayPickUp);
+            LocalDate dropOffDate = LocalDate.of(yearDropOff,monthDropOff,dayDropOff);
+
+            Schedule newBooking = new Schedule(pickUpDate,dropOffDate);
+
+            System.out.println(newBooking);
+
+            boolean created = GUIController.checkAvailabilityOfVeh(plateNo,newBooking);
+
+            response.status(201); // 201 Created
+
+            if (created) {      //if booking was created
+                Gson prettyGson = new GsonBuilder().setPrettyPrinting().create();
+                responsePrettyJson = prettyGson.toJson("successful");
+            }else{      //if booking wasn't created (already booked)
+                Gson prettyGson = new GsonBuilder().setPrettyPrinting().create();
+                responsePrettyJson = prettyGson.toJson("unsuccessful");
+            }
+
+//            return created;         //true if successful
+            return responsePrettyJson;
+        });
+
+    }
+
+
 
 
     public static void allowHeaders() {
