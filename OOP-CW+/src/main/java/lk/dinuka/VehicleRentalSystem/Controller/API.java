@@ -51,7 +51,7 @@ public class API {
 
             Schedule newBooking = new Schedule(pickUpDate,dropOffDate);
 
-            System.out.println(newBooking);
+//            System.out.println(newBooking);
 
             boolean created = GUIController.createBooking(plateNo,newBooking);
 
@@ -94,7 +94,7 @@ public class API {
 
             Schedule newBooking = new Schedule(pickUpDate,dropOffDate);
 
-            System.out.println(newBooking);
+//            System.out.println(newBooking);
 
             boolean created = GUIController.checkAvailabilityOfVeh(plateNo,newBooking);
 

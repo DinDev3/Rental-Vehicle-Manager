@@ -17,7 +17,7 @@
       </mat-form-field>
 
       
-      <button mat-button (click)="checkAvailability()">Check Availability</button>
+      <button mat-button (click)="checkAvailability(); openSnackBarAvailability('Hello', 'Close')">Check Availability</button>
       <button mat-raised-button (click)="bookVehicle()">Book Vehicle</button>
   </div>
 

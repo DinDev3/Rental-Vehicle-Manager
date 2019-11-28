@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {VehicleService} from '../app/services/vehicle.service';
 import {MatTableDataSource} from '@angular/material';
 import axios from 'axios';
-import queryString from 'query-string';
+import {stringify} from 'query-string';
 import {MatSnackBar} from '@angular/material/snack-bar';
 
 // --------------------------------------
@@ -27,6 +27,14 @@ export class AppComponent implements OnInit {
   pickUpDate: any;
   dropOffDate: any;
 
+  displayPickUpDate: any;
+  displayDropOffDate: any;
+
+  responseBook: any;
+  responseCheck: any = '';
+
+  completeMessage: any;
+
   bookingURL: any = 'http://localhost:4567/books';
   checkingURL: any = 'http://localhost:4567/checks';
 
@@ -38,7 +46,7 @@ export class AppComponent implements OnInit {
 // ---------------
 
   constructor(private vehicleService: VehicleService,
-              private _snackBar: MatSnackBar) { }     // creating an instance of the service
+              private snackBar: MatSnackBar) { }     // creating an instance of the service
 
 
   ngOnInit() {
@@ -64,24 +72,25 @@ export class AppComponent implements OnInit {
 
     const data = { plateNo: this.chosenPlateNo,
                     yearPickUp: this.pickUpDate.getFullYear(),
-                    monthPickUp: this.pickUpDate.getMonth(),
+                    monthPickUp: this.pickUpDate.getMonth() + 1,    // months are from 0-11
                     dayPickUp: this.pickUpDate.getDate(),
                     yearDropOff: this.dropOffDate.getFullYear(),
-                    monthDropOff: this.dropOffDate.getMonth(),
+                    monthDropOff: this.dropOffDate.getMonth() + 1,    // months are from 0-11
                     dayDropOff: this.dropOffDate.getDate()
                   };
 
-    axios.post(this.bookingURL, queryString.stringify(data) , {
+    axios.post(this.bookingURL, stringify(data) , {
       headers: {
         'Content-Type': 'application/x-www-form-urlencoded'
       }
     }
     )
-    .then(function (response) {
-      console.log(response.data);
-      this.openSnackBar('Hello World', 'Dance');
+    .then((response) => {
+      // console.log(response.data);
+      this.responseBook = response.data;
+      // this.openSnackBar('Hello World', 'Dance');
     })
-    .catch(function (error) {
+    .catch((error) => {
       console.log(error);
     });
 
@@ -120,24 +129,27 @@ export class AppComponent implements OnInit {
 
     const data = { plateNo: this.chosenPlateNo,
                     yearPickUp: this.pickUpDate.getFullYear(),
-                    monthPickUp: this.pickUpDate.getMonth(),
+                    monthPickUp: this.pickUpDate.getMonth() + 1,    // months are from 0-11
                     dayPickUp: this.pickUpDate.getDate(),
                     yearDropOff: this.dropOffDate.getFullYear(),
-                    monthDropOff: this.dropOffDate.getMonth(),
+                    monthDropOff: this.dropOffDate.getMonth() + 1,    // months are from 0-11
                     dayDropOff: this.dropOffDate.getDate()
                   };
 
-    axios.post(this.checkingURL, queryString.stringify(data) , {
+    axios.post(this.checkingURL, stringify(data) , {
       headers: {
         'Content-Type': 'application/x-www-form-urlencoded'
       }
     }
     )
-    .then(function (response) {
+    .then((response) => {
       console.log(response.data);
-      this.openSnackBar('Hello World', 'Dance');      // display output in mat snack bar
+      this.responseCheck = response.data;
+
+      this.openSnackBarAvailability('Hi', 'Bye');
+
     })
-    .catch(function (error) {
+    .catch((error) => {
       console.log(error);
     });
   }
@@ -182,10 +194,32 @@ export class AppComponent implements OnInit {
   }
 
 
-  openSnackBar(message: string, action: string) {
-    this._snackBar.open(message, action, {
-      duration: 2000,
-    });
+  // openSnackBar(message: string, action: string) {
+  //   this.snackBar.open(message, action, {
+  //     duration: 2000,
+  //   });
+  // }
+
+  openSnackBarAvailability(message: string, action: string) {
+    if (this.responseCheck === 'successful') {
+
+      const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+      this.displayPickUpDate = this.pickUpDate.toLocaleDateString("en-US", options);
+      this.displayDropOffDate = this.dropOffDate.toLocaleDateString("en-US", options);
+
+      const dateRange = ' is available for booking from '.concat(this.displayPickUpDate).concat(' to ', this.displayDropOffDate);
+      this.completeMessage = 'The vehicle with Plate No: '.concat(this.chosenPlateNo).concat(dateRange);
+      console.log(this.completeMessage);
+
+      this.snackBar.open(this.completeMessage, action, {
+        duration: 15000,
+      });
+    } else {
+      this.snackBar.open('Vehicle isn\'t available during the requested time period', action, {
+        duration: 10000,
+      });
+    }
+
   }
 }
 

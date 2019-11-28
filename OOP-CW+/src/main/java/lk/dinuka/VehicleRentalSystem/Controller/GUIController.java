@@ -135,12 +135,12 @@ public class GUIController {
         boolean availability = checkAvailabilityOfVeh(plateNo, newBooking);   //checking whether vehicle is available for booking
 
 
-        System.out.println();
-        System.out.println("---checked availability---");
-        System.out.println();
+//        System.out.println();
+//        System.out.println("---checked availability---");
+//        System.out.println();
 
         if (availability) {
-            System.out.println("Vehicle is available for booking");
+//            System.out.println("Vehicle is available for booking");
 
             if (bookedVehicles.containsKey(plateNo)) {
                 bookedVehicleDates = bookedVehicles.get(plateNo);            //getting recorded bookings into temporary list
@@ -149,7 +149,7 @@ public class GUIController {
 
             WestminsterRentalVehicleManager.bookedVehicles.put(plateNo, (ArrayList) bookedVehicleDates);       //adding all booked vehicles to bookedVehicles HashMap
 
-            System.out.println(WestminsterRentalVehicleManager.bookedVehicles);         //checking whether required booking was entered into the system
+//            System.out.println(WestminsterRentalVehicleManager.bookedVehicles);         //checking whether required booking was entered into the system
             return true;
         } else {
             System.out.println("Vehicle isn't available for booking during the requested time period.");
