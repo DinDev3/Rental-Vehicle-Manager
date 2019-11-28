@@ -152,7 +152,7 @@ public class GUIController {
 //            System.out.println(WestminsterRentalVehicleManager.bookedVehicles);         //checking whether required booking was entered into the system
             return true;
         } else {
-            System.out.println("Vehicle isn't available for booking during the requested time period.");
+//            System.out.println("Vehicle isn't available for booking during the requested time period.");
             //vehicle isn't available to be book
             return false;
         }

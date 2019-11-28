@@ -60,6 +60,11 @@ public class API {
             if (created) {      //if booking was created
                 Gson prettyGson = new GsonBuilder().setPrettyPrinting().create();
                 responsePrettyJson = prettyGson.toJson("successful");
+
+                // adding new booking to the database
+                DatabaseController.addToBookedDB(plateNo, yearPickUp, monthPickUp, dayPickUp,
+                        yearDropOff, monthDropOff, dayDropOff);
+
             }else{      //if booking wasn't created (already booked)
                 Gson prettyGson = new GsonBuilder().setPrettyPrinting().create();
                 responsePrettyJson = prettyGson.toJson("unsuccessful");
