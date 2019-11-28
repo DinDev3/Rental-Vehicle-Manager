@@ -2,10 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a970c778-d52b-4a7c-b0bb-b6ed38f6eb4c" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/../Angular GUI/ng-GUI/src/app/app.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/../Angular GUI/ng-GUI/src/app/app.component.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Angular GUI/ng-GUI/src/app/app.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../Angular GUI/ng-GUI/src/app/app.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/lk/dinuka/VehicleRentalSystem/Controller/API.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lk/dinuka/VehicleRentalSystem/Controller/API.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/lk/dinuka/VehicleRentalSystem/Controller/GUIController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lk/dinuka/VehicleRentalSystem/Controller/GUIController.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/.gradle/" />
@@ -83,8 +80,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/lk/dinuka/VehicleRentalSystem/View/GUI.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="197">
-              <caret line="294" column="79" selection-start-line="294" selection-start-column="79" selection-end-line="294" selection-end-column="139" />
+            <state relative-caret-position="287">
+              <caret line="293" column="72" lean-forward="true" selection-start-line="293" selection-start-column="72" selection-end-line="293" selection-end-column="72" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -406,7 +403,7 @@
       <workItem from="1574828680216" duration="3822000" />
       <workItem from="1574910888461" duration="1446000" />
       <workItem from="1574914476622" duration="1704000" />
-      <workItem from="1574918053021" duration="3393000" />
+      <workItem from="1574918053021" duration="4023000" />
     </task>
     <servers />
   </component>
@@ -431,13 +428,12 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="42667000" />
+    <option name="totallyTimeSpent" value="43297000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
-    <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.16532798" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.16532798" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="Image Layers" order="3" />
@@ -446,7 +442,7 @@
       <window_info id="Favorites" order="6" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32957748" />
-      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.3830986" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.3830986" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -638,8 +634,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/lk/dinuka/VehicleRentalSystem/View/GUI.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="197">
-          <caret line="294" column="79" selection-start-line="294" selection-start-column="79" selection-end-line="294" selection-end-column="139" />
+        <state relative-caret-position="287">
+          <caret line="293" column="72" lean-forward="true" selection-start-line="293" selection-start-column="72" selection-end-line="293" selection-end-column="72" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>

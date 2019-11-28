@@ -88,7 +88,8 @@ export class AppComponent implements OnInit {
     .then((response) => {
       // console.log(response.data);
       this.responseBook = response.data;
-      // this.openSnackBar('Hello World', 'Dance');
+
+      this.openSnackBarBooking('Close');
     })
     .catch((error) => {
       console.log(error);
@@ -146,7 +147,7 @@ export class AppComponent implements OnInit {
       console.log(response.data);
       this.responseCheck = response.data;
 
-      this.openSnackBarAvailability('Hi', 'Bye');
+      this.openSnackBarAvailability('Close');
 
     })
     .catch((error) => {
@@ -158,23 +159,12 @@ export class AppComponent implements OnInit {
   bookVehicle() {
     console.log('book vehicle');
 
-
     this.postBookingData();     // call post method to book vehicle
 
   }
 
   checkAvailability() {
     console.log('check availability of vehicle');
-
-    // // console.log(this.pickUpDate);
-    // console.log(this.pickUpDate.getFullYear());
-    // console.log(this.pickUpDate.getMonth());      // one integer less (0-11)
-    // console.log(this.pickUpDate.getDate());
-
-    // // console.log(this.dropOffDate);
-    // console.log(this.dropOffDate.getFullYear());
-    // console.log(this.dropOffDate.getMonth());      // one integer less (0-11)
-    // console.log(this.dropOffDate.getDate());
 
     this.postCheckingData();     // call post method to check availability
 
@@ -194,13 +184,31 @@ export class AppComponent implements OnInit {
   }
 
 
-  // openSnackBar(message: string, action: string) {
-  //   this.snackBar.open(message, action, {
-  //     duration: 2000,
-  //   });
-  // }
+  openSnackBarBooking(action: string) {      // content to display when a vehicle is requested to be booked
+    if (this.responseCheck === 'successful') {
 
-  openSnackBarAvailability(message: string, action: string) {
+      const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+      this.displayPickUpDate = this.pickUpDate.toLocaleDateString("en-US", options);
+      this.displayDropOffDate = this.dropOffDate.toLocaleDateString("en-US", options);
+
+      const dateRange = ' was booked from '.concat(this.displayPickUpDate).concat(' to ', this.displayDropOffDate);
+      this.completeMessage = 'The vehicle with Plate No: '.concat(this.chosenPlateNo).concat(dateRange);
+      console.log(this.completeMessage);
+
+      this.snackBar.open(this.completeMessage, action, {
+        duration: 15000,
+      });
+    } else {
+      const chosenVehicle = 'The vehicle with Plate No: '.concat(this.chosenPlateNo);
+      this.completeMessage = chosenVehicle.concat(' isn\'t available for booking during the requested time period.');
+      this.snackBar.open(this.completeMessage, action, {
+        duration: 10000,
+      });
+    }
+  }
+
+
+  openSnackBarAvailability(action: string) {      // content to display when the availability of a vehicle is checked
     if (this.responseCheck === 'successful') {
 
       const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
@@ -215,11 +223,13 @@ export class AppComponent implements OnInit {
         duration: 15000,
       });
     } else {
-      this.snackBar.open('Vehicle isn\'t available during the requested time period', action, {
+      const chosenVehicle = 'The vehicle with Plate No: '.concat(this.chosenPlateNo);
+      this.completeMessage = chosenVehicle.concat(' isn\'t available for booking during the requested time period.');
+      this.snackBar.open(this.completeMessage, action, {
         duration: 10000,
       });
     }
-
   }
+
 }
 
