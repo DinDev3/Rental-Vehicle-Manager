@@ -7,13 +7,6 @@
       <change beforePath="$PROJECT_DIR$/../Angular GUI/ng-GUI/src/app/app.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../Angular GUI/ng-GUI/src/app/app.component.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Angular GUI/ng-GUI/src/app/app.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../Angular GUI/ng-GUI/src/app/app.module.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Angular GUI/ng-GUI/src/styles.scss" beforeDir="false" afterPath="$PROJECT_DIR$/../Angular GUI/ng-GUI/src/styles.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/4.10.3/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.10.3/fileHashes/fileHashes.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/4.10.3/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.10.3/fileHashes/fileHashes.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/classes/lk/dinuka/VehicleRentalSystem/Controller/DatabaseController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/classes/lk/dinuka/VehicleRentalSystem/Controller/DatabaseController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/classes/lk/dinuka/VehicleRentalSystem/Controller/WestminsterRentalVehicleManager.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/classes/lk/dinuka/VehicleRentalSystem/Controller/WestminsterRentalVehicleManager.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/test/classes/lk/dinuka/VehicleRentalSystem/Controller/WestminsterRentalVehicleManagerTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/test/classes/lk/dinuka/VehicleRentalSystem/Controller/WestminsterRentalVehicleManagerTest.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/lk/dinuka/VehicleRentalSystem/Controller/DatabaseController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lk/dinuka/VehicleRentalSystem/Controller/DatabaseController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/lk/dinuka/VehicleRentalSystem/Controller/WestminsterRentalVehicleManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lk/dinuka/VehicleRentalSystem/Controller/WestminsterRentalVehicleManager.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/lk/dinuka/VehicleRentalSystem/Controller/WestminsterRentalVehicleManagerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/lk/dinuka/VehicleRentalSystem/Controller/WestminsterRentalVehicleManagerTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Test Plan.docx" beforeDir="false" />
@@ -45,8 +38,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/lk/dinuka/VehicleRentalSystem/Controller/WestminsterRentalVehicleManager.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="378">
-              <caret line="136" column="20" lean-forward="true" selection-start-line="136" selection-start-column="20" selection-end-line="136" selection-end-column="20" />
+            <state relative-caret-position="131">
+              <caret line="149" lean-forward="true" selection-start-line="149" selection-end-line="149" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -57,8 +50,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/lk/dinuka/VehicleRentalSystem/Controller/DatabaseController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="335">
-              <caret line="127" column="19" selection-start-line="127" selection-start-column="19" selection-end-line="127" selection-end-column="19" />
+            <state relative-caret-position="605">
+              <caret line="97" column="59" lean-forward="true" selection-start-line="97" selection-start-column="59" selection-end-line="97" selection-end-column="59" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -69,8 +62,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/test/java/lk/dinuka/VehicleRentalSystem/Controller/WestminsterRentalVehicleManagerTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="753">
-              <caret line="102" column="86" selection-start-line="102" selection-start-column="86" selection-end-line="102" selection-end-column="86" />
+            <state relative-caret-position="4158">
+              <caret line="240" column="110" selection-start-line="240" selection-start-column="110" selection-end-line="240" selection-end-column="110" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -105,7 +98,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/lk/dinuka/VehicleRentalSystem/Controller/GUIController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2484">
+            <state relative-caret-position="422">
               <caret line="147" column="108" selection-start-line="147" selection-start-column="108" selection-end-line="147" selection-end-column="108" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -117,8 +110,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/lk/dinuka/VehicleRentalSystem/ConApp.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="162">
-              <caret line="14" column="73" selection-start-line="14" selection-start-column="73" selection-end-line="14" selection-end-column="73" />
+            <state relative-caret-position="72">
+              <caret line="9" column="21" lean-forward="true" selection-start-line="9" selection-start-column="21" selection-end-line="9" selection-end-column="21" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -147,6 +140,7 @@
       <find>Big</find>
       <find>vehiclesMap</find>
       <find>allVehicles</find>
+      <find>count</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -348,7 +342,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="WestminsterRentalVehicleManagerTest.testDeleteCar" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="WestminsterRentalVehicleManagerTest.addVehicleCar" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="VehicleRentalSystem.test" />
       <extension name="coverage">
         <pattern>
@@ -358,7 +352,23 @@
       </extension>
       <option name="PACKAGE_NAME" value="lk.dinuka.VehicleRentalSystem.Controller" />
       <option name="MAIN_CLASS_NAME" value="lk.dinuka.VehicleRentalSystem.Controller.WestminsterRentalVehicleManagerTest" />
-      <option name="METHOD_NAME" value="testDeleteCar" />
+      <option name="METHOD_NAME" value="addVehicleCar" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="WestminsterRentalVehicleManagerTest.printList" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="VehicleRentalSystem.test" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="lk.dinuka.VehicleRentalSystem.Controller.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="lk.dinuka.VehicleRentalSystem.Controller" />
+      <option name="MAIN_CLASS_NAME" value="lk.dinuka.VehicleRentalSystem.Controller.WestminsterRentalVehicleManagerTest" />
+      <option name="METHOD_NAME" value="printList" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -380,29 +390,13 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="WestminsterRentalVehicleManagerTest.testDeleteVehicle" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="VehicleRentalSystem.test" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="lk.dinuka.VehicleRentalSystem.Controller.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="lk.dinuka.VehicleRentalSystem.Controller" />
-      <option name="MAIN_CLASS_NAME" value="lk.dinuka.VehicleRentalSystem.Controller.WestminsterRentalVehicleManagerTest" />
-      <option name="METHOD_NAME" value="testDeleteVehicle" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <recent_temporary>
       <list>
         <item itemvalue="JUnit.WestminsterRentalVehicleManagerTest" />
-        <item itemvalue="JUnit.WestminsterRentalVehicleManagerTest.testDeleteCarAvailable" />
-        <item itemvalue="JUnit.WestminsterRentalVehicleManagerTest.testDeleteCar" />
-        <item itemvalue="JUnit.WestminsterRentalVehicleManagerTest.testDeleteVehicle" />
+        <item itemvalue="JUnit.WestminsterRentalVehicleManagerTest.printList" />
         <item itemvalue="JUnit.WestminsterRentalVehicleManagerTest.addVehicleBike" />
+        <item itemvalue="JUnit.WestminsterRentalVehicleManagerTest.addVehicleCar" />
+        <item itemvalue="JUnit.WestminsterRentalVehicleManagerTest.testDeleteCarAvailable" />
       </list>
     </recent_temporary>
   </component>
@@ -431,44 +425,44 @@
       <workItem from="1574910888461" duration="1446000" />
       <workItem from="1574914476622" duration="1704000" />
       <workItem from="1574918053021" duration="10621000" />
-      <workItem from="1575002204554" duration="6782000" />
+      <workItem from="1575002204554" duration="10450000" />
     </task>
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="WestminsterRentalVehicleManagerTest_testDeleteVehicle - 2019.11.29 at 12h 30m 31s.xml">
-      <configuration name="WestminsterRentalVehicleManagerTest.testDeleteVehicle" configurationId="JUnit" />
+    <history-entry file="WestminsterRentalVehicleManagerTest_addVehicleBike - 2019.11.29 at 18h 24m 00s.xml">
+      <configuration name="WestminsterRentalVehicleManagerTest.addVehicleBike" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="WestminsterRentalVehicleManagerTest - 2019.11.29 at 12h 31m 55s.xml">
+    <history-entry file="WestminsterRentalVehicleManagerTest - 2019.11.29 at 18h 24m 42s.xml">
       <configuration name="WestminsterRentalVehicleManagerTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="WestminsterRentalVehicleManagerTest - 2019.11.29 at 12h 53m 01s.xml">
+    <history-entry file="WestminsterRentalVehicleManagerTest - 2019.11.29 at 18h 28m 16s.xml">
       <configuration name="WestminsterRentalVehicleManagerTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="WestminsterRentalVehicleManagerTest - 2019.11.29 at 12h 53m 09s.xml">
+    <history-entry file="WestminsterRentalVehicleManagerTest - 2019.11.29 at 18h 28m 52s.xml">
       <configuration name="WestminsterRentalVehicleManagerTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="WestminsterRentalVehicleManagerTest - 2019.11.29 at 16h 11m 57s.xml">
+    <history-entry file="WestminsterRentalVehicleManagerTest - 2019.11.29 at 18h 30m 16s.xml">
       <configuration name="WestminsterRentalVehicleManagerTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="WestminsterRentalVehicleManagerTest_testDeleteCar - 2019.11.29 at 17h 24m 56s.xml">
-      <configuration name="WestminsterRentalVehicleManagerTest.testDeleteCar" configurationId="JUnit" />
+    <history-entry file="WestminsterRentalVehicleManagerTest - 2019.11.29 at 18h 31m 09s.xml">
+      <configuration name="WestminsterRentalVehicleManagerTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="WestminsterRentalVehicleManagerTest_testDeleteCar - 2019.11.29 at 17h 25m 12s.xml">
-      <configuration name="WestminsterRentalVehicleManagerTest.testDeleteCar" configurationId="JUnit" />
+    <history-entry file="WestminsterRentalVehicleManagerTest_printList - 2019.11.29 at 18h 33m 40s.xml">
+      <configuration name="WestminsterRentalVehicleManagerTest.printList" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="WestminsterRentalVehicleManagerTest_testDeleteCar - 2019.11.29 at 17h 28m 54s.xml">
-      <configuration name="WestminsterRentalVehicleManagerTest.testDeleteCar" configurationId="JUnit" />
+    <history-entry file="WestminsterRentalVehicleManagerTest - 2019.11.29 at 18h 33m 53s.xml">
+      <configuration name="WestminsterRentalVehicleManagerTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="WestminsterRentalVehicleManagerTest_testDeleteCar - 2019.11.29 at 17h 29m 20s.xml">
-      <configuration name="WestminsterRentalVehicleManagerTest.testDeleteCar" configurationId="JUnit" />
+    <history-entry file="WestminsterRentalVehicleManagerTest_printList - 2019.11.29 at 18h 36m 04s.xml">
+      <configuration name="WestminsterRentalVehicleManagerTest.printList" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="WestminsterRentalVehicleManagerTest_testDeleteCar - 2019.11.29 at 17h 29m 46s.xml">
-      <configuration name="WestminsterRentalVehicleManagerTest.testDeleteCar" configurationId="JUnit" />
+    <history-entry file="WestminsterRentalVehicleManagerTest - 2019.11.29 at 18h 36m 14s.xml">
+      <configuration name="WestminsterRentalVehicleManagerTest" configurationId="JUnit" />
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="56677000" />
+    <option name="totallyTimeSpent" value="60345000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
@@ -483,7 +477,7 @@
       <window_info id="Favorites" order="6" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32957748" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.37887323" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.5943662" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -607,33 +601,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/lk/dinuka/VehicleRentalSystem/Controller/GUIController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2484">
-          <caret line="147" column="108" selection-start-line="147" selection-start-column="108" selection-end-line="147" selection-end-column="108" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/lk/dinuka/VehicleRentalSystem/ConApp.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="162">
-          <caret line="14" column="73" selection-start-line="14" selection-start-column="73" selection-end-line="14" selection-end-column="73" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/lk/dinuka/VehicleRentalSystem/Model/RentalVehicleManager.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="36">
-          <caret line="2" column="17" selection-start-line="2" selection-start-column="17" selection-end-line="2" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/gradlew.bat">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -647,16 +614,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/lk/dinuka/VehicleRentalSystem/Controller/DatabaseController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="335">
-          <caret line="127" column="19" selection-start-line="127" selection-start-column="19" selection-end-line="127" selection-end-column="19" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/lk/dinuka/VehicleRentalSystem/Controller/API.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="18">
@@ -667,10 +624,47 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/lk/dinuka/VehicleRentalSystem/Model/RentalVehicleManager.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="36">
+          <caret line="2" column="17" selection-start-line="2" selection-start-column="17" selection-end-line="2" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/lk/dinuka/VehicleRentalSystem/ConApp.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="72">
+          <caret line="9" column="21" lean-forward="true" selection-start-line="9" selection-start-column="21" selection-end-line="9" selection-end-column="21" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/lk/dinuka/VehicleRentalSystem/Controller/GUIController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="422">
+          <caret line="147" column="108" selection-start-line="147" selection-start-column="108" selection-end-line="147" selection-end-column="108" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/lk/dinuka/VehicleRentalSystem/Controller/DatabaseController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="605">
+          <caret line="97" column="59" lean-forward="true" selection-start-line="97" selection-start-column="59" selection-end-line="97" selection-end-column="59" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/lk/dinuka/VehicleRentalSystem/Controller/WestminsterRentalVehicleManager.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="378">
-          <caret line="136" column="20" lean-forward="true" selection-start-line="136" selection-start-column="20" selection-end-line="136" selection-end-column="20" />
+        <state relative-caret-position="131">
+          <caret line="149" lean-forward="true" selection-start-line="149" selection-end-line="149" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -679,8 +673,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/test/java/lk/dinuka/VehicleRentalSystem/Controller/WestminsterRentalVehicleManagerTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="753">
-          <caret line="102" column="86" selection-start-line="102" selection-start-column="86" selection-end-line="102" selection-end-column="86" />
+        <state relative-caret-position="4158">
+          <caret line="240" column="110" selection-start-line="240" selection-start-column="110" selection-end-line="240" selection-end-column="110" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>

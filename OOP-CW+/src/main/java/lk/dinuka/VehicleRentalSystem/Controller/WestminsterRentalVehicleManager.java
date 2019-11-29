@@ -127,7 +127,7 @@ public class WestminsterRentalVehicleManager implements RentalVehicleManager{
             type = vehicleToBeDeleted.getType();
 
             System.out.println("\nA " + type + " has been deleted from the system.");
-            System.out.println("The details of the vehicle that was deleted:" + vehicleToBeDeleted.toString());      //displaying information of deleted vehicle
+            System.out.println("The details of the vehicle that was deleted: " + vehicleToBeDeleted.toString());      //displaying information of deleted vehicle
 
             vehiclesInSystem.remove(vehicleToBeDeleted);
             allVehicles.remove(searchNo);
