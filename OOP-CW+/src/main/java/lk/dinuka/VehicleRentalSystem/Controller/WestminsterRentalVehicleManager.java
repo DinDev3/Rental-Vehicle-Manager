@@ -1,7 +1,9 @@
 package lk.dinuka.VehicleRentalSystem.Controller;
 
-import lk.dinuka.VehicleRentalSystem.Model.*;
-import lk.dinuka.VehicleRentalSystem.View.GUI;
+import lk.dinuka.VehicleRentalSystem.Model.Car;
+import lk.dinuka.VehicleRentalSystem.Model.Motorbike;
+import lk.dinuka.VehicleRentalSystem.Model.RentalVehicleManager;
+import lk.dinuka.VehicleRentalSystem.Model.Vehicle;
 
 import java.io.File;
 import java.io.FileWriter;
@@ -25,6 +27,9 @@ public class WestminsterRentalVehicleManager implements RentalVehicleManager{
         return vehiclesInSystem;
     }
 
+    public static HashMap<String, Vehicle> getAllVehicles() {
+        return allVehicles;
+    }
 
     private static String plateNo;
     private static String make;
@@ -88,6 +93,9 @@ public class WestminsterRentalVehicleManager implements RentalVehicleManager{
                     deleteFile();       //deleting existing file
                     save();     //saving info in file
 
+                    API.getAllVehiclesToFront();                //update vehicles in front end
+
+
                 } else {
                     System.out.println();       //keeps space and goes back to main menu
                 }
@@ -96,6 +104,9 @@ public class WestminsterRentalVehicleManager implements RentalVehicleManager{
                 addInfo(typeSelection);             //add information related to a Vehicle of identified plateNo.
 
                 save();     //saving info in file
+
+                API.getAllVehiclesToFront();                //update vehicles in front end
+
             }
 
 
@@ -129,8 +140,10 @@ public class WestminsterRentalVehicleManager implements RentalVehicleManager{
 
             save();     //save changes to file
 
+            API.getAllVehiclesToFront();                //update vehicles in front end
+
         } else {
-            System.out.println("There's no item related to the item ID: " + searchNo);
+            System.out.println("There's no vehicle related to the Plate No: " + searchNo);
         }
     }
 
@@ -193,6 +206,7 @@ public class WestminsterRentalVehicleManager implements RentalVehicleManager{
                 }
                 soldFile.write(System.getProperty("line.separator"));       //line break
             }
+            soldFile.write(String.format("+-----------------+---------------+--------------+----------------+---------------+-----------+--------------+--------+------------+------------+%n"));
 
             soldFile.close();
 
@@ -360,7 +374,7 @@ public class WestminsterRentalVehicleManager implements RentalVehicleManager{
 
     private static void deleteFile(){       //deleting file, if exists (When vehicle is added/ deleted/ edited)
         try {
-            Files.deleteIfExists(Paths.get("C:\\Users\\Dell XPS15\\Documents\\IIT Work\\L5\\OOP\\Coursework 01\\OOP-CW\\allVehicles.txt"));
+            Files.deleteIfExists(Paths.get("C:\\Users\\Dell XPS15\\Documents\\IIT Work\\L5\\OOP\\Coursework 01\\OOP-CW\\OOP-CW+\\allVehicles.txt"));
         } catch (NoSuchFileException e) {
             System.out.println("No such file/directory exists");
         } catch (DirectoryNotEmptyException e) {

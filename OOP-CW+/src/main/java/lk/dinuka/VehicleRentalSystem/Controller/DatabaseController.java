@@ -14,6 +14,8 @@ import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.util.ArrayList;
 
+import static lk.dinuka.VehicleRentalSystem.Model.Vehicle.count;
+
 public class DatabaseController {
 
     public static void addToSystemDB(String plateNo, String make, String model, String engineCapacity, double dailyCost, String type, String startType, double wheelSize) {
@@ -122,6 +124,8 @@ public class DatabaseController {
                 WestminsterRentalVehicleManager.vehiclesInSystem.add(storedBike);
 //                System.out.println(storedBike);            //to check whether Motorbike was added
             }
+
+            count++;
 
         }
 
