@@ -47,7 +47,6 @@ public class WestminsterRentalVehicleManager implements RentalVehicleManager {
 
     @Override
     public void addVehicle() {
-
         if (Vehicle.getCount() <= MAX_VEHICLES) {       //checking whether the vehicles existing in the system has occupied all the available parking lots
 
             int typeSelection;
@@ -67,7 +66,7 @@ public class WestminsterRentalVehicleManager implements RentalVehicleManager {
             plateNo = scanInput.nextLine();
 
             if (allVehicles.containsKey(plateNo)) {
-                System.out.println("This Plate No exists in the system.");
+                System.out.println("This Plate No. exists in the system.");
                 System.out.println();           //to keep space for clarity
 
                 replaceVeh = false;
