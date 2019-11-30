@@ -10,7 +10,7 @@ import java.util.Scanner;
 public class ConApp {
 
     private static HashMap<String, String> accessCredentials = new HashMap<>();          //used to store for the user name & password to access the system functions
-    //A hashMap is used to allow multiple user access accounts
+    //A hashMap is used to allow multiple user access credentials
 
     public static void main(String[] args) {
 
@@ -42,11 +42,11 @@ public class ConApp {
                 System.out.println("\t/~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\\");
 
                 //display main menu
-                System.out.println("\n1)Add item");
-                System.out.println("2)Delete item");
-                System.out.println("3)Print list of items");
-                System.out.println("4)Open GUI");
-                System.out.println("5)Exit program");
+                System.out.println("\n1) Add item");
+                System.out.println("2) Delete item");
+                System.out.println("3) Print list of items");
+                System.out.println("4) Open GUI");
+                System.out.println("5) Exit program");
 //            Scanner sc = new Scanner(System.in);
                 System.out.print("\nEnter Option:\n>>");
 

@@ -5,7 +5,7 @@ import java.util.Objects;
 
 public class Motorbike extends Vehicle {
 
-    private String startType;
+    private String startType;       //Kick Start or Electric Start
     private double wheelSize;
 
     public Motorbike(String plateNo, String make, String model, String engineCapacity, BigDecimal dailyCost, String type, String startType, double wheelSize) {

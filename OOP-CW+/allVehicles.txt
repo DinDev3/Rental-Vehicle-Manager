@@ -1,96 +1,28 @@
 +-----------------+---------------+--------------+----------------+---------------+-----------+--------------+--------+------------+------------+
 |   Plate ID      |   Make        |   Model      | Engine Capacity| Daily Cost(£) |   Type    | transmission | AirCon | Start type | Wheel Size |
 +-----------------+---------------+--------------+----------------+---------------+-----------+--------------+--------+------------+------------+
-| BIK 2525        | Honda         | Cuvic        | 1000           | 50.0          | Motorbike |       -      |    -   | push       | 14.0       |
+| jh              | hb            | hbk          | 87yh           | 879.0         | Car       | uih          | true   |        -        |      -     |
 
-| 2dg             | Yamah         | YC300        | 1000           | 29.0          | Motorbike |       -      |    -   | Push       | 60.0       |
+| 2dg             | Yamah         | YC300        | 1000           | 29.0          | Motorbike |       -      |    -   | Push            | 60.0       |
 
-| jh              | hb            | hbk          | 87yh           | 879.0         | Car       | uih          | true   |      -     |      -     |
+| BIK 2525        | Honda         | Cuvic        | 1000           | 50.0          | Motorbike |       -      |    -   | push            | 14.0       |
 
-| CBK 2424        | Benz          | C200         | 2000           | 100.0         | Car       | Auto         | true   |      -     |      -     |
+| CBK 2424        | Benz          | C200         | 2000           | 100.0         | Car       | Auto         | true   |        -        |      -     |
 
-+-----------------+---------------+--------------+----------------+---------------+-----------+--------------+--------+------------+------------+
-|   Plate ID      |   Make        |   Model      | Engine Capacity| Daily Cost(£) |   Type    | transmission | AirCon | Start type | Wheel Size |
-+-----------------+---------------+--------------+----------------+---------------+-----------+--------------+--------+------------+------------+
-| CBK 2424        | Benz          | C200         | 2000           | 100.0         | Car       | Auto         | true   |      -     |      -     |
+| CAR 6069        | Audi          | A6           | 2400           | 120.0         | Car       | Auto         | true   |        -        |      -     |
 
-| BIK 2525        | Honda         | Cuvic        | 1000           | 50.0          | Motorbike |       -      |    -   | push       | 14.0       |
+| KJ 5031         | Toyota        | Corolla      | 1800           | 70.0          | Car       | Manual       | true   |        -        |      -     |
 
-| 2dg             | Yamah         | YC300        | 1000           | 29.0          | Motorbike |       -      |    -   | Push       | 60.0       |
+| GM 7194         | Toyota        | Allion       | 1800           | 75.0          | Car       | Auto         | false  |        -        |      -     |
 
-| jh              | hb            | hbk          | 87yh           | 879.0         | Car       | uih          | true   |      -     |      -     |
+| CRV 8281        | Honda         | Fit          | 1400           | 60.0          | Car       | Manual       | true   |        -        |      -     |
 
-| CAR 6069        | Audi          | A6           | 2400           | 120.0         | Car       | Auto         | true   |      -     |      -     |
+| BMS 2123        | Suzuki        | Gixxer       | 155            | 30.0          | Motorbike |       -      |    -   | Self Start      | 17.0       |
 
-+-----------------+---------------+--------------+----------------+---------------+-----------+--------------+--------+------------+------------+
-|   Plate ID      |   Make        |   Model      | Engine Capacity| Daily Cost(£) |   Type    | transmission | AirCon | Start type | Wheel Size |
-+-----------------+---------------+--------------+----------------+---------------+-----------+--------------+--------+------------+------------+
-| CAR 6069        | Audi          | A6           | 2400           | 120.0         | Car       | Auto         | true   |      -     |      -     |
+| BIM-4041        | Bajaj         | Pulsar       | 150            | 30.0          | Motorbike |       -      |    -   | Kick Start      | 14.0       |
 
-| CBK 2424        | Benz          | C200         | 2000           | 100.0         | Car       | Auto         | true   |      -     |      -     |
+| PIQ-2019        | Honda         | Hornet       | 250            | 50.0          | Motorbike |       -      |    -   | Electric Start  | 16.0       |
 
-| BIK 2525        | Honda         | Cuvic        | 1000           | 50.0          | Motorbike |       -      |    -   | push       | 14.0       |
-
-| 2dg             | Yamah         | YC300        | 1000           | 29.0          | Motorbike |       -      |    -   | Push       | 60.0       |
-
-| jh              | hb            | hbk          | 87yh           | 879.0         | Car       | uih          | true   |      -     |      -     |
-
-| KJ 5031         | Toyota        | Corolla      | 1800           | 70.0          | Car       | Manual       | true   |      -     |      -     |
+| HUN-8909        | Hero          | Maestro      | 110            | 35.0          | Motorbike |       -      |    -   | Electric Start  | 12.0       |
 
 +-----------------+---------------+--------------+----------------+---------------+-----------+--------------+--------+------------+------------+
-|   Plate ID      |   Make        |   Model      | Engine Capacity| Daily Cost(£) |   Type    | transmission | AirCon | Start type | Wheel Size |
-+-----------------+---------------+--------------+----------------+---------------+-----------+--------------+--------+------------+------------+
-| CAR 6069        | Audi          | A6           | 2400           | 120.0         | Car       | Auto         | true   |      -     |      -     |
-
-| CBK 2424        | Benz          | C200         | 2000           | 100.0         | Car       | Auto         | true   |      -     |      -     |
-
-| BIK 2525        | Honda         | Cuvic        | 1000           | 50.0          | Motorbike |       -      |    -   | push       | 14.0       |
-
-| KJ 5031         | Toyota        | Corolla      | 1800           | 70.0          | Car       | Manual       | true   |      -     |      -     |
-
-| 2dg             | Yamah         | YC300        | 1000           | 29.0          | Motorbike |       -      |    -   | Push       | 60.0       |
-
-| jh              | hb            | hbk          | 87yh           | 879.0         | Car       | uih          | true   |      -     |      -     |
-
-| GM 7194         | Toyota        | Allion       | 1800           | 75.0          | Car       | Auto         | false  |      -     |      -     |
-
-+-----------------+---------------+--------------+----------------+---------------+-----------+--------------+--------+------------+------------+
-|   Plate ID      |   Make        |   Model      | Engine Capacity| Daily Cost(£) |   Type    | transmission | AirCon | Start type | Wheel Size |
-+-----------------+---------------+--------------+----------------+---------------+-----------+--------------+--------+------------+------------+
-| CAR 6069        | Audi          | A6           | 2400           | 120.0         | Car       | Auto         | true   |      -     |      -     |
-
-| CBK 2424        | Benz          | C200         | 2000           | 100.0         | Car       | Auto         | true   |      -     |      -     |
-
-| BIK 2525        | Honda         | Cuvic        | 1000           | 50.0          | Motorbike |       -      |    -   | push       | 14.0       |
-
-| KJ 5031         | Toyota        | Corolla      | 1800           | 70.0          | Car       | Manual       | true   |      -     |      -     |
-
-| 2dg             | Yamah         | YC300        | 1000           | 29.0          | Motorbike |       -      |    -   | Push       | 60.0       |
-
-| jh              | hb            | hbk          | 87yh           | 879.0         | Car       | uih          | true   |      -     |      -     |
-
-| GM 7194         | Toyota        | Allion       | 1800           | 75.0          | Car       | Auto         | false  |      -     |      -     |
-
-| CRV 8281        | Honda         | Fit          | 1400           | 60.0          | Car       | Manual       | true   |      -     |      -     |
-
-+-----------------+---------------+--------------+----------------+---------------+-----------+--------------+--------+------------+------------+
-|   Plate ID      |   Make        |   Model      | Engine Capacity| Daily Cost(£) |   Type    | transmission | AirCon | Start type | Wheel Size |
-+-----------------+---------------+--------------+----------------+---------------+-----------+--------------+--------+------------+------------+
-| CAR 6069        | Audi          | A6           | 2400           | 120.0         | Car       | Auto         | true   |      -     |      -     |
-
-| CBK 2424        | Benz          | C200         | 2000           | 100.0         | Car       | Auto         | true   |      -     |      -     |
-
-| BIK 2525        | Honda         | Cuvic        | 1000           | 50.0          | Motorbike |       -      |    -   | push       | 14.0       |
-
-| CRV 8281        | Honda         | Fit          | 1400           | 60.0          | Car       | Manual       | true   |      -     |      -     |
-
-| KJ 5031         | Toyota        | Corolla      | 1800           | 70.0          | Car       | Manual       | true   |      -     |      -     |
-
-| GM 7194         | Toyota        | Allion       | 1800           | 75.0          | Car       | Auto         | false  |      -     |      -     |
-
-| 2dg             | Yamah         | YC300        | 1000           | 29.0          | Motorbike |       -      |    -   | Push       | 60.0       |
-
-| jh              | hb            | hbk          | 87yh           | 879.0         | Car       | uih          | true   |      -     |      -     |
-
-| BMS 2123        | Suzuki        | Gixxer       | 155            | 30.0          | Motorbike |       -      |    -   | Self Start | 17.0       |
-

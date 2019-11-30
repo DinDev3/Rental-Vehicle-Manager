@@ -53,7 +53,7 @@ public class WestminsterRentalVehicleManager implements RentalVehicleManager {
             int typeSelection;
             do {
                 System.out.println("\nChoose the type of Vehicle to be added:");
-                System.out.println("1)Car\n2)Motorbike");
+                System.out.println("1) Car\n2) Motorbike");
                 System.out.print(">");
                 intInputValidation();
                 typeSelection = scanInput.nextInt();
@@ -185,13 +185,13 @@ public class WestminsterRentalVehicleManager implements RentalVehicleManager {
             FileWriter soldFile = new FileWriter("allVehicles.txt", true);
 
 
-            soldFile.write(String.format("+-----------------+---------------+--------------+----------------+---------------+-----------+--------------+--------+------------+------------+%n"));
-            soldFile.write(String.format("|   Plate ID      |   Make        |   Model      | Engine Capacity| Daily Cost(£) |   Type    | transmission | AirCon | Start type | Wheel Size |%n"));
-            soldFile.write(String.format("+-----------------+---------------+--------------+----------------+---------------+-----------+--------------+--------+------------+------------+%n"));
+            soldFile.write(String.format("+-----------------+---------------+--------------+----------------+---------------+-----------+--------------+--------+-----------------+------------+%n"));
+            soldFile.write(String.format("|   Plate ID      |   Make        |   Model      | Engine Capacity| Daily Cost(£) |   Type    | transmission | AirCon | Start type      | Wheel Size |%n"));
+            soldFile.write(String.format("+-----------------+---------------+--------------+----------------+---------------+-----------+--------------+--------+-----------------+------------+%n"));
 //                soldFile.write(System.getProperty("line.separator"));       //line break
 
 
-            String leftAlignFormat2 = "| %-15s | %-13s | %-12s | %-14s | %-13s | %-9s | %-12s | %-6s | %-10s | %-10s |%n";
+            String leftAlignFormat2 = "| %-15s | %-13s | %-12s | %-14s | %-13s | %-9s | %-12s | %-6s | %-15s | %-10s |%n";
 
 
             //writing into the file
@@ -201,11 +201,11 @@ public class WestminsterRentalVehicleManager implements RentalVehicleManager {
                             veh.getDailyCost(), veh.getType(), "      -     ", "   -  ", ((Motorbike) veh).getStartType(), ((Motorbike) veh).getWheelSize()));
                 } else {
                     soldFile.write(String.format(leftAlignFormat2, veh.getPlateNo(), veh.getMake(), veh.getModel(), veh.getEngineCapacity(),
-                            veh.getDailyCost(), veh.getType(), ((Car) veh).getTransmission(), ((Car) veh).isHasAirCon(), "     -    ", "     -    "));
+                            veh.getDailyCost(), veh.getType(), ((Car) veh).getTransmission(), ((Car) veh).isHasAirCon(), "       -       ", "     -    "));
                 }
                 soldFile.write(System.getProperty("line.separator"));       //line break
             }
-            soldFile.write(String.format("+-----------------+---------------+--------------+----------------+---------------+-----------+--------------+--------+------------+------------+%n"));
+            soldFile.write(String.format("+-----------------+---------------+--------------+----------------+---------------+-----------+--------------+--------+-----------------+------------+%n"));
 
             soldFile.close();
 
