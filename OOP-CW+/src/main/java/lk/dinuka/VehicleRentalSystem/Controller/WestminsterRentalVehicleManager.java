@@ -4,10 +4,9 @@ import lk.dinuka.VehicleRentalSystem.Model.Car;
 import lk.dinuka.VehicleRentalSystem.Model.Motorbike;
 import lk.dinuka.VehicleRentalSystem.Model.RentalVehicleManager;
 import lk.dinuka.VehicleRentalSystem.Model.Vehicle;
+import lk.dinuka.VehicleRentalSystem.View.GUI;
 
-import java.io.File;
-import java.io.FileWriter;
-import java.io.IOException;
+import java.io.*;
 import java.math.BigDecimal;
 import java.nio.file.DirectoryNotEmptyException;
 import java.nio.file.Files;
@@ -15,7 +14,7 @@ import java.nio.file.NoSuchFileException;
 import java.nio.file.Paths;
 import java.util.*;
 
-public class WestminsterRentalVehicleManager implements RentalVehicleManager{
+public class WestminsterRentalVehicleManager implements RentalVehicleManager {
 
     private static Scanner scanInput = new Scanner(System.in);
 
@@ -60,7 +59,7 @@ public class WestminsterRentalVehicleManager implements RentalVehicleManager{
                 typeSelection = scanInput.nextInt();
                 scanInput.nextLine();              //to consume the rest of the line
 
-            } while (!(typeSelection == 1 || typeSelection ==2));
+            } while (!(typeSelection == 1 || typeSelection == 2));
 
 
             System.out.println("\nEnter Plate No:");
@@ -218,10 +217,59 @@ public class WestminsterRentalVehicleManager implements RentalVehicleManager{
 
     @Override
     public void viewGUI() {
-//        GUI.main(null);       //used to open javafx application
-        API.getAllVehiclesToFront();                //send vehicles to front end
-        API.postBookingsFromFront();                //handle booking
-        API.postAvailabilityFromFront();            //handle availability
+        int guiSelection;
+
+        do {
+            System.out.println("\nChoose the required GUI:");
+            System.out.println("1) Angular\n2) JavaFX");
+            System.out.print(">");
+            intInputValidation();
+            guiSelection = scanInput.nextInt();
+            scanInput.nextLine();              //to consume the rest of the line
+
+        } while (!(guiSelection == 1 || guiSelection == 2));
+
+
+        if (guiSelection == 1) {            // Angular GUI
+
+            API.getAllVehiclesToFront();                //send vehicles to front end
+            API.postBookingsFromFront();                //handle booking
+            API.postAvailabilityFromFront();            //handle availability
+
+
+            //Open Angular GUI in browser
+            ProcessBuilder builder = new ProcessBuilder("explorer.exe", "https://www.google.com");
+
+            builder.redirectErrorStream(true);
+
+            Process p = null;
+            try {
+                p = builder.start();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+            BufferedReader r = new BufferedReader(new InputStreamReader(p.getInputStream()));
+            String line;
+            while (true) {
+                try {
+                    line = r.readLine();
+                    if (line == null) {
+                        break;
+                    }
+                    System.out.println(line);
+
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+
+        } else {                            //JavaFX GUI
+
+            GUI.main(null);       //used to open javafx application
+
+        }
+
+
     }
 
 
@@ -372,7 +420,7 @@ public class WestminsterRentalVehicleManager implements RentalVehicleManager{
     }
 
 
-    private static void deleteFile(){       //deleting file, if exists (When vehicle is added/ deleted/ edited)
+    private static void deleteFile() {       //deleting file, if exists (When vehicle is added/ deleted/ edited)
         try {
             Files.deleteIfExists(Paths.get("C:\\Users\\Dell XPS15\\Documents\\IIT Work\\L5\\OOP\\Coursework 01\\OOP-CW\\OOP-CW+\\allVehicles.txt"));
         } catch (NoSuchFileException e) {

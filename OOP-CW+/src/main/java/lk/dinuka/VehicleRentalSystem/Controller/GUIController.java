@@ -117,6 +117,7 @@ public class GUIController {
             return dailyCost.multiply(BigDecimal.valueOf(noOfDays));    //dailyCost*noOfDays
         }
         return totalCost;
+
     }
 
 
@@ -134,11 +135,6 @@ public class GUIController {
 
         boolean availability = checkAvailabilityOfVeh(plateNo, newBooking);   //checking whether vehicle is available for booking
 
-
-//        System.out.println();
-//        System.out.println("---checked availability---");
-//        System.out.println();
-
         if (availability) {
 //            System.out.println("Vehicle is available for booking");
 
@@ -149,10 +145,8 @@ public class GUIController {
 
             WestminsterRentalVehicleManager.bookedVehicles.put(plateNo, (ArrayList) bookedVehicleDates);       //adding all booked vehicles to bookedVehicles HashMap
 
-//            System.out.println(WestminsterRentalVehicleManager.bookedVehicles);         //checking whether required booking was entered into the system
             return true;
         } else {
-//            System.out.println("Vehicle isn't available for booking during the requested time period.");
             //vehicle isn't available to be book
             return false;
         }
@@ -203,13 +197,6 @@ public class GUIController {
                 //if false for at least one, can't book
             }
 
-            //-------------------
-
-//            if (totalBookings>0){
-//                return passedChecks == totalBookings;            //if all the bookings don't interfere with the requested time -> true
-//
-//            } else{
-//                return true;
             //since this else block will run only if there has been at least one previous entry, the above verification isn't required
             return passedChecks == totalBookings;            //if all the bookings don't interfere with the requested time -> true
 

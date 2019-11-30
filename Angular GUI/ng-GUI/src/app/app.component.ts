@@ -24,6 +24,8 @@ export class AppComponent implements OnInit {
 
   selectedRowIndex = -1;
   chosenPlateNo: string;
+
+  today = new Date();           // used to get current date
   pickUpDate: any;
   dropOffDate: any;
 
@@ -54,6 +56,7 @@ export class AppComponent implements OnInit {
 
     this.getAllVehicles = this.getServiceData();
     // console.log(this.getAllVehicles);
+
   }
 
   getServiceData() {        // get data
@@ -159,15 +162,27 @@ export class AppComponent implements OnInit {
   bookVehicle() {
     console.log('book vehicle');
 
-    this.postBookingData();     // call post method to book vehicle
-
+    try {
+      this.postBookingData();     // call post method to book vehicle
+    } catch {
+      this.snackBar.open('Make sure that you have chosen the required vehicle and entered the pick up & drop off dates!', 'Close', {
+        duration: 10000,
+        panelClass: ['error-snackbar']
+      });
+    }
   }
 
   checkAvailability() {
     console.log('check availability of vehicle');
 
-    this.postCheckingData();     // call post method to check availability
-
+    try {
+      this.postCheckingData();     // call post method to check availability
+    } catch {
+      this.snackBar.open('Make sure that you have chosen the required vehicle and entered the pick up & drop off dates!', 'Close', {
+        duration: 10000,
+        panelClass: ['error-snackbar']
+      });
+    }
   }
 
   // -------------  for table filter function
@@ -188,8 +203,8 @@ export class AppComponent implements OnInit {
     if (this.responseCheck === 'successful') {
 
       const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
-      this.displayPickUpDate = this.pickUpDate.toLocaleDateString("en-US", options);
-      this.displayDropOffDate = this.dropOffDate.toLocaleDateString("en-US", options);
+      this.displayPickUpDate = this.pickUpDate.toLocaleDateString('en-US', options);
+      this.displayDropOffDate = this.dropOffDate.toLocaleDateString('en-US', options);
 
       const dateRange = ' was booked from '.concat(this.displayPickUpDate).concat(' to ', this.displayDropOffDate);
       this.completeMessage = 'The vehicle with Plate No: '.concat(this.chosenPlateNo).concat(dateRange);
@@ -197,7 +212,9 @@ export class AppComponent implements OnInit {
 
       this.snackBar.open(this.completeMessage, action, {
         duration: 15000,
+        panelClass: ['success-snackbar']
       });
+
     } else {
       const chosenVehicle = 'The vehicle with Plate No: '.concat(this.chosenPlateNo);
       this.completeMessage = chosenVehicle.concat(' isn\'t available for booking during the requested time period.');
@@ -212,8 +229,8 @@ export class AppComponent implements OnInit {
     if (this.responseCheck === 'successful') {
 
       const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
-      this.displayPickUpDate = this.pickUpDate.toLocaleDateString("en-US", options);
-      this.displayDropOffDate = this.dropOffDate.toLocaleDateString("en-US", options);
+      this.displayPickUpDate = this.pickUpDate.toLocaleDateString('en-US', options);
+      this.displayDropOffDate = this.dropOffDate.toLocaleDateString('en-US', options);
 
       const dateRange = ' is available for booking from '.concat(this.displayPickUpDate).concat(' to ', this.displayDropOffDate);
       this.completeMessage = 'The vehicle with Plate No: '.concat(this.chosenPlateNo).concat(dateRange);
@@ -221,6 +238,7 @@ export class AppComponent implements OnInit {
 
       this.snackBar.open(this.completeMessage, action, {
         duration: 15000,
+        panelClass: ['success-snackbar']
       });
     } else {
       const chosenVehicle = 'The vehicle with Plate No: '.concat(this.chosenPlateNo);

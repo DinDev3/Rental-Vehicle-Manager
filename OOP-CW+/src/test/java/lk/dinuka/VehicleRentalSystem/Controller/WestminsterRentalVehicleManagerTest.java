@@ -8,6 +8,7 @@ import org.junit.Test;
 import org.junit.rules.TemporaryFolder;
 
 import java.io.File;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.math.BigDecimal;
 import java.util.Collections;
@@ -57,7 +58,7 @@ public class WestminsterRentalVehicleManagerTest {
             System.out.println("There are no available spaces. 50 vehicles have been added!");
         }
 
-        System.out.println("----------------------------------------------------------------------------------------------");       //used to separate test outputs
+        System.out.println("~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~");       //used to separate test outputs
     }
 
     @Test
@@ -86,7 +87,90 @@ public class WestminsterRentalVehicleManagerTest {
             System.out.println("There are no available spaces. 50 vehicles have been added!");
         }
 
-        System.out.println("----------------------------------------------------------------------------------------------");       //used to separate test outputs
+        System.out.println("~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~");       //used to separate test outputs
+    }
+
+
+    @Test
+    public void testEditCar() {
+        Vehicle newCar = new Car("CAR-123", "Honda", "Grace", "1300", BigDecimal.valueOf(70), "Car", "Auto", true);
+        String enteredPlateNo = newCar.getPlateNo();
+
+
+        vehiclesMap.put(enteredPlateNo, newCar);
+
+        if (vehiclesMap.containsKey(enteredPlateNo)) {
+            System.out.println("This Plate No exists in the system.");
+            System.out.println();           //to keep space for clarity
+
+            //print information of vehicle when asked whether to edit
+            System.out.println("Make: " + vehiclesMap.get(enteredPlateNo).getMake());
+            System.out.println("Model: " + vehiclesMap.get(enteredPlateNo).getModel());
+            System.out.println("Engine Capacity: " + vehiclesMap.get(enteredPlateNo).getEngineCapacity());
+            System.out.println("Daily Cost (in £): " + vehiclesMap.get(enteredPlateNo).getDailyCost());
+            System.out.println("Type: " + vehiclesMap.get(enteredPlateNo).getType());
+
+            if (vehiclesMap.get(enteredPlateNo) instanceof Car) {
+                System.out.println("Transmission: " + ((Car) vehiclesMap.get(enteredPlateNo)).getTransmission());
+                System.out.println("Has Air Conditioning: " + ((Car) vehiclesMap.get(enteredPlateNo)).isHasAirCon());
+            } else {
+                System.out.println("Start Type: " + ((Motorbike) vehiclesMap.get(enteredPlateNo)).getStartType());
+                System.out.println("Wheel Size: " + ((Motorbike) vehiclesMap.get(enteredPlateNo)).getWheelSize());
+            }
+
+            boolean edit = true;
+            if (edit) {
+                System.out.println("\nMake required changes to vehicle information.");
+
+            } else {
+                System.out.println();       //keeps space and goes back to main menu
+            }
+        }
+
+        vehiclesMap.clear();        //clearing to make sure that other unit tests aren't affected by this unit test
+
+        System.out.println("~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~");       //used to separate test outputs
+    }
+
+    @Test
+    public void testEditBike() {
+        Vehicle newBike = new Motorbike("BIK-123", "Hero", "Honda", "800", BigDecimal.valueOf(40), "Motorbike", "Push", 15);
+        String enteredPlateNo = newBike.getPlateNo();
+
+
+        vehiclesMap.put(enteredPlateNo, newBike);
+
+        if (vehiclesMap.containsKey(enteredPlateNo)) {
+            System.out.println("This Plate No exists in the system.");
+            System.out.println();           //to keep space for clarity
+
+            //print information of vehicle when asked whether to edit
+            System.out.println("Make: " + vehiclesMap.get(enteredPlateNo).getMake());
+            System.out.println("Model: " + vehiclesMap.get(enteredPlateNo).getModel());
+            System.out.println("Engine Capacity: " + vehiclesMap.get(enteredPlateNo).getEngineCapacity());
+            System.out.println("Daily Cost (in £): " + vehiclesMap.get(enteredPlateNo).getDailyCost());
+            System.out.println("Type: " + vehiclesMap.get(enteredPlateNo).getType());
+
+            if (vehiclesMap.get(enteredPlateNo) instanceof Car) {
+                System.out.println("Transmission: " + ((Car) vehiclesMap.get(enteredPlateNo)).getTransmission());
+                System.out.println("Has Air Conditioning: " + ((Car) vehiclesMap.get(enteredPlateNo)).isHasAirCon());
+            } else {
+                System.out.println("Start Type: " + ((Motorbike) vehiclesMap.get(enteredPlateNo)).getStartType());
+                System.out.println("Wheel Size: " + ((Motorbike) vehiclesMap.get(enteredPlateNo)).getWheelSize());
+            }
+
+            boolean edit = true;
+            if (edit) {
+                System.out.println("\nMake required changes to vehicle information.");
+
+            } else {
+                System.out.println();       //keeps space and goes back to main menu
+            }
+        }
+
+        vehiclesMap.clear();        //clearing to make sure that other unit tests aren't affected by this unit test
+
+        System.out.println("~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~");       //used to separate test outputs
     }
 
 
@@ -115,7 +199,7 @@ public class WestminsterRentalVehicleManagerTest {
             System.out.println("There's no vehicle related to the Plate No: " + carPlateNo);
         }
 
-        System.out.println("----------------------------------------------------------------------------------------------");       //used to separate test outputs
+        System.out.println("~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~");       //used to separate test outputs
     }
 
     @Test
@@ -144,7 +228,7 @@ public class WestminsterRentalVehicleManagerTest {
             System.out.println("There's no vehicle related to the Plate No: " + carPlateNo);
         }
 
-        System.out.println("----------------------------------------------------------------------------------------------");       //used to separate test outputs
+        System.out.println("~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~");       //used to separate test outputs
 
     }
 
@@ -174,7 +258,7 @@ public class WestminsterRentalVehicleManagerTest {
             System.out.println("There's no vehicle related to the Plate No: " + bikePlateNo);
         }
 
-        System.out.println("----------------------------------------------------------------------------------------------");       //used to separate test outputs
+        System.out.println("~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~");       //used to separate test outputs
 
     }
 
@@ -204,10 +288,9 @@ public class WestminsterRentalVehicleManagerTest {
             System.out.println("There's no vehicle related to the Plate No: " + bikePlateNo);
         }
 
-        System.out.println("----------------------------------------------------------------------------------------------");       //used to separate test outputs
+        System.out.println("~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~");       //used to separate test outputs
 
     }
-
 
 
     @Test
@@ -222,7 +305,7 @@ public class WestminsterRentalVehicleManagerTest {
         Collections.sort(vehiclesArrayList);     //sort vehicles alphabetically, according to make
 
 
-        // print the plate number, the type of vehicle (car/ van/ motorbike).
+        // print the plate number, the type of vehicle (car/ motorbike).
 
         String leftAlignFormat = "| %-15s | %-12s |%n";
 
@@ -240,7 +323,9 @@ public class WestminsterRentalVehicleManagerTest {
         System.out.println("+--------------------------------+");
 
         vehiclesArrayList.clear();              //emptying arrayList so that other unit tests can run smoothly
-        count -=2;
+        count -= 2;
+
+        System.out.println("~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~");       //used to separate test outputs
 
     }
 
@@ -250,15 +335,52 @@ public class WestminsterRentalVehicleManagerTest {
     public TemporaryFolder tempFolder = new TemporaryFolder();
 
     @Test
-    public void testCreateFile() throws IOException {
+    public void testSaveFile() throws IOException {
         File file = tempFolder.newFile("test.txt");
+
+        FileWriter soldFile = new FileWriter("test.txt", true);
+
+
+        soldFile.write(String.format("+-----------------+---------------+--------------+----------------+---------------+-----------+--------------+--------+------------+------------+%n"));
+        soldFile.write(String.format("|   Plate ID      |   Make        |   Model      | Engine Capacity| Daily Cost(£) |   Type    | transmission | AirCon | Start type | Wheel Size |%n"));
+        soldFile.write(String.format("+-----------------+---------------+--------------+----------------+---------------+-----------+--------------+--------+------------+------------+%n"));
+//                soldFile.write(System.getProperty("line.separator"));       //line break
+
+
+        String leftAlignFormat2 = "| %-15s | %-13s | %-12s | %-14s | %-13s | %-9s | %-12s | %-6s | %-10s | %-10s |%n";
+
+
+        //writing into the file
+        for (Vehicle veh : vehiclesArrayList) {
+            if (veh instanceof Motorbike) {
+                soldFile.write(String.format(leftAlignFormat2, veh.getPlateNo(), veh.getMake(), veh.getModel(), veh.getEngineCapacity(),
+                        veh.getDailyCost(), veh.getType(), "      -     ", "   -  ", ((Motorbike) veh).getStartType(), ((Motorbike) veh).getWheelSize()));
+            } else {
+                soldFile.write(String.format(leftAlignFormat2, veh.getPlateNo(), veh.getMake(), veh.getModel(), veh.getEngineCapacity(),
+                        veh.getDailyCost(), veh.getType(), ((Car) veh).getTransmission(), ((Car) veh).isHasAirCon(), "     -    ", "     -    "));
+            }
+            soldFile.write(System.getProperty("line.separator"));       //line break
+        }
+        soldFile.write(String.format("+-----------------+---------------+--------------+----------------+---------------+-----------+--------------+--------+------------+------------+%n"));
+
+
         assertTrue(file.exists());
+
+
     }
     // ----------------
 
 
     @Test
-    public void testViewGUI() {
+    public void testViewGUIFX() {
+//        GUI.main(null);       //used to open javafx application
+        //test won't complete until javaFX application is closed
+    }
+
+    @Test
+    public void testViewGUIAngular() {
+
 
     }
+
 }

@@ -1,8 +1,16 @@
+.header{
+  font-family: Roboto,"Helvetica Neue Light","Helvetica Neue",Helvetica,Arial,"Lucida Grande",sans-serif;
+  font-weight: 300;
+  // margin: 0;
+  padding: 28px 15px;
+  font-size: 20px;
+  color: #fff;
+}
+
 table {
     width: 100%;
     // margin: auto;
     cursor:pointer;
-    // animation-delay: 3s;
   }
 
 .tableContainer{
@@ -10,6 +18,27 @@ table {
   margin: auto;
   max-height: 90vh;
   overflow:auto;
+  
+}
+
+/* width */
+.tableContainer::-webkit-scrollbar {
+  width: 8px;
+}
+/* Track */
+.tableContainer::-webkit-scrollbar-track {
+  background: #f1f1f1; 
+}
+ 
+/* Handle */
+.tableContainer::-webkit-scrollbar-thumb {
+  background: rgb(172, 172, 172);
+  border-radius: 15px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(85, 85, 85, 0.767);
 }
 
 .bookingSection{
@@ -23,4 +52,6 @@ table {
 
 .highlight{
   background: rgb(197, 229, 231);
+  transition: 0.3s;
+
 }

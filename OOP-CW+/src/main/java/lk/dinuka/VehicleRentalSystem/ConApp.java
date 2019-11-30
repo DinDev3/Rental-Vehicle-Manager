@@ -3,7 +3,6 @@ package lk.dinuka.VehicleRentalSystem;
 import lk.dinuka.VehicleRentalSystem.Controller.API;
 import lk.dinuka.VehicleRentalSystem.Controller.DatabaseController;
 import lk.dinuka.VehicleRentalSystem.Controller.WestminsterRentalVehicleManager;
-import lk.dinuka.VehicleRentalSystem.View.GUI;
 
 import java.util.Scanner;
 
@@ -67,7 +66,6 @@ public class ConApp {
                     System.out.println("\tLooking forward to assist you in the future.");
                     System.out.println("\t\t\tExiting Program...");
                     System.out.println("                   +-------+ ");
-                    System.out.println("                      ***    ");
                     System.exit(0);
 
                 default:

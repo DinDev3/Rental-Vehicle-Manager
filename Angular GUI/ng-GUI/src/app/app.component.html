@@ -1,3 +1,9 @@
+<mat-toolbar color="primary">
+  <mat-toolbar-row class="header">
+    <span>Westminster Vehicle Rental Store</span>
+  </mat-toolbar-row>
+</mat-toolbar>
+
 <div class="fullContainer">
 
   <mat-form-field>
@@ -6,7 +12,7 @@
   
   <div class="bookingSection">
       <mat-form-field>
-        <input matInput [matDatepicker]="picker1" placeholder="Pick-Up Date" [(ngModel)]="pickUpDate">
+        <input matInput [matDatepicker]="picker1" placeholder="Pick-Up Date" [(ngModel)]="pickUpDate" [min]="today">
         <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
         <mat-datepicker #picker1></mat-datepicker>
       </mat-form-field>
@@ -17,7 +23,7 @@
       </mat-form-field>
 
       
-      <button mat-button (click)="checkAvailability(); openSnackBarAvailability('Hello', 'Close')">Check Availability</button>
+      <button mat-button (click)="checkAvailability()">Check Availability</button>
       <button mat-raised-button (click)="bookVehicle()">Book Vehicle</button>
   </div>
 
