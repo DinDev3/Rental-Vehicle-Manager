@@ -7,9 +7,7 @@ import org.junit.Rule;
 import org.junit.Test;
 import org.junit.rules.TemporaryFolder;
 
-import java.io.File;
-import java.io.FileWriter;
-import java.io.IOException;
+import java.io.*;
 import java.math.BigDecimal;
 import java.util.Collections;
 import java.util.HashMap;
@@ -379,8 +377,49 @@ public class WestminsterRentalVehicleManagerTest {
 
     @Test
     public void testViewGUIAngular() {
-
-
+//        API.getAllVehiclesToFront();                //send vehicles to front end
+//        API.postBookingsFromFront();                //handle booking
+//        API.postAvailabilityFromFront();            //handle availability
+//
+//
+//        //Open Angular GUI in browser
+//        ProcessBuilder builder = new ProcessBuilder("explorer.exe", "http://localhost:4200/");
+//
+//        builder.redirectErrorStream(true);
+//
+//        Process p = null;
+//        try {
+//            p = builder.start();
+//        } catch (IOException e) {
+//            e.printStackTrace();
+//        }
+//        BufferedReader r = new BufferedReader(new InputStreamReader(p.getInputStream()));
+//        String line;
+//        while (true) {
+//            try {
+//                line = r.readLine();
+//                if (line == null) {
+//                    break;
+//                }
+//                System.out.println(line);
+//
+//            } catch (IOException e) {
+//                e.printStackTrace();
+//            }
+//        }
     }
 
+    @Test
+    public void testIntInputValidation() {
+        int scanInput = 4;
+
+        assertTrue("Only integer numbers are allowed! Please provide a valid input",scanInput==(int)scanInput);
+    }
+
+    @Test
+    public void testDoubleInputValidation() {
+        double scanInput = 4.02;
+
+        assertTrue("Only integer numbers are allowed! Please provide a valid input",scanInput==(double)scanInput);
+    }
 }

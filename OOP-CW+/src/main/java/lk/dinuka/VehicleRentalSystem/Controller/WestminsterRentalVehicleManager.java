@@ -238,7 +238,7 @@ public class WestminsterRentalVehicleManager implements RentalVehicleManager {
 
 
             //Open Angular GUI in browser
-            ProcessBuilder builder = new ProcessBuilder("explorer.exe", "https://www.google.com");
+            ProcessBuilder builder = new ProcessBuilder("explorer.exe", "http://localhost:4200/");
 
             builder.redirectErrorStream(true);
 

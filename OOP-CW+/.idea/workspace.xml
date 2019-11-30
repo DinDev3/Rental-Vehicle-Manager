@@ -2,21 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a970c778-d52b-4a7c-b0bb-b6ed38f6eb4c" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/../Angular GUI/ng-GUI/src/app/app.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/../Angular GUI/ng-GUI/src/app/app.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Angular GUI/ng-GUI/src/app/app.component.scss" beforeDir="false" afterPath="$PROJECT_DIR$/../Angular GUI/ng-GUI/src/app/app.component.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Angular GUI/ng-GUI/src/app/app.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../Angular GUI/ng-GUI/src/app/app.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Angular GUI/ng-GUI/src/app/app.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../Angular GUI/ng-GUI/src/app/app.module.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Angular GUI/ng-GUI/src/styles.scss" beforeDir="false" afterPath="$PROJECT_DIR$/../Angular GUI/ng-GUI/src/styles.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/classes/lk/dinuka/VehicleRentalSystem/ConApp.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/classes/lk/dinuka/VehicleRentalSystem/ConApp.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/classes/lk/dinuka/VehicleRentalSystem/Controller/GUIController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/classes/lk/dinuka/VehicleRentalSystem/Controller/GUIController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/classes/lk/dinuka/VehicleRentalSystem/Controller/WestminsterRentalVehicleManager.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/classes/lk/dinuka/VehicleRentalSystem/Controller/WestminsterRentalVehicleManager.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/test/classes/lk/dinuka/VehicleRentalSystem/Controller/WestminsterRentalVehicleManagerTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/test/classes/lk/dinuka/VehicleRentalSystem/Controller/WestminsterRentalVehicleManagerTest.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/lk/dinuka/VehicleRentalSystem/ConApp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lk/dinuka/VehicleRentalSystem/ConApp.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/lk/dinuka/VehicleRentalSystem/Controller/GUIController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lk/dinuka/VehicleRentalSystem/Controller/GUIController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/lk/dinuka/VehicleRentalSystem/Controller/WestminsterRentalVehicleManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lk/dinuka/VehicleRentalSystem/Controller/WestminsterRentalVehicleManager.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/lk/dinuka/VehicleRentalSystem/Controller/WestminsterRentalVehicleManagerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/lk/dinuka/VehicleRentalSystem/Controller/WestminsterRentalVehicleManagerTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Test Plan.docx" beforeDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/.gradle/" />
@@ -73,11 +60,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/lk/dinuka/VehicleRentalSystem/Controller/WestminsterRentalVehicleManager.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="807">
-              <caret line="406" lean-forward="true" selection-start-line="406" selection-end-line="406" />
+            <state relative-caret-position="285">
+              <caret line="416" column="43" lean-forward="true" selection-start-line="416" selection-start-column="43" selection-end-line="416" selection-end-column="43" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -85,11 +72,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/test/java/lk/dinuka/VehicleRentalSystem/Controller/WestminsterRentalVehicleManagerTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="595">
-              <caret line="381" selection-start-line="381" selection-end-line="381" />
+            <state relative-caret-position="7470">
+              <caret line="415" column="88" selection-start-line="415" selection-start-column="87" selection-end-line="415" selection-end-column="88" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -151,9 +138,9 @@
         <option value="$PROJECT_DIR$/src/main/java/lk/dinuka/VehicleRentalSystem/Controller/DatabaseController.java" />
         <option value="$PROJECT_DIR$/build.gradle" />
         <option value="$PROJECT_DIR$/src/main/java/lk/dinuka/VehicleRentalSystem/Controller/GUIController.java" />
-        <option value="$PROJECT_DIR$/src/test/java/lk/dinuka/VehicleRentalSystem/Controller/WestminsterRentalVehicleManagerTest.java" />
-        <option value="$PROJECT_DIR$/src/main/java/lk/dinuka/VehicleRentalSystem/Controller/WestminsterRentalVehicleManager.java" />
         <option value="$PROJECT_DIR$/src/main/java/lk/dinuka/VehicleRentalSystem/ConApp.java" />
+        <option value="$PROJECT_DIR$/src/main/java/lk/dinuka/VehicleRentalSystem/Controller/WestminsterRentalVehicleManager.java" />
+        <option value="$PROJECT_DIR$/src/test/java/lk/dinuka/VehicleRentalSystem/Controller/WestminsterRentalVehicleManagerTest.java" />
       </list>
     </option>
   </component>
@@ -301,7 +288,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application.ConApp">
+  <component name="RunManager" selected="JUnit.WestminsterRentalVehicleManagerTest">
     <configuration name="ConApp" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="lk.dinuka.VehicleRentalSystem.ConApp" />
       <module name="VehicleRentalSystem.main" />
@@ -330,7 +317,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="WestminsterRentalVehicleManagerTest.addVehicleCar" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="WestminsterRentalVehicleManagerTest.testDoubleInputValidation" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="VehicleRentalSystem.test" />
       <extension name="coverage">
         <pattern>
@@ -340,13 +327,13 @@
       </extension>
       <option name="PACKAGE_NAME" value="lk.dinuka.VehicleRentalSystem.Controller" />
       <option name="MAIN_CLASS_NAME" value="lk.dinuka.VehicleRentalSystem.Controller.WestminsterRentalVehicleManagerTest" />
-      <option name="METHOD_NAME" value="addVehicleCar" />
+      <option name="METHOD_NAME" value="testDoubleInputValidation" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="WestminsterRentalVehicleManagerTest.testEditBike" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="WestminsterRentalVehicleManagerTest.testIntInputValidation" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="VehicleRentalSystem.test" />
       <extension name="coverage">
         <pattern>
@@ -356,13 +343,13 @@
       </extension>
       <option name="PACKAGE_NAME" value="lk.dinuka.VehicleRentalSystem.Controller" />
       <option name="MAIN_CLASS_NAME" value="lk.dinuka.VehicleRentalSystem.Controller.WestminsterRentalVehicleManagerTest" />
-      <option name="METHOD_NAME" value="testEditBike" />
+      <option name="METHOD_NAME" value="testIntInputValidation" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="WestminsterRentalVehicleManagerTest.testViewGUIFX" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="WestminsterRentalVehicleManagerTest.testViewGUIAngular" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="VehicleRentalSystem.test" />
       <extension name="coverage">
         <pattern>
@@ -372,7 +359,7 @@
       </extension>
       <option name="PACKAGE_NAME" value="lk.dinuka.VehicleRentalSystem.Controller" />
       <option name="MAIN_CLASS_NAME" value="lk.dinuka.VehicleRentalSystem.Controller.WestminsterRentalVehicleManagerTest" />
-      <option name="METHOD_NAME" value="testViewGUIFX" />
+      <option name="METHOD_NAME" value="testViewGUIAngular" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -380,11 +367,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.ConApp" />
-        <item itemvalue="JUnit.WestminsterRentalVehicleManagerTest.testViewGUIFX" />
         <item itemvalue="JUnit.WestminsterRentalVehicleManagerTest" />
-        <item itemvalue="JUnit.WestminsterRentalVehicleManagerTest.addVehicleCar" />
-        <item itemvalue="JUnit.WestminsterRentalVehicleManagerTest.testEditBike" />
+        <item itemvalue="JUnit.WestminsterRentalVehicleManagerTest.testDoubleInputValidation" />
+        <item itemvalue="JUnit.WestminsterRentalVehicleManagerTest.testIntInputValidation" />
+        <item itemvalue="JUnit.WestminsterRentalVehicleManagerTest.testViewGUIAngular" />
+        <item itemvalue="Application.ConApp" />
       </list>
     </recent_temporary>
   </component>
@@ -415,32 +402,11 @@
       <workItem from="1574918053021" duration="10621000" />
       <workItem from="1575002204554" duration="10870000" />
       <workItem from="1575057312243" duration="1570000" />
-      <workItem from="1575094400011" duration="5422000" />
+      <workItem from="1575094400011" duration="6918000" />
     </task>
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="WestminsterRentalVehicleManagerTest_testEditCar - 2019.11.30 at 12h 48m 49s.xml">
-      <configuration name="WestminsterRentalVehicleManagerTest.testEditCar" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="WestminsterRentalVehicleManagerTest_testEditCar - 2019.11.30 at 12h 49m 02s.xml">
-      <configuration name="WestminsterRentalVehicleManagerTest.testEditCar" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="WestminsterRentalVehicleManagerTest_testEditBike - 2019.11.30 at 12h 50m 08s.xml">
-      <configuration name="WestminsterRentalVehicleManagerTest.testEditBike" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="WestminsterRentalVehicleManagerTest_testEditBike - 2019.11.30 at 12h 50m 21s.xml">
-      <configuration name="WestminsterRentalVehicleManagerTest.testEditBike" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="WestminsterRentalVehicleManagerTest - 2019.11.30 at 12h 50m 30s.xml">
-      <configuration name="WestminsterRentalVehicleManagerTest" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="WestminsterRentalVehicleManagerTest - 2019.11.30 at 12h 51m 52s.xml">
-      <configuration name="WestminsterRentalVehicleManagerTest" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="WestminsterRentalVehicleManagerTest - 2019.11.30 at 12h 52m 28s.xml">
-      <configuration name="WestminsterRentalVehicleManagerTest" configurationId="JUnit" />
-    </history-entry>
     <history-entry file="WestminsterRentalVehicleManagerTest_addVehicleCar - 2019.11.30 at 12h 53m 01s.xml">
       <configuration name="WestminsterRentalVehicleManagerTest.addVehicleCar" configurationId="JUnit" />
     </history-entry>
@@ -450,13 +416,33 @@
     <history-entry file="WestminsterRentalVehicleManagerTest_testViewGUIFX - 2019.11.30 at 13h 02m 19s.xml">
       <configuration name="WestminsterRentalVehicleManagerTest.testViewGUIFX" configurationId="JUnit" />
     </history-entry>
+    <history-entry file="WestminsterRentalVehicleManagerTest_testViewGUIAngular - 2019.11.30 at 13h 46m 55s.xml">
+      <configuration name="WestminsterRentalVehicleManagerTest.testViewGUIAngular" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="WestminsterRentalVehicleManagerTest - 2019.11.30 at 13h 48m 22s.xml">
+      <configuration name="WestminsterRentalVehicleManagerTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="WestminsterRentalVehicleManagerTest_testIntInputValidation - 2019.11.30 at 13h 55m 27s.xml">
+      <configuration name="WestminsterRentalVehicleManagerTest.testIntInputValidation" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="WestminsterRentalVehicleManagerTest_testDoubleInputValidation - 2019.11.30 at 13h 56m 01s.xml">
+      <configuration name="WestminsterRentalVehicleManagerTest.testDoubleInputValidation" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="WestminsterRentalVehicleManagerTest_testDoubleInputValidation - 2019.11.30 at 13h 56m 09s.xml">
+      <configuration name="WestminsterRentalVehicleManagerTest.testDoubleInputValidation" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="WestminsterRentalVehicleManagerTest_testDoubleInputValidation - 2019.11.30 at 13h 56m 35s.xml">
+      <configuration name="WestminsterRentalVehicleManagerTest.testDoubleInputValidation" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="WestminsterRentalVehicleManagerTest - 2019.11.30 at 13h 56m 46s.xml">
+      <configuration name="WestminsterRentalVehicleManagerTest" configurationId="JUnit" />
+    </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="67757000" />
+    <option name="totallyTimeSpent" value="69253000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.16800536" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -467,7 +453,7 @@
       <window_info id="Favorites" order="6" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32957748" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.49933067" visible="true" weight="0.43098593" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.49933067" visible="true" weight="0.93802816" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -641,16 +627,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/lk/dinuka/VehicleRentalSystem/Controller/WestminsterRentalVehicleManagerTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="595">
-          <caret line="381" selection-start-line="381" selection-end-line="381" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/lk/dinuka/VehicleRentalSystem/ConApp.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="199">
@@ -663,8 +639,18 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/lk/dinuka/VehicleRentalSystem/Controller/WestminsterRentalVehicleManager.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="807">
-          <caret line="406" lean-forward="true" selection-start-line="406" selection-end-line="406" />
+        <state relative-caret-position="285">
+          <caret line="416" column="43" lean-forward="true" selection-start-line="416" selection-start-column="43" selection-end-line="416" selection-end-column="43" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/lk/dinuka/VehicleRentalSystem/Controller/WestminsterRentalVehicleManagerTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="7470">
+          <caret line="415" column="88" selection-start-line="415" selection-start-column="87" selection-end-line="415" selection-end-column="88" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
