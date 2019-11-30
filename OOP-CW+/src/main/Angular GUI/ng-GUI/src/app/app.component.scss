@@ -1,0 +1,61 @@
+.header{
+  font-family: Roboto,"Helvetica Neue Light","Helvetica Neue",Helvetica,Arial,"Lucida Grande",sans-serif;
+  font-weight: 300;
+  // margin: 0;
+  padding: 28px 15px;
+  font-size: 20px;
+  color: #fff;
+}
+
+.subHeader{
+  background: linear-gradient( to top,lavender,white 40%);
+}
+
+table {
+    width: 100%;
+    // margin: auto;
+    cursor:pointer;
+  }
+
+.tableContainer{
+  width: 95%;
+  margin: auto;
+  max-height: 80vh;
+  overflow:auto;
+  
+}
+
+/* width */
+.tableContainer::-webkit-scrollbar {
+  width: 8px;
+}
+/* Track */
+.tableContainer::-webkit-scrollbar-track {
+  background: #f1f1f1; 
+}
+ 
+/* Handle */
+.tableContainer::-webkit-scrollbar-thumb {
+  background: rgb(172, 172, 172);
+  border-radius: 15px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(85, 85, 85, 0.767);
+}
+
+.bookingSection{
+  float: right;
+}
+
+.fullContainer{
+  width:97%;
+  margin:auto;
+}
+
+.highlight{
+  background: rgb(197, 229, 231);
+  transition: 0.25s;
+
+}

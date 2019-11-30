@@ -7,7 +7,9 @@ import org.junit.Rule;
 import org.junit.Test;
 import org.junit.rules.TemporaryFolder;
 
-import java.io.*;
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.math.BigDecimal;
 import java.util.Collections;
 import java.util.HashMap;
@@ -292,7 +294,7 @@ public class WestminsterRentalVehicleManagerTest {
 
 
     @Test
-    public void printList() {
+    public void testPrintList() {
         Vehicle newCar = new Car("CAR-123", "Honda", "Grace", "1300", BigDecimal.valueOf(70), "Car", "Auto", true);
         Vehicle newBike = new Motorbike("BIK-123", "Hero", "Honda", "800", BigDecimal.valueOf(40), "Motorbike", "Push", 15);
 
@@ -413,13 +415,28 @@ public class WestminsterRentalVehicleManagerTest {
     public void testIntInputValidation() {
         int scanInput = 4;
 
-        assertTrue("Only integer numbers are allowed! Please provide a valid input",scanInput==(int)scanInput);
+        assertTrue("Only integer numbers are allowed! Please provide a valid input", scanInput == (int) scanInput);
+
+//        Scanner scanInput = new Scanner(System.in);
+//
+//        File initialFile = new File("C:\\Users\\Dell XPS15\\Documents\\IIT Work\\L5\\OOP\\Coursework 01\\OOP-CW\\TestFiles\\TestInput.txt");
+//        try {
+//            InputStream targetStream = new FileInputStream(initialFile);
+//
+//        } catch (FileNotFoundException e) {
+//            e.printStackTrace();
+//        }
+//        while (!scanInput.hasNextInt()) {
+//            System.out.println("Only integer numbers are allowed! Please provide a valid input");              //error handling message for characters other than integers
+//            scanInput.next();                                                     //removing incorrect input entered
+//        }
+
     }
 
     @Test
     public void testDoubleInputValidation() {
         double scanInput = 4.02;
 
-        assertTrue("Only integer numbers are allowed! Please provide a valid input",scanInput==(double)scanInput);
+        assertTrue("Only integer numbers are allowed! Please provide a valid input", scanInput == (double) scanInput);
     }
 }

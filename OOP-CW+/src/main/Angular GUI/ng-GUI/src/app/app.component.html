@@ -1,0 +1,98 @@
+<mat-toolbar color="primary">
+  <mat-toolbar-row class="header">
+    <span>Westminster Vehicle Rental Store</span>
+  </mat-toolbar-row>
+</mat-toolbar>
+
+<div class="fullContainer">
+  <div class = "subHeader">
+    <mat-form-field>
+      <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
+    </mat-form-field>
+    
+    <div class="bookingSection">
+        <mat-form-field>
+          <input matInput [matDatepicker]="picker1" placeholder="Pick-Up Date" [(ngModel)]="pickUpDate" [min]="today">
+          <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+          <mat-datepicker #picker1></mat-datepicker>
+        </mat-form-field>
+        <mat-form-field>
+          <input matInput [matDatepicker]="picker2" placeholder="Drop-Off Date" [(ngModel)]="dropOffDate" [min]="pickUpDate">
+          <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
+          <mat-datepicker #picker2></mat-datepicker>
+        </mat-form-field>
+
+        
+        <button mat-button (click)="checkAvailability()">Check Availability</button>
+        <button mat-raised-button (click)="bookVehicle()">Book Vehicle</button>
+    </div>
+</div>
+
+  <div class="tableContainer mat-elevation-z8">
+    <table mat-table [dataSource]="dataSource">
+
+      <!--- Note that these columns can be defined in any order.
+            The actual rendered columns are set as a property on the row definition" -->
+    
+
+      <ng-container matColumnDef="plateNo">
+        <th mat-header-cell *matHeaderCellDef> Plate No. </th>
+        <td mat-cell *matCellDef="let element"> {{element.plateNo}} </td>
+      </ng-container>
+    
+      <ng-container matColumnDef="make">
+        <th mat-header-cell *matHeaderCellDef> Make </th>
+        <td mat-cell *matCellDef="let element"> {{element.make}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="model">
+        <th mat-header-cell *matHeaderCellDef> Model </th>
+        <td mat-cell *matCellDef="let element"> {{element.model}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="engineCapacity">
+        <th mat-header-cell *matHeaderCellDef> Engine Capacity(CC) </th>
+        <td mat-cell *matCellDef="let element"> {{element.engineCapacity}} </td>
+      </ng-container>
+      
+      <ng-container matColumnDef="dailyCost">
+        <th mat-header-cell *matHeaderCellDef> Daily Cost(£) </th>
+        <td mat-cell *matCellDef="let element"> {{element.dailyCost}} </td>
+      </ng-container>
+      
+      <ng-container matColumnDef="type">
+        <th mat-header-cell *matHeaderCellDef> Type </th>
+        <td mat-cell *matCellDef="let element"> {{element.type}} </td>
+      </ng-container>
+      
+      <ng-container matColumnDef="transmission">
+        <th mat-header-cell *matHeaderCellDef> Transmission </th>
+        <td mat-cell *matCellDef="let element"> {{element.transmission}} </td>
+      </ng-container>
+      
+      <ng-container matColumnDef="hasAirCon">
+        <th mat-header-cell *matHeaderCellDef> Has Air Conditioning </th>
+        <td mat-cell *matCellDef="let element"> {{element.hasAirCon}} </td>
+      </ng-container>
+      
+      <ng-container matColumnDef="startType">
+        <th mat-header-cell *matHeaderCellDef> Start Type </th>
+        <td mat-cell *matCellDef="let element"> {{element.startType}} </td>
+      </ng-container>
+    
+      <ng-container matColumnDef="wheelSize">
+        <th mat-header-cell *matHeaderCellDef> Wheel Size </th>
+        <td mat-cell *matCellDef="let element"> {{element.wheelSize}} </td>
+      </ng-container>
+    
+      <tr mat-header-row *matHeaderRowDef="displayedColumns sticky: true"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;" (click) = "rowClicked(row)" [ngClass]="{'highlight': selectedRowIndex == row.plateNo}">
+        <!-- if equal, the colour of the row will be changed -->
+      </tr>
+    </table>
+  </div>
+
+</div>
+
+
+<router-outlet></router-outlet>
