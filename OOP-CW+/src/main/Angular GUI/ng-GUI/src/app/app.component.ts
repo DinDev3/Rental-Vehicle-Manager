@@ -251,3 +251,47 @@ export class AppComponent implements OnInit {
 
 }
 
+/*References:
+
+https://www.w3schools.com/angular/angular_tables.asp
+https://stackoverflow.com/questions/34973654/angularjs-create-a-table-from-an-array
+
+
+https://stackoverflow.com/questions/22209117/create-table-from-json-data-with-angularjs-and-ng-repeat/22209337
+
+
+https://material.angular.io/components/table/overview
+
+
+Booking confirmation - Snack bar
+https://material.angular.io/components/snack-bar/overview
+https://stackoverflow.com/questions/56389290/angular-material-snackbar-change-color
+
+Calendar Date input
+https://material.angular.io/components/datepicker/overview
+
+Button
+https://material.angular.io/components/button/overview
+
+mat table selection
+https://stackblitz.com/edit/mat-table-row-click-event
+https://stackoverflow.com/questions/52759637/how-to-get-the-selected-row-values-in-table-in-angular
+
+matDatePicker
+https://angular-material-nw1brd.stackblitz.io/
+https://stackoverflow.com/questions/54828459/angular-material-date-picker-min-and-max-date-validation-messages
+
+https://www.devglan.com/angular/angular-data-table-example
+
+
+JS Date
+https://www.w3schools.com/js/js_date_methods.asp
+https://stackoverflow.com/questions/3552461/how-to-format-a-javascript-date
+
+https://www.tutorialspoint.com/typescript/typescript_string_concat.htm
+
+
+Typescript passing functions
+https://stackoverflow.com/questions/47813442/could-not-able-to-access-property-of-angular-component-inside-it
+
+*/
