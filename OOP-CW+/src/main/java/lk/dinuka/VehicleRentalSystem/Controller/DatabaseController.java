@@ -199,3 +199,15 @@ public class DatabaseController {
 
     }
 }
+
+/*
+References:
+https://www.tutorialspoint.com/mongodb/mongodb_java
+        https://mongodb.github.io/mongo-java-driver/3.4/driver/getting-started/quick-start/
+        https://mongodb.github.io/mongo-java-driver/3.4/driver/getting-started/installation/
+        https://mongodb.github.io/mongo-java-driver/
+        https://github.com/mongodb/mongo-java-driver/tree/master
+
+Importing MongoDB documents to Java ArrayList
+https://stackoverflow.com/questions/19435621/extract-field-value-from-mongodb-basicdbobject?rq=1
+*/
