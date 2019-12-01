@@ -88,3 +88,14 @@ public abstract class Vehicle implements Comparable<Vehicle> {
         return this.make.compareTo(obj.getMake());      //used for sorting vehicle alphabetically according to make
     }
 }
+
+
+
+/*
+References:
+
+https://www.geeksforgeeks.org/comparable-vs-comparator-in-java/
+https://beginnersbook.com/2013/12/java-arraylist-of-object-sort-example-comparable-and-comparator/
+
+
+*/

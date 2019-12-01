@@ -46,7 +46,10 @@ public class WestminsterRentalVehicleManager implements RentalVehicleManager {
 
 
     @Override
-    public void addVehicle() {
+    public void addVehicle() {              //add vehicle into system
+
+        //Pointless the getting the inputs in the console because edit option is in the add option (will have to repeat code)
+
         if (Vehicle.getCount() <= MAX_VEHICLES) {       //checking whether the vehicles existing in the system has occupied all the available parking lots
 
             int typeSelection;
@@ -114,7 +117,7 @@ public class WestminsterRentalVehicleManager implements RentalVehicleManager {
     }
 
     @Override
-    public void deleteVehicle() {                  //delete item by entering plate no. of vehicle
+    public void deleteVehicle() {                  //delete vehicle by entering plate no. of vehicle
         System.out.println("Enter the plate number of the vehicle that u desire to delete:");
         System.out.print(">");              //get plateNo from user to choose vehicle to be deleted
         String searchNo = scanInput.nextLine();
@@ -215,7 +218,7 @@ public class WestminsterRentalVehicleManager implements RentalVehicleManager {
     }
 
     @Override
-    public void viewGUI() {
+    public void viewGUI() {         //opens a chosen GUI
         int guiSelection;
 
         do {
@@ -436,10 +439,16 @@ public class WestminsterRentalVehicleManager implements RentalVehicleManager {
 /*
 References:
 
+Open URL in browser (Angular GUI)
+https://alvinalexander.com/blog/post/java/how-open-read-url-java-url-class-example-code
+
 Java Big Decimal
 https://www.geeksforgeeks.org/bigdecimal-class-java/
 
 https://stackoverflow.com/questions/27409718/java-reading-multiple-objects-from-a-file-as-they-were-in-an-array
+
+replacing hashMap value
+https://stackoverflow.com/questions/35297537/difference-between-replace-and-put-for-hashmap
 
 -------
 

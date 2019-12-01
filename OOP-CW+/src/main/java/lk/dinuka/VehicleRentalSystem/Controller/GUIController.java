@@ -204,3 +204,17 @@ public class GUIController {
     }
 
 }
+
+/*
+References:
+
+Current Date & Time
+https://stackoverflow.com/questions/833768/java-code-for-getting-current-time
+https://docs.oracle.com/javase/1.5.0/docs/api/java/text/SimpleDateFormat.html#month
+https://www.javatpoint.com/java-get-current-date
+
+Java8DateTimeExamples.java
+https://gist.github.com/mscharhag/9195718
+
+
+*/

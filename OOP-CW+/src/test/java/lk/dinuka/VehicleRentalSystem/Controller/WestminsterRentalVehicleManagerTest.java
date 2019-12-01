@@ -15,8 +15,7 @@ import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 
-import static lk.dinuka.VehicleRentalSystem.Controller.WestminsterRentalVehicleManager.getAllVehicles;
-import static lk.dinuka.VehicleRentalSystem.Controller.WestminsterRentalVehicleManager.getVehiclesInSystem;
+import static lk.dinuka.VehicleRentalSystem.Controller.WestminsterRentalVehicleManager.*;
 import static lk.dinuka.VehicleRentalSystem.Model.RentalVehicleManager.MAX_VEHICLES;
 import static lk.dinuka.VehicleRentalSystem.Model.Vehicle.count;
 import static org.junit.Assert.assertEquals;
@@ -25,10 +24,10 @@ import static org.junit.Assert.assertTrue;
 public class WestminsterRentalVehicleManagerTest {
 
     //test HashMap
-    private HashMap<String, Vehicle> vehiclesMap = getAllVehicles();          //used to check whether the plate No already exists in the system
+    private static HashMap<String, Vehicle> vehiclesMap = getAllVehicles();          //used to check whether the plate No already exists in the system
 
     //test arrayList
-    private List<Vehicle> vehiclesArrayList = getVehiclesInSystem();      //getting the existing arrayList into a temporary arrayList
+    private static List<Vehicle> vehiclesArrayList = getVehiclesInSystem();      //getting the existing arrayList into a temporary arrayList
 
 
     @Test
@@ -40,9 +39,13 @@ public class WestminsterRentalVehicleManagerTest {
         if (initialNumOfVehicles <= MAX_VEHICLES) {       //checking whether the vehicles existing in the system has occupied all the available parking lots
 
 
-            vehiclesMap.put("CAR-123", newCar);       //adding new car into vehicles arrayList
+            vehiclesMap.put("CAR-123", newCar);       //adding new car into vehiclesMap
+            vehiclesArrayList.add(newCar);
 
-            assertTrue("New Car wasn't added into the system", vehiclesArrayList.add(newCar));      //checking whether the car was added to the arrayList
+//            System.out.println(vehiclesArrayList);
+//            System.out.println(vehiclesMap);
+
+//            assertTrue("New Car wasn't added into the system", vehiclesArrayList.add(newCar));      //checking whether the car was added to the arrayList
             assertEquals(initialNumOfVehicles + 1, vehiclesArrayList.size());          //??
             assertEquals(initialNumOfVehicles + 1, vehiclesMap.size());
 
@@ -66,14 +69,21 @@ public class WestminsterRentalVehicleManagerTest {
         Vehicle newBike = new Motorbike("BIK-123", "Hero", "Honda", "800", BigDecimal.valueOf(40), "Motorbike", "Push", 15);
 
         int initialNumOfVehicles = vehiclesArrayList.size();
+        System.out.println(vehiclesArrayList);
+        System.out.println(vehiclesMap);
 
         if (initialNumOfVehicles <= MAX_VEHICLES) {       //checking whether the vehicles existing in the system has occupied all the available parking lots
 
             vehiclesMap.put("BIK-123", newBike);       //adding new car into vehicles arrayList
+            vehiclesArrayList.add(newBike);
 
-            assertTrue("New Motorbike wasn't added into the system", vehiclesArrayList.add(newBike));      //checking whether the motorbike was added to the arrayList
+//            System.out.println(vehiclesArrayList);
+//            System.out.println(vehiclesMap);
+
+
+//            assertTrue("New Motorbike wasn't added into the system", vehiclesArrayList.add(newBike));      //checking whether the motorbike was added to the arrayList
             assertEquals(initialNumOfVehicles + 1, vehiclesArrayList.size());          //??
-            assertEquals(initialNumOfVehicles + 1, vehiclesMap.size());
+            assertEquals(initialNumOfVehicles+1, vehiclesMap.size());
 
 
             System.out.println("\nThere are " + (MAX_VEHICLES - Vehicle.getCount()) + " parking lots left, to park vehicles.");
@@ -96,7 +106,7 @@ public class WestminsterRentalVehicleManagerTest {
         Vehicle newCar = new Car("CAR-123", "Honda", "Grace", "1300", BigDecimal.valueOf(70), "Car", "Auto", true);
         String enteredPlateNo = newCar.getPlateNo();
 
-
+        vehiclesArrayList.add((newCar));
         vehiclesMap.put(enteredPlateNo, newCar);
 
         if (vehiclesMap.containsKey(enteredPlateNo)) {
@@ -127,7 +137,8 @@ public class WestminsterRentalVehicleManagerTest {
             }
         }
 
-        vehiclesMap.clear();        //clearing to make sure that other unit tests aren't affected by this unit test
+//        vehiclesMap.clear();        //clearing to make sure that other unit tests aren't affected by this unit test
+//        vehiclesArrayList.clear();
 
         System.out.println("~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~");       //used to separate test outputs
     }
@@ -137,7 +148,7 @@ public class WestminsterRentalVehicleManagerTest {
         Vehicle newBike = new Motorbike("BIK-123", "Hero", "Honda", "800", BigDecimal.valueOf(40), "Motorbike", "Push", 15);
         String enteredPlateNo = newBike.getPlateNo();
 
-
+        vehiclesArrayList.add(newBike);
         vehiclesMap.put(enteredPlateNo, newBike);
 
         if (vehiclesMap.containsKey(enteredPlateNo)) {
@@ -168,7 +179,8 @@ public class WestminsterRentalVehicleManagerTest {
             }
         }
 
-        vehiclesMap.clear();        //clearing to make sure that other unit tests aren't affected by this unit test
+//        vehiclesMap.clear();        //clearing to make sure that other unit tests aren't affected by this unit test
+//        vehiclesArrayList.clear();
 
         System.out.println("~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~");       //used to separate test outputs
     }
@@ -178,12 +190,17 @@ public class WestminsterRentalVehicleManagerTest {
     public void testDeleteCarAvailable() {      //testing the result when a car that is in the system is requested to be deleted
         String carPlateNo = "CAR-123";
 
-        int initialNumOfVehicles = vehiclesArrayList.size();
+        int initialNumOfVehicles = vehiclesMap.size();
+
+//        System.out.println(vehiclesArrayList);
+//        System.out.println(vehiclesMap);
+
 
         if (vehiclesMap.containsKey(carPlateNo)) {
             Vehicle vehicleToBeDeleted = vehiclesMap.get(carPlateNo);
 
-            assertTrue(vehiclesArrayList.remove(vehicleToBeDeleted));
+            vehiclesArrayList.remove(vehicleToBeDeleted);
+//            assertTrue(vehiclesArrayList.remove(vehicleToBeDeleted));
             vehiclesMap.remove(carPlateNo);
             count -= 1;          //decreasing the number of vehicles from the system by one
 
@@ -193,7 +210,7 @@ public class WestminsterRentalVehicleManagerTest {
             System.out.println("The details of the vehicle that was deleted: " + vehicleToBeDeleted.toString());      //displaying information of deleted vehicle
 
 
-            assertEquals(initialNumOfVehicles - 1, vehiclesArrayList.size());
+//            assertEquals(initialNumOfVehicles - 1, vehiclesArrayList.size());
             assertEquals(initialNumOfVehicles - 1, vehiclesMap.size());
         } else {
             System.out.println("There's no vehicle related to the Plate No: " + carPlateNo);
@@ -209,10 +226,15 @@ public class WestminsterRentalVehicleManagerTest {
 
         int initialNumOfVehicles = vehiclesArrayList.size();
 
+//        System.out.println(vehiclesArrayList);
+//        System.out.println(vehiclesMap);
+
+
         if (vehiclesMap.containsKey(carPlateNo)) {
             Vehicle vehicleToBeDeleted = vehiclesMap.get(carPlateNo);
 
-            assertTrue(vehiclesArrayList.remove(vehicleToBeDeleted));
+            vehiclesArrayList.remove(vehicleToBeDeleted);
+//            assertTrue(vehiclesArrayList.remove(vehicleToBeDeleted));
             vehiclesMap.remove(carPlateNo);
             count -= 1;          //decreasing the number of vehicles from the system by one
 
@@ -239,10 +261,15 @@ public class WestminsterRentalVehicleManagerTest {
 
         int initialNumOfVehicles = vehiclesArrayList.size();
 
+//        System.out.println(vehiclesArrayList);
+//        System.out.println(vehiclesMap);
+
+
         if (vehiclesMap.containsKey(bikePlateNo)) {
             Vehicle vehicleToBeDeleted = vehiclesMap.get(bikePlateNo);
 
-            assertTrue(vehiclesArrayList.remove(vehicleToBeDeleted));
+            vehiclesArrayList.remove(vehicleToBeDeleted);
+//            assertTrue(vehiclesArrayList.remove(vehicleToBeDeleted));
             vehiclesMap.remove(bikePlateNo);
             count -= 1;          //decreasing the number of vehicles from the system by one
 
@@ -267,12 +294,17 @@ public class WestminsterRentalVehicleManagerTest {
         // in the system are requested to be deleted
         String bikePlateNo = "BIK-123";
 
-        int initialNumOfVehicles = vehiclesArrayList.size();
+        int initialNumOfVehicles = vehiclesMap.size();
+
+//        System.out.println(vehiclesArrayList);
+//        System.out.println(vehiclesMap);
+
 
         if (vehiclesMap.containsKey(bikePlateNo)) {
             Vehicle vehicleToBeDeleted = vehiclesMap.get(bikePlateNo);
 
-            assertTrue(vehiclesArrayList.remove(vehicleToBeDeleted));
+            vehiclesArrayList.remove(vehicleToBeDeleted);
+//            assertTrue(vehiclesArrayList.remove(vehicleToBeDeleted));
             vehiclesMap.remove(bikePlateNo);
             count -= 1;          //decreasing the number of vehicles from the system by one
 
@@ -300,6 +332,9 @@ public class WestminsterRentalVehicleManagerTest {
 
         vehiclesArrayList.add(newCar);
         vehiclesArrayList.add(newBike);
+
+        allVehicles.put(newCar.getPlateNo(),newCar);
+        allVehicles.put(newBike.getPlateNo(),newBike);
 
 
         Collections.sort(vehiclesArrayList);     //sort vehicles alphabetically, according to make
@@ -440,3 +475,15 @@ public class WestminsterRentalVehicleManagerTest {
         assertTrue("Only integer numbers are allowed! Please provide a valid input", scanInput == (double) scanInput);
     }
 }
+
+
+
+/*Reference:
+
+https://stackoverflow.com/questions/156503/how-do-you-assert-that-a-certain-exception-is-thrown-in-junit-4-tests
+
+https://www.mkyong.com/unittest/junit-4-tutorial-2-expected-exception-test/
+
+https://stackoverflow.com/questions/12558206/how-can-i-check-if-a-value-is-of-type-integer
+
+* */

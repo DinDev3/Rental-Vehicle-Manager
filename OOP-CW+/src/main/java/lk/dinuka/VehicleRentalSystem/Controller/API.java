@@ -148,3 +148,27 @@ public class API {
 
     }
 }
+
+
+/*
+References:
+
+https://github.com/perwendel/spark
+http://sparkjava.com/documentation#response-transformer
+
+JSON and java objects
+https://github.com/google/gson
+https://www.baeldung.com/spark-framework-rest-api
+
+https://gist.github.com/saeidzebardast/e375b7d17be3e0f4dddf#gistcomment-2704256
+
+https://technology.finra.org/code/serialize-deserialize-interfaces-in-java.html
+
+https://crunchify.com/in-java-how-to-convert-arraylist-to-jsonobject/
+
+Make http requests from browser
+https://github.com/axios/axios
+
+https://gist.github.com/akexorcist/ea93ee47d39cf94e77802bc39c46589b
+
+*/

@@ -95,3 +95,10 @@ public class ConApp {
 
     }
 }
+
+
+/*Reference:
+
+https://stackoverflow.com/questions/7421612/slf4j-failed-to-load-class-org-slf4j-impl-staticloggerbinder
+
+*/

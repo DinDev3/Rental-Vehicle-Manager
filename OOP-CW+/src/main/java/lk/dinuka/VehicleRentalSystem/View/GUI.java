@@ -388,5 +388,20 @@ https://stackoverflow.com/questions/14169240/getting-integer-values-from-textfie
 
 How to get information of selected row in javafx tableview
 https://stackoverflow.com/questions/17388866/getting-selected-item-from-a-javafx-tableview
+
+javafx Datepicker
+http://tutorials.jenkov.com/javafx/datepicker.html
+
+Error handling in GUI
+https://stackoverflow.com/questions/18711896/how-can-i-prevent-java-lang-numberformatexception-for-input-string-n-a
+
+https://docs.oracle.com/javafx/2/layout/size_align.htm
+
+Multithreading for GUI
+https://code-examples.net/en/q/173180e
+https://stackoverflow.com/questions/24320014/how-to-call-launch-more-than-once-in-java?noredirect=1&lq=1
+
+https://stackoverflow.com/questions/32355335/on-javafx-how-to-hide-stage-without-disposing-it-and-closing-the-application/32356741
+
  */
 
