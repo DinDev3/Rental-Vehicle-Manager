@@ -272,7 +272,9 @@ public class GUI extends Application {
             public void handle(ActionEvent event) {
 
                 try {
-                    if (tableOfVehicles.getSelectionModel().getSelectedItem() != null) {
+                    if (tableOfVehicles.getSelectionModel().getSelectedItem() != null &&
+                            pickDatePicker.getValue() != null &&
+                            dropDatePicker.getValue() != null){
 
                         Vehicle chosenVeh = (Vehicle) tableOfVehicles.getSelectionModel().getSelectedItem();        //selected vehicle's information
 
@@ -288,22 +290,28 @@ public class GUI extends Application {
 //                    System.out.println("Vehicle is available for booking.");
                             checkBookedStatus.setText(chosenVeh.getPlateNo() + " is available for booking.");
 
+                            bookStatusText.setText("");             //clearing old booking details
+                            displayTotalCost.setText("");
 
                         } else {
                             checkBookedStatus.setFill(Color.RED);
 //                    System.out.println("Vehicle isn't available for booking during requested time period.");
                             checkBookedStatus.setText(chosenVeh.getPlateNo() + " isn't available for booking during requested time period.");
+
+                            bookStatusText.setText("");             //clearing old booking details
+                            displayTotalCost.setText("");
+
                         }
-                    } else {
+                    } else{
                         checkBookedStatus.setFill(Color.DARKGRAY);
-                        checkBookedStatus.setText("Please select a vehicle to book.");
+                        checkBookedStatus.setText("Please select a vehicle to book and enter a valid date range.");
 
                         bookStatusText.setText("");             //clearing old booking details
                         displayTotalCost.setText("");
                     }
-                } catch (NumberFormatException e) {
+                } catch (NullPointerException e) {
                     checkBookedStatus.setFill(Color.DARKGRAY);
-                    checkBookedStatus.setText("Please enter a valid date in Integer Numbers.");
+                    checkBookedStatus.setText("Please select a vehicle to book and enter a valid date range.");
                 }
             }
         });
@@ -315,7 +323,9 @@ public class GUI extends Application {
             public void handle(ActionEvent event) {
 
                 try {
-                    if (tableOfVehicles.getSelectionModel().getSelectedItem() != null) {
+                    if (tableOfVehicles.getSelectionModel().getSelectedItem() != null &&
+                            pickDatePicker.getValue() != null &&
+                            dropDatePicker.getValue() != null) {
                         //getting selected vehicle's information
                         Vehicle chosenVeh = (Vehicle) tableOfVehicles.getSelectionModel().getSelectedItem();        //selected vehicle's information
                         //down-casted from Object type to Vehicle type
@@ -338,8 +348,6 @@ public class GUI extends Application {
                             displayTotalCost.setText("Total Cost: £" + GUIController.getCalculatedRent(chosenVeh.getDailyCost(), newBooking));
 
 
-
-
                             int yearPickUpInput = pickDatePicker.getValue().getYear();
                             int monthPickUpInput = pickDatePicker.getValue().getMonthValue();
                             int dayPickUpInput = pickDatePicker.getValue().getDayOfMonth();
@@ -353,7 +361,6 @@ public class GUI extends Application {
                                     yearDropOffInput, monthDropOffInput, dayDropOffInput);
 
 
-
                         } else {
                             //notify the user that the vehicle isn't available for rent during the chosen time period.
                             checkBookedStatus.setFill(Color.RED);
@@ -365,12 +372,12 @@ public class GUI extends Application {
                         }
                     } else {
                         checkBookedStatus.setFill(Color.DARKGRAY);
-                        checkBookedStatus.setText("Please select a vehicle to book.");
+                        checkBookedStatus.setText("Please select a vehicle to book and enter a valid date range.");
 
                     }
-                } catch (NumberFormatException e) {
+                } catch (NullPointerException e) {
                     checkBookedStatus.setFill(Color.DARKGRAY);
-                    checkBookedStatus.setText("Please enter a valid date in Integer Numbers.");
+                    checkBookedStatus.setText("Please select a vehicle to book and enter a valid date range.");
                 }
 
             }
