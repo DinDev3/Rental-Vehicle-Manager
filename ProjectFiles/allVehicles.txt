@@ -1,0 +1,38 @@
++-----------------+---------------+--------------+----------------+---------------+-----------+--------------+--------+-----------------+------------+
+|   Plate ID      |   Make        |   Model      | Engine Capacity| Daily Cost(£) |   Type    | transmission | AirCon | Start type      | Wheel Size |
++-----------------+---------------+--------------+----------------+---------------+-----------+--------------+--------+-----------------+------------+
+| CAR 6069        | Audi          | A6           | 2400           | 120.0         | Car       | Auto         | true   |        -        |      -     |
+
+| FIM-6963        | Audi          | A4           | 2000           | 102.0         | Car       | Auto         | true   |        -        |      -     |
+
+| BIM-4041        | Bajaj         | Pulsar       | 150            | 30.0          | Motorbike |       -      |    -   | Kick            | 14.0       |
+
+| CBK 2424        | Benz          | C200         | 2000           | 100.0         | Car       | Auto         | true   |        -        |      -     |
+
+| HUN-8909        | Hero          | Maestro      | 110            | 35.0          | Motorbike |       -      |    -   | Electric        | 12.0       |
+
+| BIK 2525        | Honda         | Cuvic        | 1000           | 50.0          | Motorbike |       -      |    -   | Electric        | 14.0       |
+
+| CRV 8281        | Honda         | Fit          | 1400           | 60.0          | Car       | Manual       | true   |        -        |      -     |
+
+| PIQ-2019        | Honda         | Hornet       | 250            | 50.0          | Motorbike |       -      |    -   | Electric        | 16.0       |
+
+| FK-0001         | Honda         | Fit          | 1200           | 40.0          | Car       | Manual       | true   |        -        |      -     |
+
+| ZIP-5180        | Mazda         | Axela        | 1800           | 70.0          | Car       | Manual       | false  |        -        |      -     |
+
+| BMS 2123        | Suzuki        | Gixxer       | 155            | 30.0          | Motorbike |       -      |    -   | Electric        | 17.0       |
+
+| KJ 5031         | Toyota        | Corolla      | 1800           | 70.0          | Car       | Manual       | true   |        -        |      -     |
+
+| GM 7194         | Toyota        | Allion       | 1800           | 75.0          | Car       | Auto         | false  |        -        |      -     |
+
+| IDI-7139        | Toyota        | Yaris        | 1200           | 70.0          | Car       | Manual       | true   |        -        |      -     |
+
+| UGD-2346        | Toyota        | Crown        | 2300           | 150.0         | Car       | Auto         | true   |        -        |      -     |
+
+| ABC-123         | Toyota        | Corolla      | 1500           | 50.0          | Car       | Auto         | true   |        -        |      -     |
+
+| CHA-7696        | Yamaha        | Blaze        | 300            | 30.0          | Motorbike |       -      |    -   | Kick            | 15.0       |
+
++-----------------+---------------+--------------+----------------+---------------+-----------+--------------+--------+-----------------+------------+
