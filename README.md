@@ -6,5 +6,5 @@ This repository contains all the documents and code for my Object Oriented Progr
 ### Tech Stack
 - BackEnd: Java
 - BackEnd API: [Java Spark](http://sparkjava.com/)
-- FronEnd: Angular
+- FronEnds: Angular, JavaFX
 - Testing: JUnit
